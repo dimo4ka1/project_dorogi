@@ -17,7 +17,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     graphic.cpp \
-    helper.cpp \
     main.cpp \
     mainwindow.cpp
 
