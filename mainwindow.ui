@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1211</width>
+    <height>715</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>700</width>
+    <height>700</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="Graphic" name="graphic" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>950</width>
+        <height>400</height>
+       </size>
+      </property>
+      <property name="tabletTracking">
+       <bool>false</bool>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QScrollArea" name="menugr">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>400</height>
+       </size>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>235</width>
+         <height>644</height>
+        </rect>
+       </property>
+       <widget class="QPushButton" name="circle">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>91</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>90</width>
+          <height>90</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::WheelFocus</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>C:/Users/admin/Desktop/picture/circle.jpg</normaloff>C:/Users/admin/Desktop/picture/circle.jpg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>90</width>
+          <height>100</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="clover">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>10</y>
+          <width>91</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>90</width>
+          <height>90</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>C:/Users/admin/Desktop/picture/clover2.png</normaloff>C:/Users/admin/Desktop/picture/clover2.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>90</width>
+          <height>100</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="Archimedes">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>120</y>
+          <width>93</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>90</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>C:/Users/admin/Desktop/picture/Archimedes.png</normaloff>C:/Users/admin/Desktop/picture/Archimedes.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>90</width>
+          <height>100</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="snail">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>120</y>
+          <width>93</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>90</width>
+          <height>101</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>C:/Users/admin/Desktop/picture/snail.png</normaloff>C:/Users/admin/Desktop/picture/snail.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>300</width>
+          <height>100</height>
+         </size>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1211</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Graphic</class>
+   <extends>QWidget</extends>
+   <header>graphic.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
