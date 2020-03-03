@@ -37,10 +37,10 @@ private:
        QPointF compute_circle(float t);
        QPointF compute_clover(float t);
        QPointF compute_Archimedes(float t);
-        QPointF compute_snail(float t);
+       QPointF compute_snail(float t);
        void on_function_change();
-      QColor mBackgroundColor;
-     Functions mFunction;
+       QColor mBackgroundColor;
+       Functions mFunction;
 
        float mScale;
        float mIntervalLength;

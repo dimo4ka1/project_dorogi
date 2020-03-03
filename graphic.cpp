@@ -54,12 +54,12 @@ QPointF Graphic::compute_snail(float t)
 void Graphic::on_function_change(){
 
     switch(mFunction){
-        case circle:
+    case circle:
         mScale= 40;
         mStepCount =1024;
         mIntervalLength=M_PI*2*50;
         break;
-        case clover:
+    case clover:
         mScale = 40;
         mStepCount =1024;
         mIntervalLength=M_PI*2*50;
@@ -78,17 +78,17 @@ void Graphic::on_function_change(){
 
 }
 QPointF Graphic::compute_function(float t){
-switch(mFunction){
-case circle:
+    switch(mFunction){
+        case circle:
     return compute_circle(t);
     break;
-case clover:
+        case clover:
     return compute_clover(t);
     break;
-case Archimedes:
+        case Archimedes:
     return compute_Archimedes(t);
     break;
-case snail:
+        case snail:
     return compute_snail(t);
     break;
 default:
@@ -106,9 +106,6 @@ return QPointF(0,0);
      painter.setRenderHint(QPainter::Antialiasing, true);
      painter.drawRect(this->rect());
      QPoint center = this->rect().center();
-
-
-
 
 
      float step = mIntervalLength/50 / mStepCount;
