@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/sketch">
+        <file>img/circle.tiff</file>
+        <file>img/sinRose.tiff</file>
+        <file>img/sin3Rose.tiff</file>
+    </qresource>
+</RCC>
