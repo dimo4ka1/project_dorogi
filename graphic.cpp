@@ -6,6 +6,7 @@
 
 Graphic::Graphic(QWidget *parent) : QWidget(parent),
   mBackgroundColor(255,255,255)
+
 {
     on_function_change();
 }
@@ -49,20 +50,29 @@ QPointF Graphic::compute_snail(float t)
     float y =(1-2*cos_t)*sin_t;
     return QPointF(x,y);
 }
+
 void Graphic::on_function_change(){
 
     switch(mFunction){
         case circle:
-
+        mScale= 40;
+        mStepCount =1024;
+        mIntervalLength=M_PI*2*50;
         break;
         case clover:
-
+        mScale = 40;
+        mStepCount =1024;
+        mIntervalLength=M_PI*2*50;
         break;
     case Archimedes:
-
+        mScale = 40;
+        mStepCount =2048;
+        mIntervalLength=M_PI*2*50;
         break;
     case snail:
-
+        mScale = 40;
+        mStepCount =1024;
+        mIntervalLength=M_PI*2*50;
         break;
     }
 
@@ -99,16 +109,15 @@ return QPointF(0,0);
 
 
 
-     int stepCount= 1024;
-     float intervalLength = 2 * M_PI;
-     float scale = 70;
-     float step = intervalLength / stepCount;
-     for(float i=0; i<= intervalLength; i+=step ){
+
+
+     float step = mIntervalLength/50 / mStepCount;
+     for(float i=0; i<= mIntervalLength/50; i+=step ){
          QPointF point = compute_function(i);
 
          QPoint pixel;
-         pixel.setX(point.x()*scale +center.x());
-         pixel.setY(point.y()*scale + center.y());
+         pixel.setX(point.x()*2*mScale +center.x());
+         pixel.setY(point.y()*2*mScale + center.y());
 
          painter.drawPoint(pixel);
 

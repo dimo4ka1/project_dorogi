@@ -42,3 +42,14 @@ void MainWindow::on_snail_clicked()
     this->ui->graphic->setFunction(Graphic::snail);
     this->ui->graphic->repaint();
 }
+
+void MainWindow::on_scale_valueChanged(double scale)
+{
+    this->ui->graphic->setScale(scale);
+}
+
+void MainWindow::on_intervallength_valueChanged(double intervalLength)
+{
+    this->ui->graphic->setIntervalLength(intervalLength);
+}
+

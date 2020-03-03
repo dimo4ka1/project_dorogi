@@ -24,6 +24,10 @@ private slots:
 
     void on_snail_clicked();
 
+    void on_scale_valueChanged(double arg1);
+
+    void on_intervallength_valueChanged(double arg1);
+
 private:
     Ui::MainWindow *ui;
 

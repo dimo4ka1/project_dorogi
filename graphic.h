@@ -19,6 +19,11 @@ public:
 
     void setFunction(Functions function){mFunction= function; on_function_change();}
     Functions function () const{return mFunction; }
+
+    void setScale(float scale){mScale= scale; repaint();}
+        float scale  () const{return mScale; }
+        void setIntervalLength(float intervalLength){mIntervalLength= intervalLength; repaint();}
+            float intervalLength () const{return mIntervalLength; }
 protected:
         void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
@@ -34,6 +39,10 @@ private:
        void on_function_change();
       QColor mBackgroundColor;
      Functions mFunction;
+
+       float mScale;
+       float mIntervalLength;
+       int mStepCount;
 };
 
 #endif // GRAPHIC_H
