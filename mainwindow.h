@@ -33,3 +33,4 @@ private:
 
 };
 #endif // MAINWINDOW_H
+// Тут я нечего не трогал, оно само
