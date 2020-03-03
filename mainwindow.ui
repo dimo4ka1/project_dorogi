@@ -79,8 +79,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>C:/Users/admin/Desktop/picture/circle.jpg</normaloff>C:/Users/admin/Desktop/picture/circle.jpg</iconset>
+         <iconset resource="resources.qrc">
+          <normaloff>:/img/picture/circle.jpg</normaloff>:/img/picture/circle.jpg</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -108,8 +108,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>C:/Users/admin/Desktop/picture/clover2.png</normaloff>C:/Users/admin/Desktop/picture/clover2.png</iconset>
+         <iconset resource="resources.qrc">
+          <normaloff>:/img/picture/clover2.png</normaloff>:/img/picture/clover2.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -137,8 +137,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>C:/Users/admin/Desktop/picture/Archimedes.png</normaloff>C:/Users/admin/Desktop/picture/Archimedes.png</iconset>
+         <iconset resource="resources.qrc">
+          <normaloff>:/img/picture/Archimedes.png</normaloff>:/img/picture/Archimedes.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -166,8 +166,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>C:/Users/admin/Desktop/picture/snail.png</normaloff>C:/Users/admin/Desktop/picture/snail.png</iconset>
+         <iconset resource="resources.qrc">
+          <normaloff>:/img/picture/snail.png</normaloff>:/img/picture/snail.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -201,6 +201,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
