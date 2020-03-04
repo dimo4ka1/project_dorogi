@@ -27,7 +27,7 @@ public:
     void setIntervalLength(float intervalLength){mIntervalLength= intervalLength; repaint();} //Функция, которая присваевает интервал углу из окна
         float intervalLength () const{return mIntervalLength; }
 
-    void setAValue(float aValue){ mAValue= aValue; repaint(); } //Функция, которая присваевает интервал углу из окна
+    void setAValue(float aValue){ mAValue = aValue; repaint(); } //Функция, которая присваевает интервал углу из окна
         float aValue () const{ return mAValue; }
 
 protected:
@@ -50,7 +50,7 @@ private:
        float mScale;//размер
        float mIntervalLength;//интервал угла
        int mStepCount;//количество точек на графике
-       float mAValue; //коэфициент a
+       float mAValue; //коэффициент a
 };
 
 #endif // GRAPHIC_H

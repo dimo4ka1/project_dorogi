@@ -51,6 +51,15 @@ QPointF Graphic::compute_snail(float t)//Параметрическое урав
     return QPointF(x,y); // Выводит координаты точки
 }
 
+QPointF Graphic::compute_hyperbolicSpiral(float t, float a)//Параметрическое уравнение гиперболической спирали
+{
+    float cos_t = cos(t);
+    float sin_t = sin(t);
+    float x=(a/t)*cos_t;
+    float y =(a/t)*sin_t;
+    return QPointF(x,y); // Выводит координаты точки
+}
+
 void Graphic::on_function_change(){   //Мы сравнивем какую фигуру выбрали, присвоили к mFunction график, и задаем размер графику
                                      //Если что, пишите, я объясню
     switch(mFunction){
@@ -74,6 +83,12 @@ void Graphic::on_function_change(){   //Мы сравнивем какую фи�
         mStepCount =1024;
         mIntervalLength=M_PI*2*50;// Мне надо было так сделать, это кастыль для интервала
         break;
+    case hyperbolicSpiral:
+        mScale= 40;
+        mStepCount = 2*1024;
+        mIntervalLength=M_PI*2*50;
+        mAValue = 1;
+        break;
     }
 
 }
@@ -91,6 +106,9 @@ QPointF Graphic::compute_function(float t){ //Мы сравнивем какую
     break;
         case snail:
     return compute_snail(t);
+    break;
+        case hyperbolicSpiral:
+    return compute_hyperbolicSpiral(t, mAValue);
     break;
 default:
     break;
