@@ -30,8 +30,6 @@ private slots:
 
     void on_hyperbolicSpiral_clicked();
 
-    void on_doubleSpinBox_valueChanged(double arg1);
-
     void on_aValue_valueChanged(double arg1);
 
 private:

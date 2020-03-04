@@ -27,7 +27,7 @@ public:
     void setIntervalLength(float intervalLength){mIntervalLength= intervalLength; repaint();} //Функция, которая присваевает интервал углу из окна
         float intervalLength () const{return mIntervalLength; }
 
-    void setAValue(float aValue){ mAValue= aValue; repaint(); } //Функция, которая присваевает интервал углу из окна
+    void setAValue(float aValue){ mAValue = aValue; repaint(); } //Функция, которая присваевает интервал углу из окна
         float aValue () const{ return mAValue; }
 
 protected:
@@ -39,9 +39,9 @@ signals:
 private:
        QPointF compute_function(float t);//Объявляю главную функцию
        QPointF compute_circle(float t);//Объявляю функцию, отвечающую за параметрическое уравнение, данной фигуры
-       QPointF compute_clover(float t);//Объявляю функцию, отвечающую за параметрическое уравнение, данной фигуры
-       QPointF compute_Archimedes(float t);//Объявляю функцию, отвечающую за параметрическое уравнение, данной фигуры
-       QPointF compute_snail(float t);//Объявляю функцию, отвечающую за параметрическое уравнение, данной фигуры
+       QPointF compute_clover(float t, float a);//Объявляю функцию, отвечающую за параметрическое уравнение, данной фигуры
+       QPointF compute_Archimedes(float t, float a);//Объявляю функцию, отвечающую за параметрическое уравнение, данной фигуры
+       QPointF compute_snail(float t, float a);//Объявляю функцию, отвечающую за параметрическое уравнение, данной фигуры
        QPointF compute_hyperbolicSpiral(float t, float a);
        void on_function_change();//Объявляю функцию, отвечающую за размер,угл, кол-во точек на графике
        QColor mBackgroundColor;// Цвет
@@ -50,7 +50,7 @@ private:
        float mScale;//размер
        float mIntervalLength;//интервал угла
        int mStepCount;//количество точек на графике
-       float mAValue; //коэфициент a
+       float mAValue; //коэффициент a
 };
 
 #endif // GRAPHIC_H

@@ -26,28 +26,28 @@ QPointF Graphic::compute_circle(float t) //Параметрическое ура
     float y = sin_t;
     return QPointF(x,y);// Выводит координаты точки
 }
-QPointF Graphic::compute_clover(float t) //Параметрическое уравнение клевера
+QPointF Graphic::compute_clover(float t, float a) //Параметрическое уравнение клевера
 {
     float cos_t = cos(t);
     float sin_t = sin(t);
-    float x=cos(2*t)*cos_t;
-    float y = cos(2*t)*sin_t;
+    float x=cos(a*t)*cos_t;
+    float y = cos(a*t)*sin_t;
     return QPointF(x,y);// Выводит координаты точки
 }
-QPointF Graphic::compute_Archimedes(float t)//Параметрическое уравнение спирали Архемеда
+QPointF Graphic::compute_Archimedes(float t, float a)//Параметрическое уравнение спирали Архемеда
 {
     float cos_t = cos(t);
     float sin_t = sin(t);
-    float x=t*cos_t;
-    float y =t*sin_t;
+    float x=(t+a)*cos_t;
+    float y =(t+a)*sin_t;
     return QPointF(x,y);// Выводит координаты точки
 }
-QPointF Graphic::compute_snail(float t)//Параметрическое уравнение улитки Паскаля
+QPointF Graphic::compute_snail(float t,float a)//Параметрическое уравнение улитки Паскаля
 {
     float cos_t = cos(t);
     float sin_t = sin(t);
-    float x=(1-2*cos_t)*cos_t;
-    float y =(1-2*cos_t)*sin_t;
+    float x=(1+a*cos_t)*cos_t;
+    float y =(1+a*cos_t)*sin_t;
     return QPointF(x,y); // Выводит координаты точки
 }
 
@@ -70,17 +70,20 @@ void Graphic::on_function_change(){   //Мы сравнивем какую фи�
         break;
     case clover:
         mScale = 40;
-        mStepCount =1024;
+        mStepCount =1024*32;
+        mAValue = 2;
         mIntervalLength=M_PI*2*50;// Мне надо было так сделать, это кастыль для интервала
         break;
     case Archimedes:
         mScale = 40;
         mStepCount =2048; // Количество точек
+        mAValue =1;
         mIntervalLength=M_PI*2*50;// Мне надо было так сделать, это кастыль для интервала
         break;
     case snail:
         mScale = 40;
         mStepCount =1024;
+        mAValue = 2;
         mIntervalLength=M_PI*2*50;// Мне надо было так сделать, это кастыль для интервала
         break;
     case hyperbolicSpiral:
@@ -99,13 +102,13 @@ QPointF Graphic::compute_function(float t){ //Мы сравнивем какую
     return compute_circle(t);
     break;
         case clover:
-    return compute_clover(t);
+    return compute_clover(t,mAValue);
     break;
         case Archimedes:
-    return compute_Archimedes(t);
+    return compute_Archimedes(t, mAValue);
     break;
         case snail:
-    return compute_snail(t);
+    return compute_snail(t, mAValue);
     break;
         case hyperbolicSpiral:
     return compute_hyperbolicSpiral(t, mAValue);

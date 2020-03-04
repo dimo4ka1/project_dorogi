@@ -63,7 +63,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>248</width>
+             <width>258</width>
              <height>398</height>
             </rect>
            </property>
@@ -202,14 +202,24 @@
            <widget class="QPushButton" name="hyperbolicSpiral">
             <property name="geometry">
              <rect>
-              <x>10</x>
+              <x>20</x>
               <y>230</y>
-              <width>93</width>
+              <width>71</width>
               <height>100</height>
              </rect>
             </property>
             <property name="text">
-             <string>PushButton</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/img/picture/hyperbolicSpiral.png</normaloff>:/img/picture/hyperbolicSpiral.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>90</width>
+              <height>100</height>
+             </size>
             </property>
            </widget>
           </widget>
@@ -237,8 +247,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>248</width>
-             <height>226</height>
+             <width>258</width>
+             <height>234</height>
             </rect>
            </property>
            <layout class="QFormLayout" name="formLayout">
@@ -277,7 +287,7 @@
                <number>1</number>
               </property>
               <property name="maximum">
-               <double>315.000000000000000</double>
+               <double>630.000000000000000</double>
               </property>
               <property name="singleStep">
                <double>10.000000000000000</double>
@@ -287,7 +297,7 @@
             <item row="1" column="1">
              <widget class="QLabel" name="label">
               <property name="text">
-               <string>Intervallength</string>
+               <string>Interval Length</string>
               </property>
              </widget>
             </item>
@@ -296,12 +306,18 @@
               <property name="decimals">
                <number>1</number>
               </property>
+              <property name="minimum">
+               <double>-100.000000000000000</double>
+              </property>
+              <property name="singleStep">
+               <double>1.000000000000000</double>
+              </property>
              </widget>
             </item>
             <item row="2" column="1">
              <widget class="QLabel" name="label_2">
               <property name="text">
-               <string>a</string>
+               <string>Parameter A</string>
               </property>
              </widget>
             </item>
@@ -321,7 +337,7 @@
      <x>0</x>
      <y>0</y>
      <width>1238</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
