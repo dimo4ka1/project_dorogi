@@ -59,6 +59,14 @@ QPointF Graphic::compute_hyperbolicSpiral(float t, float a)//Параметри�
     float y =(a/t)*sin_t;
     return QPointF(x,y); // Выводит координаты точки
 }
+QPointF Graphic::compute_Bernuli(float t, float a)//Параметрическое уравнение гиперболической спирали
+{
+    float cos_t = cos(t);
+    float sin_t = sin(t);
+    float x =sqrt(2*sin(2*t+a*M_PI_2)* cos_t*cos_t);
+    float y =sqrt(2*sin(2*t+a*M_PI_2)* sin_t * sin_t);
+    return QPointF(x,y); // Выводит координаты точки
+}
 
 void Graphic::on_function_change(){   //Мы сравнивем какую фигуру выбрали, присвоили к mFunction график, и задаем размер графику
                                      //Если что, пишите, я объясню
@@ -92,6 +100,12 @@ void Graphic::on_function_change(){   //Мы сравнивем какую фи�
         mIntervalLength=M_PI*2*50;
         mAValue = 1;
         break;
+    case Bernuli:
+        mScale= 40;
+        mStepCount = 2*1024;
+        mIntervalLength=M_PI*2*50;
+        mAValue = 0;
+        break;
     }
 
 }
@@ -112,6 +126,10 @@ QPointF Graphic::compute_function(float t){ //Мы сравнивем какую
     break;
         case hyperbolicSpiral:
     return compute_hyperbolicSpiral(t, mAValue);
+    break;
+        case Bernuli:
+
+    return  compute_Bernuli(t, mAValue);
     break;
 default:
     break;
@@ -135,10 +153,23 @@ return QPointF(0,0);
          QPointF point = compute_function(i);// тут мы вызываем функцию, для нахождения точки, много раз
 
          QPoint pixel;// Объявляем точку
-         pixel.setX(point.x()*2*mScale +center.x()); //Задаем координаты точки
+         pixel.setX(point.x()*2*mScale + center.x()); //Задаем координаты точки
          pixel.setY(point.y()*2*mScale + center.y());//Задаем координаты точки
-
          painter.drawPoint(pixel);// Рисуем точку
+
+        if (mFunction == Bernuli) {
+            pixel.setX(-point.x()*2*mScale + center.x()); //Задаем координаты точки
+            pixel.setY(-point.y()*2*mScale + center.y());//Задаем координаты точк
+            painter.drawPoint(pixel);// Рисуем точку
+       /*if( int(floor( mAValue)) %2==0){
+            pixel.setX(-point.x()*2*mScale +center.x()); //Задаем координаты точки
+            pixel.setY(point.y()*2*mScale + center.y());//Задаем координаты точк
+            painter.drawPoint(pixel);// Рисуем точку
+            pixel.setX(point.x()*2*mScale +center.x()); //Задаем координаты точки
+            pixel.setY(-point.y()*2*mScale + center.y());//Задаем координаты точк
+            painter.drawPoint(pixel);// Рисуем точку
+        }*/
+}
 
      }
  }

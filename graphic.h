@@ -12,7 +12,7 @@ public:
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
-    enum Functions{circle, clover,Archimedes,snail, hyperbolicSpiral}; // enum -команда, позволяющая перечислить список констант. Functions - список переменных,в курсе это были Shape(как-то так).
+    enum Functions{circle, clover,Archimedes,snail, hyperbolicSpiral, Bernuli}; // enum -команда, позволяющая перечислить список констант. Functions - список переменных,в курсе это были Shape(как-то так).
                                                     //Список внутри скобок, это название графиков, его можно изменять.
 
     void setBackgroundColor(QColor color){ mBackgroundColor = color;} //Функция, которая объявляет цвет
@@ -43,6 +43,7 @@ private:
        QPointF compute_Archimedes(float t, float a);//Объявляю функцию, отвечающую за параметрическое уравнение, данной фигуры
        QPointF compute_snail(float t, float a);//Объявляю функцию, отвечающую за параметрическое уравнение, данной фигуры
        QPointF compute_hyperbolicSpiral(float t, float a);
+       QPointF compute_Bernuli(float t, float a);
        void on_function_change();//Объявляю функцию, отвечающую за размер,угл, кол-во точек на графике
        QColor mBackgroundColor;// Цвет
        Functions mFunction;// переменная, отвечающая за тип графика, ключевая часть програмы

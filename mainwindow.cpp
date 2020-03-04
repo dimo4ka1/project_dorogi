@@ -57,11 +57,18 @@ void MainWindow::on_intervallength_valueChanged(double intervalLength)// изм�
 void MainWindow::on_hyperbolicSpiral_clicked()
 {
     this->ui->graphic->setBackgroundColor(Qt::white);//белый фон
-    this->ui->graphic->setFunction(Graphic::hyperbolicSpiral);//присваевает mFunction значение улитка
+    this->ui->graphic->setFunction(Graphic::hyperbolicSpiral);
     this->ui->graphic->repaint();//перерисовывает рисунок
 }
 
 void MainWindow::on_aValue_valueChanged(double aValue)
 {
     this->ui->graphic->setAValue(aValue);
+}
+
+void MainWindow::on_Bernuli_clicked()
+{
+    this->ui->graphic->setBackgroundColor(Qt::white);//белый фон
+    this->ui->graphic->setFunction(Graphic::Bernuli);
+    this->ui->graphic->repaint();//перерисовывает рисунок
 }

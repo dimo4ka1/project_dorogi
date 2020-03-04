@@ -32,6 +32,8 @@ private slots:
 
     void on_aValue_valueChanged(double arg1);
 
+    void on_Bernuli_clicked();
+
 private:
     Ui::MainWindow *ui;
 
