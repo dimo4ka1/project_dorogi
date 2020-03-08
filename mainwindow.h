@@ -34,9 +34,14 @@ private slots:
 
     void on_Bernuli_clicked();
 
+    void on_stepCount_valueChanged(int arg1);
+
+private:
+    void update_ui(); // Выведение значений параметров у графиков
+
 private:
     Ui::MainWindow *ui;
 
 };
+
 #endif // MAINWINDOW_H
-// Тут я нечего не трогал, оно само

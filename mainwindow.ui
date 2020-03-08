@@ -63,7 +63,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>258</width>
+             <width>248</width>
              <height>398</height>
             </rect>
            </property>
@@ -276,8 +276,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>258</width>
-             <height>234</height>
+             <width>248</width>
+             <height>226</height>
             </rect>
            </property>
            <layout class="QFormLayout" name="formLayout">
@@ -350,6 +350,23 @@
               </property>
              </widget>
             </item>
+            <item row="3" column="0">
+             <widget class="QSpinBox" name="stepCount">
+              <property name="maximum">
+               <number>512</number>
+              </property>
+              <property name="singleStep">
+               <number>8</number>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Step Count</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </widget>
          </widget>
@@ -366,7 +383,7 @@
      <x>0</x>
      <y>0</y>
      <width>1238</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
