@@ -13,7 +13,7 @@ public:
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
-    enum Functions{circle, clover,Archimedes,snail, hyperbolicSpiral, Bernuli};
+    enum Functions{circle, clover,Archimedes,snail, hyperbolicSpiral, Bernulli};
 
     void setBackgroundColor(QColor color){ mBackgroundColor = color; } //Функция, которая объявляет цвет
     QColor BackgroundColor() const { return mBackgroundColor; }
@@ -46,10 +46,11 @@ private:
        QPointF compute_Archimedes(float t, float a);       // Спираль Архимеда
        QPointF compute_snail(float t, float a);            // Кардиоида
        QPointF compute_hyperbolicSpiral(float t, float a); // Гиперболическая спираль
-       QPointF compute_Bernuli(float t, float a);          // Лемниската Бернулли
+       QPointF compute_Bernulli(float t, float a);          // Лемниската Бернулли
 
        void on_function_change(); // Объявляю функцию, отвечающую за размер, угол, кол-во точек на графике
        QColor mBackgroundColor; // Цвет
+       QColor mShapeColor;
        Functions mFunction; // Переменная, отвечающая за тип графика, ключевая часть програмы
 
        float mScale;  // Размер

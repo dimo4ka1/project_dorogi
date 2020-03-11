@@ -222,7 +222,7 @@
              </size>
             </property>
            </widget>
-           <widget class="QPushButton" name="Bernuli">
+           <widget class="QPushButton" name="Bernulli">
             <property name="geometry">
              <rect>
               <x>130</x>

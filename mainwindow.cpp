@@ -63,10 +63,10 @@ void MainWindow::on_hyperbolicSpiral_clicked()
     update_ui ();
 }
 
-void MainWindow::on_Bernuli_clicked()
+void MainWindow::on_Bernulli_clicked()
 {
     this->ui->graphic->setBackgroundColor(Qt::white);//белый фон
-    this->ui->graphic->setFunction(Graphic::Bernuli);
+    this->ui->graphic->setFunction(Graphic::Bernulli);
     this->ui->graphic->repaint();//перерисовывает рисунок
     update_ui ();
 }

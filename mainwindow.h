@@ -32,7 +32,7 @@ private slots:
 
     void on_aValue_valueChanged(double arg1);
 
-    void on_Bernuli_clicked();
+    void on_Bernulli_clicked();
 
     void on_stepCount_valueChanged(int arg1);
 
