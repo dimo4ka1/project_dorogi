@@ -67,14 +67,8 @@ QPointF Graphic::compute_hyperbolicSpiral(float t, float a) // Гипербол�
 }
 QPointF Graphic::compute_Bernulli(float t, float a) // Лемниската Бернулли
 {
-    float cos_t = cos(t);
-    float sin_t = sin(t);
-    // float x1 = sqrt(fabs(2*sin(2*t+a*M_PI_2) * cos_t*cos_t));
-    // float y1 = sqrt(fabs(2*sin(2*t+a*M_PI_2) * sin_t*sin_t));
     float x = (cos(2*t + a*M_PI_2) >= 0) ? sqrt((cos(2*t + a*M_PI_2)))*cos(t) : 0;
     float y = (cos(2*t + a*M_PI_2) >= 0) ? sqrt((cos(2*t + a*M_PI_2)))*sin(t) : 0;
-    /*float x = sqrt(2)*(p + p*p*p)/(1 + p*p*p*p);
-    float y = sqrt(2)*(p - p*p*p)/(1 + p*p*p*p); //гду р = tan(M_PI_4 - t)*/
     return QPointF(x,y);
 }
 
@@ -113,7 +107,7 @@ void Graphic::on_function_change() // Присваивание к mFunction вы
     case Bernulli:
         mScale= 40;
         mStepCount = 2*1024;
-        mIntervalLength=M_PI_2*2*50;
+        mIntervalLength=M_PI*2*50;
         mAValue = 0;
         break;
     default:
@@ -174,17 +168,5 @@ return QPointF(0,0);
          painter.drawLine(pixel, prevPixel); // Соединяем точки
          prevPixel = pixel; //задаем предыдущую точку
      }
-
-     //Отдельн отображаем отрицательные x и y для Лемнискаты Бернулли
-     if (mFunction == Bernulli) {
-         for(float i=0; i<= mIntervalLength/50; i+=step ) {
-            QPointF point = compute_function(i);// тут мы вызываем функцию, для нахождения точки, много раз
-            QPoint pixel;// Объявляем точку
-            pixel.setX(-point.x()*2*mScale + center.x()); // Задаем координаты точки
-            pixel.setY(-point.y()*2*mScale + center.y());// Задаем координаты точки
-            painter.drawLine(pixel, prevPixel); // Соединяем точки
-            prevPixel = pixel;
-        }
-    }
  }
 
