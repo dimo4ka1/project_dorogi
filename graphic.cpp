@@ -61,7 +61,7 @@ QPointF Graphic::compute_snail(float t,float a) // Кардиоида
     return QPointF(x,y);
 }
 
-QPointF Graphic::compute_hyperbolicSpiral(float t, float a) // Гиперболической спираль
+QPointF Graphic::compute_hyperbolicSpiral(float t, float a) // Гиперболическая спираль
 {
     float cos_t = cos(t);
     float sin_t = sin(t);
@@ -80,38 +80,38 @@ void Graphic::on_function_change() // Присваивание к mFunction вы
 {
     switch(mFunction) {
     case circle:
-        mScale= 40;
-        mStepCount =M_PI;
+        mScale= 80;
+        mStepCount = 1024;
         mIntervalLength=M_PI*2*50;
         break;
     case clover:
         mScale = 40;
-        mStepCount =1024*32;
+        mStepCount = 32 * 1024;
         mAValue = 2;
-        mIntervalLength=M_PI*2*50;
+        mIntervalLength = 2 * M_PI * 50;
         break;
     case Archimedes:
         mScale = 40;
-        mStepCount = 2048;
-        mAValue =1;
-        mIntervalLength=M_PI*2*50;
+        mStepCount = 2 * 1024;
+        mAValue = 1;
+        mIntervalLength = 2 * M_PI * 50;
         break;
     case snail:
         mScale = 40;
-        mStepCount =1024;
+        mStepCount = 1024;
         mAValue = 2;
-        mIntervalLength=M_PI*2*50;
+        mIntervalLength = 2 * M_PI * 50;
         break;
     case hyperbolicSpiral:
-        mScale= 40;
-        mStepCount = 2*1024;
-        mIntervalLength=M_PI*2*50;
+        mScale = 40;
+        mStepCount = 2 * 1024;
+        mIntervalLength = 2 * M_PI * 50;
         mAValue = 1;
         break;
     case Bernulli:
-        mScale= 40;
-        mStepCount = 2*1024;
-        mIntervalLength=M_PI*2*50;
+        mScale = 40;
+        mStepCount = 2 * 1024;
+        mIntervalLength = 2 * M_PI * 50;
         mAValue = 0;
         break;
     default:
@@ -150,14 +150,14 @@ return QPointF(0,0);
  {
      QPainter painter(this);
 
-     painter.setBrush(mBackgroundColor); //цвет фона
-     painter.setPen(mShapeColor); //цвет рисунка
+     painter.setBrush(mBackgroundColor); //  цвет фона
+     painter.setPen(mShapeColor); // цвет рисунка
 
      painter.setRenderHint(QPainter::Antialiasing, true);
      painter.drawRect(this->rect());
-     QPoint center = this->rect().center(); //центр холста
+     QPoint center = this->rect().center(); // центр холста
 
-     QPointF prevPoint = compute_function (0); //задаем начальную точку
+     QPointF prevPoint = compute_function (0); // задаем начальную точку
      QPoint prevPixel;
      prevPixel.setX(prevPoint.x()*2*mScale + center.x());
      prevPixel.setY(prevPoint.y()*2*mScale + center.y());
@@ -174,7 +174,7 @@ return QPointF(0,0);
 
          // Нахождение экстремумов (неудачная попытка сравнения соседних точек, пока неизвестно, почему)
          float x0 = point.x();
-         float y0 = point.x();
+         float y0 = point.y();
          QPointF point1 = compute_function(i+step);
          float x1 = point1.x();
          float y1 = point1.y();
@@ -182,13 +182,14 @@ return QPointF(0,0);
          float x2 = point2.x();
          float y2 = point2.y();
          if ((x0 > x1 && x0 > x2) || (x0 < x1 && x0 < x2) || (y0 > y1 && y0 > y2) || (y0 < y1 && y0 < y2)) {
-             cout << "i = " << i << endl; //вывод для проверки
-             /*cout << "x0 = " << x0 << endl << "y0 = " << y0 << endl;
+             cout << "i = " << i << endl; // вывод для проверки
+             cout << "x0 = " << x0 << endl << "y0 = " << y0 << endl;
              cout << "x1 = " << x1 << endl << "y1 = " << y1 << endl;
-             cout << "x2 = " << x2 << endl << "y2 = " << y2 << endl;*/
+             cout << "x2 = " << x2 << endl << "y2 = " << y2 << endl;
              painter.setPen(Qt::red);
-             painter.drawPoint(pixel);
+             //painter.drawImage()
          } else {
+             // Рисование графика
              painter.drawLine(pixel, prevPixel); // Соединяем точки
          }
          prevPixel = pixel; //задаем предыдущую точку
