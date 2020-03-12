@@ -4,6 +4,10 @@
 #include"math.h"
 #include "helper.cpp"
 
+//Для проверки экстремумов
+#include <iostream>
+using namespace std;
+
 Graphic::Graphic(QWidget *parent) :
     QWidget(parent),
     mBackgroundColor(255,255,255),
@@ -77,7 +81,7 @@ void Graphic::on_function_change() // Присваивание к mFunction вы
     switch(mFunction) {
     case circle:
         mScale= 40;
-        mStepCount =1024;
+        mStepCount =M_PI;
         mIntervalLength=M_PI*2*50;
         break;
     case clover:
@@ -160,12 +164,33 @@ return QPointF(0,0);
 
      float step = mIntervalLength/50 / mStepCount;
      for(float i=0; i<= mIntervalLength/50; i+=step ) {
-         QPointF point = compute_function(i);
+         painter.setPen(Qt::black);
 
-         QPoint pixel; // Объявляем точку и задаем ее координаты
+         // Объявляем точку и задаем ее координаты
+         QPointF point = compute_function(i);
+         QPoint pixel;
          pixel.setX(point.x()*2*mScale + center.x());
          pixel.setY(point.y()*2*mScale + center.y());
-         painter.drawLine(pixel, prevPixel); // Соединяем точки
+
+         // Нахождение экстремумов (неудачная попытка сравнения соседних точек, пока неизвестно, почему)
+         float x0 = point.x();
+         float y0 = point.x();
+         QPointF point1 = compute_function(i+step);
+         float x1 = point1.x();
+         float y1 = point1.y();
+         QPointF point2 = compute_function(i-step);
+         float x2 = point2.x();
+         float y2 = point2.y();
+         if ((x0 > x1 && x0 > x2) || (x0 < x1 && x0 < x2) || (y0 > y1 && y0 > y2) || (y0 < y1 && y0 < y2)) {
+             cout << "i = " << i << endl; //вывод для проверки
+             /*cout << "x0 = " << x0 << endl << "y0 = " << y0 << endl;
+             cout << "x1 = " << x1 << endl << "y1 = " << y1 << endl;
+             cout << "x2 = " << x2 << endl << "y2 = " << y2 << endl;*/
+             painter.setPen(Qt::red);
+             painter.drawPoint(pixel);
+         } else {
+             painter.drawLine(pixel, prevPixel); // Соединяем точки
+         }
          prevPixel = pixel; //задаем предыдущую точку
      }
  }
