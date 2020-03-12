@@ -3,6 +3,8 @@
 #include<QPaintEvent>
 #include"math.h"
 #include "helper.cpp"
+#include <QPixmap>
+#include <QPen>
 
 //Для проверки экстремумов
 #include <iostream>
@@ -175,10 +177,10 @@ return QPointF(0,0);
          // Нахождение экстремумов (неудачная попытка сравнения соседних точек, пока неизвестно, почему)
          float x0 = point.x();
          float y0 = point.y();
-         QPointF point1 = compute_function(i+step);
+         QPointF point1 = compute_function(i+step*10);
          float x1 = point1.x();
          float y1 = point1.y();
-         QPointF point2 = compute_function(i-step);
+         QPointF point2 = compute_function(i-step*10);
          float x2 = point2.x();
          float y2 = point2.y();
          if ((x0 > x1 && x0 > x2) || (x0 < x1 && x0 < x2) || (y0 > y1 && y0 > y2) || (y0 < y1 && y0 < y2)) {
@@ -186,8 +188,12 @@ return QPointF(0,0);
              cout << "x0 = " << x0 << endl << "y0 = " << y0 << endl;
              cout << "x1 = " << x1 << endl << "y1 = " << y1 << endl;
              cout << "x2 = " << x2 << endl << "y2 = " << y2 << endl;
-             painter.setPen(Qt::red);
-             //painter.drawImage()
+             //Создаем ручку шириной 3
+             QPen pen1;
+             pen1.setWidth(5);
+             pen1.setColor(Qt::red);
+             painter.setPen(pen1);
+             painter.drawPoint(pixel);
          } else {
              // Рисование графика
              painter.drawLine(pixel, prevPixel); // Соединяем точки
