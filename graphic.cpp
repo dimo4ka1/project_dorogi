@@ -164,8 +164,19 @@ return QPointF(0,0);
      prevPixel.setX(prevPoint.x()*2*mScale + center.x());
      prevPixel.setY(prevPoint.y()*2*mScale + center.y());
 
+     // Координатные оси
+     painter.setPen(Qt::lightGray);
+     painter.drawLine(QPoint(center.x(), 0), QPoint(center.x(), 2*center.y())); // Ox
+     for (float i = 0; i <= 2*center.x(); i+=20) {
+         painter.drawLine(QPoint(i, 2+center.y()), QPoint(i, -2+center.y()));
+     }
+     painter.drawLine(QPoint(0, center.y()), QPoint(2*center.x(), center.y())); // Oy
+     for (float i = 0; i <= 2*center.x(); i+=20) {
+         painter.drawLine(QPoint(2+center.x(), i), QPoint(-2+center.x(), i));
+     }
+
      float step = mIntervalLength/50 / mStepCount;
-     for(float i=0; i<= mIntervalLength/50; i+=step ) {
+     for(float i=0; i<= mIntervalLength/50; i+=step) {
          painter.setPen(Qt::black);
 
          // Объявляем точку и задаем ее координаты
@@ -188,7 +199,7 @@ return QPointF(0,0);
              cout << "x0 = " << x0 << endl << "y0 = " << y0 << endl;
              cout << "x1 = " << x1 << endl << "y1 = " << y1 << endl;
              cout << "x2 = " << x2 << endl << "y2 = " << y2 << endl;
-             //Создаем ручку шириной 3
+             //Создаем участок шириной 3 красного цвета для сброса скорости
              QPen pen1;
              pen1.setWidth(5);
              pen1.setColor(Qt::red);

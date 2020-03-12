@@ -46,7 +46,8 @@ private:
        QPointF compute_Archimedes(float t, float a);       // Спираль Архимеда
        QPointF compute_snail(float t, float a);            // Кардиоида
        QPointF compute_hyperbolicSpiral(float t, float a); // Гиперболическая спираль
-       QPointF compute_Bernulli(float t, float a);          // Лемниската Бернулли
+       QPointF compute_Bernulli(float t, float a);         // Лемниската Бернулли
+       QPointF compute_FEdit(float t, float a);            // Введенная функция
 
        void on_function_change(); // Объявляю функцию, отвечающую за размер, угол, кол-во точек на графике
        QColor mBackgroundColor; // Цвет
