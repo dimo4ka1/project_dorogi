@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef GRAPHIC_H
 #define GRAPHIC_H
 
@@ -13,7 +15,7 @@ public:
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
-    enum Functions{circle, clover,Archimedes,snail, hyperbolicSpiral, Bernulli};
+    enum Functions{circle, clover,Archimedes,snail, hyperbolicSpiral, Bernulli,calculate};
 
     void setBackgroundColor(QColor color){ mBackgroundColor = color; } //Функция, которая объявляет цвет
     QColor BackgroundColor() const { return mBackgroundColor; }
@@ -33,6 +35,8 @@ public:
     void setStepCount (int count) { mStepCount = count; repaint(); }
     int stepCount () const { return mStepCount; }
 
+
+
 protected:
         void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
@@ -48,11 +52,13 @@ private:
        QPointF compute_hyperbolicSpiral(float t, float a); // Гиперболическая спираль
        QPointF compute_Bernulli(float t, float a);         // Лемниската Бернулли
        QPointF compute_FEdit(float t, float a);            // Введенная функция
+       QPointF compute_calculate(float t);                 // Функция из канкулятора
 
        void on_function_change(); // Объявляю функцию, отвечающую за размер, угол, кол-во точек на графике
        QColor mBackgroundColor; // Цвет
        QColor mShapeColor;
        Functions mFunction; // Переменная, отвечающая за тип графика, ключевая часть програмы
+
 
        float mScale;  // Размер
        float mIntervalLength; // Интервал угла

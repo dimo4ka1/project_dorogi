@@ -21,4 +21,33 @@
         <file>picture/Bernuli.png</file>
         <file>picture/v_sign.jpg</file>
     </qresource>
+    <qresource prefix="/for_calculator">
+        <file>picture2/-.png</file>
+        <file>picture2/+.png</file>
+        <file>picture2/0.png</file>
+        <file>picture2/1.png</file>
+        <file>picture2/2.png</file>
+        <file>picture2/3.png</file>
+        <file>picture2/4.png</file>
+        <file>picture2/5.png</file>
+        <file>picture2/6.png</file>
+        <file>picture2/7.png</file>
+        <file>picture2/8.png</file>
+        <file>picture2/9.png</file>
+        <file>picture2/alpha_button.png</file>
+        <file>picture2/cos.png</file>
+        <file>picture2/ctg.png</file>
+        <file>picture2/del_button.png</file>
+        <file>picture2/e.png</file>
+        <file>picture2/nothingness.png</file>
+        <file>picture2/pi_button.png</file>
+        <file>picture2/sin.png</file>
+        <file>picture2/start.png</file>
+        <file>picture2/tg.png</file>
+        <file>picture2/unn_button.png</file>
+        <file>picture2/dot.png</file>
+        <file>picture2/hooks.png</file>
+        <file>picture2/hook(.png</file>
+        <file>picture2/hook).png</file>
+    </qresource>
 </RCC>

@@ -36,7 +36,7 @@ private slots:
 
     void on_stepCount_valueChanged(int arg1);
 
-    void on_pushButton_clicked();
+    void on_call_calculator_clicked();
 
 private:
     void update_ui(); // Выведение значений параметров у графиков

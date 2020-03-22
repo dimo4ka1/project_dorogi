@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "calculator.h"
 #include <QPixmap>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -33,6 +34,7 @@ void MainWindow::on_circle_clicked() // Кнопка, для рисования 
 
 void MainWindow::on_clover_clicked() // Кнопка, для рисования клевера
 {
+
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
     this->ui->graphic->setFunction(Graphic::clover); // присваевает mFunction значение клевер
     this->ui->graphic->repaint(); // перерисовывает рисунок
@@ -90,4 +92,12 @@ void MainWindow::on_aValue_valueChanged(double aValue)
 void MainWindow::on_stepCount_valueChanged(int count)
 {
     this->ui->graphic->setStepCount (count);
+}
+
+void MainWindow::on_call_calculator_clicked()
+{
+    calculator s;
+    s.setModal(true);
+    s.exec();
+
 }
