@@ -8,6 +8,8 @@ calculator::calculator(QWidget *parent) :
     ui(new Ui::calculator)
 {
     ui->setupUi(this);
+    ui->output_icon->setText((ui->output_icon->text())+"\u03C1"+"=");
+
 }
 
 calculator::~calculator()
@@ -123,7 +125,7 @@ void calculator::on_divide_clicked()
 
 void calculator::on_angle_clicked()
 {
-   ui->output_icon->setText((ui->output_icon->text())+(char)100);
+   ui->output_icon->setText((ui->output_icon->text())+"\u03B8");
 }
 void calculator::on_hook_open_clicked()
 {

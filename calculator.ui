@@ -26,21 +26,18 @@
    <string>Function input window</string>
   </property>
   <widget class="QLabel" name="output_icon">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>500</width>
-     <height>166</height>
+     <height>171</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
      <width>500</width>
-     <height>166</height>
+     <height>150</height>
     </size>
    </property>
    <property name="styleSheet">
@@ -54,7 +51,7 @@ background-color : white;
 </string>
    </property>
    <property name="text">
-    <string>r=</string>
+    <string/>
    </property>
   </widget>
   <widget class="QWidget" name="layoutWidget">
@@ -1010,8 +1007,6 @@ QPushButton:pressed {
     </item>
    </layout>
   </widget>
-  <zorder>layoutWidget</zorder>
-  <zorder>output_icon</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

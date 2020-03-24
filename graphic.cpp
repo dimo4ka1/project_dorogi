@@ -1,9 +1,7 @@
 #include "graphic.h"
 #include<QPainter>
 #include<QPaintEvent>
-#define _USE_MATH_DEFINES
-#include <math.h>
-#include "math.h"
+#include"math.h"
 #include <QPixmap>
 #include <QPen>
 

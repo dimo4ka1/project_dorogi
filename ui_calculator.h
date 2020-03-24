@@ -24,7 +24,7 @@ class Ui_calculator
 {
 public:
     QLabel *output_icon;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QPushButton *ctg;
     QPushButton *minus;
@@ -71,14 +71,14 @@ public:
 "}\n"
 "\n"
 ""));
-        widget = new QWidget(calculator);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(0, 165, 502, 502));
-        gridLayout = new QGridLayout(widget);
+        layoutWidget = new QWidget(calculator);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(0, 165, 502, 502));
+        gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setSpacing(0);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        ctg = new QPushButton(widget);
+        ctg = new QPushButton(layoutWidget);
         ctg->setObjectName(QString::fromUtf8("ctg"));
         ctg->setMinimumSize(QSize(100, 100));
         ctg->setMaximumSize(QSize(100, 100));
@@ -95,7 +95,7 @@ public:
 
         gridLayout->addWidget(ctg, 3, 0, 1, 1);
 
-        minus = new QPushButton(widget);
+        minus = new QPushButton(layoutWidget);
         minus->setObjectName(QString::fromUtf8("minus"));
         minus->setMinimumSize(QSize(100, 100));
         minus->setMaximumSize(QSize(100, 100));
@@ -115,7 +115,7 @@ public:
 
         gridLayout->addWidget(minus, 1, 7, 1, 1);
 
-        Pi = new QPushButton(widget);
+        Pi = new QPushButton(layoutWidget);
         Pi->setObjectName(QString::fromUtf8("Pi"));
         Pi->setMinimumSize(QSize(100, 100));
         Pi->setMaximumSize(QSize(100, 100));
@@ -126,7 +126,7 @@ public:
 
         gridLayout->addWidget(Pi, 4, 0, 1, 1);
 
-        hook_open = new QPushButton(widget);
+        hook_open = new QPushButton(layoutWidget);
         hook_open->setObjectName(QString::fromUtf8("hook_open"));
         hook_open->setMinimumSize(QSize(100, 100));
         hook_open->setMaximumSize(QSize(100, 100));
@@ -143,7 +143,7 @@ public:
 
         gridLayout->addWidget(hook_open, 4, 5, 1, 1);
 
-        divide = new QPushButton(widget);
+        divide = new QPushButton(layoutWidget);
         divide->setObjectName(QString::fromUtf8("divide"));
         divide->setMinimumSize(QSize(100, 100));
         divide->setMaximumSize(QSize(100, 100));
@@ -163,7 +163,7 @@ public:
 
         gridLayout->addWidget(divide, 3, 7, 1, 1);
 
-        plus = new QPushButton(widget);
+        plus = new QPushButton(layoutWidget);
         plus->setObjectName(QString::fromUtf8("plus"));
         plus->setMinimumSize(QSize(100, 100));
         plus->setMaximumSize(QSize(100, 100));
@@ -183,7 +183,7 @@ public:
 
         gridLayout->addWidget(plus, 0, 7, 1, 1);
 
-        number_7 = new QPushButton(widget);
+        number_7 = new QPushButton(layoutWidget);
         number_7->setObjectName(QString::fromUtf8("number_7"));
         number_7->setMinimumSize(QSize(100, 100));
         number_7->setMaximumSize(QSize(100, 100));
@@ -200,7 +200,7 @@ public:
 
         gridLayout->addWidget(number_7, 2, 3, 1, 1);
 
-        angle = new QPushButton(widget);
+        angle = new QPushButton(layoutWidget);
         angle->setObjectName(QString::fromUtf8("angle"));
         angle->setMinimumSize(QSize(100, 100));
         angle->setMaximumSize(QSize(100, 100));
@@ -211,7 +211,7 @@ public:
 
         gridLayout->addWidget(angle, 3, 3, 1, 1);
 
-        number_0 = new QPushButton(widget);
+        number_0 = new QPushButton(layoutWidget);
         number_0->setObjectName(QString::fromUtf8("number_0"));
         number_0->setMinimumSize(QSize(100, 100));
         number_0->setMaximumSize(QSize(100, 100));
@@ -228,7 +228,7 @@ public:
 
         gridLayout->addWidget(number_0, 3, 5, 1, 1);
 
-        tg = new QPushButton(widget);
+        tg = new QPushButton(layoutWidget);
         tg->setObjectName(QString::fromUtf8("tg"));
         tg->setMinimumSize(QSize(100, 100));
         tg->setMaximumSize(QSize(100, 100));
@@ -245,7 +245,7 @@ public:
 
         gridLayout->addWidget(tg, 2, 0, 1, 1);
 
-        number_8 = new QPushButton(widget);
+        number_8 = new QPushButton(layoutWidget);
         number_8->setObjectName(QString::fromUtf8("number_8"));
         number_8->setMinimumSize(QSize(100, 100));
         number_8->setMaximumSize(QSize(100, 100));
@@ -262,7 +262,7 @@ public:
 
         gridLayout->addWidget(number_8, 2, 5, 1, 1);
 
-        sin = new QPushButton(widget);
+        sin = new QPushButton(layoutWidget);
         sin->setObjectName(QString::fromUtf8("sin"));
         sin->setMinimumSize(QSize(100, 100));
         sin->setMaximumSize(QSize(100, 100));
@@ -279,7 +279,7 @@ public:
 
         gridLayout->addWidget(sin, 0, 0, 1, 1);
 
-        number_6 = new QPushButton(widget);
+        number_6 = new QPushButton(layoutWidget);
         number_6->setObjectName(QString::fromUtf8("number_6"));
         number_6->setMinimumSize(QSize(100, 100));
         number_6->setMaximumSize(QSize(100, 100));
@@ -296,7 +296,7 @@ public:
 
         gridLayout->addWidget(number_6, 1, 6, 1, 1);
 
-        dot = new QPushButton(widget);
+        dot = new QPushButton(layoutWidget);
         dot->setObjectName(QString::fromUtf8("dot"));
         dot->setMinimumSize(QSize(100, 100));
         dot->setMaximumSize(QSize(100, 100));
@@ -313,7 +313,7 @@ public:
 
         gridLayout->addWidget(dot, 3, 6, 1, 1);
 
-        number_3 = new QPushButton(widget);
+        number_3 = new QPushButton(layoutWidget);
         number_3->setObjectName(QString::fromUtf8("number_3"));
         number_3->setMinimumSize(QSize(100, 100));
         number_3->setMaximumSize(QSize(100, 100));
@@ -331,7 +331,7 @@ public:
 
         gridLayout->addWidget(number_3, 0, 6, 1, 1);
 
-        number_9 = new QPushButton(widget);
+        number_9 = new QPushButton(layoutWidget);
         number_9->setObjectName(QString::fromUtf8("number_9"));
         number_9->setMinimumSize(QSize(100, 100));
         number_9->setMaximumSize(QSize(100, 100));
@@ -348,7 +348,7 @@ public:
 
         gridLayout->addWidget(number_9, 2, 6, 1, 1);
 
-        number_4 = new QPushButton(widget);
+        number_4 = new QPushButton(layoutWidget);
         number_4->setObjectName(QString::fromUtf8("number_4"));
         number_4->setMinimumSize(QSize(100, 100));
         number_4->setMaximumSize(QSize(100, 100));
@@ -365,7 +365,7 @@ public:
 
         gridLayout->addWidget(number_4, 1, 3, 1, 1);
 
-        multiply = new QPushButton(widget);
+        multiply = new QPushButton(layoutWidget);
         multiply->setObjectName(QString::fromUtf8("multiply"));
         multiply->setMinimumSize(QSize(100, 100));
         multiply->setMaximumSize(QSize(100, 100));
@@ -385,7 +385,7 @@ public:
 
         gridLayout->addWidget(multiply, 2, 7, 1, 1);
 
-        number_5 = new QPushButton(widget);
+        number_5 = new QPushButton(layoutWidget);
         number_5->setObjectName(QString::fromUtf8("number_5"));
         number_5->setMinimumSize(QSize(100, 100));
         number_5->setMaximumSize(QSize(100, 100));
@@ -403,7 +403,7 @@ public:
 
         gridLayout->addWidget(number_5, 1, 5, 1, 1);
 
-        start = new QPushButton(widget);
+        start = new QPushButton(layoutWidget);
         start->setObjectName(QString::fromUtf8("start"));
         start->setMinimumSize(QSize(100, 100));
         start->setMaximumSize(QSize(100, 100));
@@ -422,7 +422,7 @@ public:
 
         gridLayout->addWidget(start, 4, 7, 1, 1);
 
-        number_2 = new QPushButton(widget);
+        number_2 = new QPushButton(layoutWidget);
         number_2->setObjectName(QString::fromUtf8("number_2"));
         number_2->setMinimumSize(QSize(100, 100));
         number_2->setSizeIncrement(QSize(100, 100));
@@ -439,7 +439,7 @@ public:
 
         gridLayout->addWidget(number_2, 0, 5, 1, 1);
 
-        exp = new QPushButton(widget);
+        exp = new QPushButton(layoutWidget);
         exp->setObjectName(QString::fromUtf8("exp"));
         exp->setMinimumSize(QSize(100, 100));
         exp->setMaximumSize(QSize(100, 100));
@@ -450,7 +450,7 @@ public:
 
         gridLayout->addWidget(exp, 4, 3, 1, 1);
 
-        number_1 = new QPushButton(widget);
+        number_1 = new QPushButton(layoutWidget);
         number_1->setObjectName(QString::fromUtf8("number_1"));
         number_1->setMinimumSize(QSize(100, 100));
         number_1->setMaximumSize(QSize(100, 100));
@@ -467,7 +467,7 @@ public:
 
         gridLayout->addWidget(number_1, 0, 3, 1, 1);
 
-        hook_close = new QPushButton(widget);
+        hook_close = new QPushButton(layoutWidget);
         hook_close->setObjectName(QString::fromUtf8("hook_close"));
         hook_close->setMinimumSize(QSize(100, 100));
         hook_close->setMaximumSize(QSize(100, 100));
@@ -484,7 +484,7 @@ public:
 
         gridLayout->addWidget(hook_close, 4, 6, 1, 1);
 
-        cos = new QPushButton(widget);
+        cos = new QPushButton(layoutWidget);
         cos->setObjectName(QString::fromUtf8("cos"));
         cos->setMinimumSize(QSize(100, 100));
         cos->setMaximumSize(QSize(100, 100));
@@ -510,7 +510,7 @@ public:
     void retranslateUi(QDialog *calculator)
     {
         calculator->setWindowTitle(QCoreApplication::translate("calculator", "Function input window", nullptr));
-        output_icon->setText(QCoreApplication::translate("calculator", "r=", nullptr));
+        output_icon->setText(QString());
         ctg->setText(QCoreApplication::translate("calculator", "ctg", nullptr));
         minus->setText(QCoreApplication::translate("calculator", "-", nullptr));
         Pi->setStyleSheet(QCoreApplication::translate("calculator", "QPushButton {\n"
