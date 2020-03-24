@@ -500,6 +500,7 @@ qrc_resources.cpp: resources.qrc \
 		picture/8.jpg \
 		picture/10.png \
 		picture/9.jpg \
+		picture/logo.jpg \
 		picture/5.png \
 		picture/circle.jpg \
 		picture/snail.png \
@@ -1135,9 +1136,8 @@ calculator.o: calculator.cpp calculator.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QPushButton \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qpushbutton.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qabstractbutton.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QVBoxLayout \
-		graphic.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QWidget \
+		graphic.h \
 		D:/qt/5.14.1/mingw73_64/include/QtGui/QColor \
 		ui_mainwindow.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QDoubleSpinBox \
@@ -1151,11 +1151,6 @@ calculator.o: calculator.cpp calculator.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QMainWindow \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qmainwindow.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qtabwidget.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QMenuBar \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qmenubar.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qmenu.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qaction.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qactiongroup.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QScrollArea \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qscrollarea.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
@@ -1164,7 +1159,8 @@ calculator.o: calculator.cpp calculator.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qabstractslider.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QSpinBox \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QStatusBar \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qstatusbar.h
+		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qstatusbar.h \
+		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o calculator.o calculator.cpp
 
 graphic.o: graphic.cpp graphic.h \
@@ -1535,11 +1531,6 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QLabel \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qlabel.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qframe.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QMenuBar \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qmenubar.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qmenu.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qaction.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qactiongroup.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QPushButton \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qpushbutton.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qabstractbutton.h \

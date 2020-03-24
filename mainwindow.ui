@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Road</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/img/picture/logo.jpg</normaloff>:/img/picture/logo.jpg</iconset>
+  </property>
   <property name="iconSize">
    <size>
     <width>700</width>
@@ -436,16 +440,6 @@
      </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1238</width>
-     <height>26</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

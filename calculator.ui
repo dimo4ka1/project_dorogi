@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Function input window</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/img/picture/logo.jpg</normaloff>:/img/picture/logo.jpg</iconset>
+  </property>
   <widget class="QLabel" name="output_icon">
    <property name="geometry">
     <rect>

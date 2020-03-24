@@ -59,6 +59,9 @@ public:
         calculator->resize(500, 660);
         calculator->setMinimumSize(QSize(500, 660));
         calculator->setMaximumSize(QSize(500, 660));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/img/picture/logo.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        calculator->setWindowIcon(icon);
         output_icon = new QLabel(calculator);
         output_icon->setObjectName(QString::fromUtf8("output_icon"));
         output_icon->setGeometry(QRect(0, 0, 500, 171));
@@ -119,9 +122,9 @@ public:
         Pi->setObjectName(QString::fromUtf8("Pi"));
         Pi->setMinimumSize(QSize(100, 100));
         Pi->setMaximumSize(QSize(100, 100));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/for_calculator/picture2/pi_button.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Pi->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/for_calculator/picture2/pi_button.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Pi->setIcon(icon1);
         Pi->setIconSize(QSize(90, 100));
 
         gridLayout->addWidget(Pi, 4, 0, 1, 1);
@@ -204,9 +207,9 @@ public:
         angle->setObjectName(QString::fromUtf8("angle"));
         angle->setMinimumSize(QSize(100, 100));
         angle->setMaximumSize(QSize(100, 100));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/for_calculator/picture2/alpha_button.png"), QSize(), QIcon::Normal, QIcon::Off);
-        angle->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/for_calculator/picture2/alpha_button.png"), QSize(), QIcon::Normal, QIcon::Off);
+        angle->setIcon(icon2);
         angle->setIconSize(QSize(90, 90));
 
         gridLayout->addWidget(angle, 3, 3, 1, 1);
@@ -443,9 +446,9 @@ public:
         exp->setObjectName(QString::fromUtf8("exp"));
         exp->setMinimumSize(QSize(100, 100));
         exp->setMaximumSize(QSize(100, 100));
-        QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/for_calculator/picture2/e.png"), QSize(), QIcon::Normal, QIcon::Off);
-        exp->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/for_calculator/picture2/e.png"), QSize(), QIcon::Normal, QIcon::Off);
+        exp->setIcon(icon3);
         exp->setIconSize(QSize(90, 90));
 
         gridLayout->addWidget(exp, 4, 3, 1, 1);

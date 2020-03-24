@@ -20,6 +20,7 @@
         <file>picture/hyperbolicSpiral.png</file>
         <file>picture/Bernuli.png</file>
         <file>picture/v_sign.jpg</file>
+        <file>picture/logo.jpg</file>
     </qresource>
     <qresource prefix="/for_calculator">
         <file>picture2/-.png</file>

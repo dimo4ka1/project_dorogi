@@ -16,7 +16,6 @@
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QScrollBar>
@@ -56,7 +55,6 @@ public:
     QLabel *label_2;
     QSpinBox *stepCount;
     QLabel *label_3;
-    QMenuBar *menubar;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -64,6 +62,9 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(1238, 715);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/img/picture/logo.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        MainWindow->setWindowIcon(icon);
         MainWindow->setIconSize(QSize(700, 700));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -97,33 +98,33 @@ public:
         circle->setGeometry(QRect(10, 10, 91, 91));
         circle->setMinimumSize(QSize(90, 90));
         circle->setFocusPolicy(Qt::WheelFocus);
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/img/picture/circle.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        circle->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/img/picture/circle.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        circle->setIcon(icon1);
         circle->setIconSize(QSize(90, 100));
         clover = new QPushButton(scrollAreaWidgetContents);
         clover->setObjectName(QString::fromUtf8("clover"));
         clover->setGeometry(QRect(130, 10, 91, 91));
         clover->setMinimumSize(QSize(90, 90));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/img/picture/clover2.png"), QSize(), QIcon::Normal, QIcon::Off);
-        clover->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/img/picture/clover2.png"), QSize(), QIcon::Normal, QIcon::Off);
+        clover->setIcon(icon2);
         clover->setIconSize(QSize(90, 100));
         Archimedes = new QPushButton(scrollAreaWidgetContents);
         Archimedes->setObjectName(QString::fromUtf8("Archimedes"));
         Archimedes->setGeometry(QRect(10, 120, 93, 100));
         Archimedes->setMinimumSize(QSize(90, 100));
-        QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/img/picture/Archimedes.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Archimedes->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/img/picture/Archimedes.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Archimedes->setIcon(icon3);
         Archimedes->setIconSize(QSize(90, 100));
         snail = new QPushButton(scrollAreaWidgetContents);
         snail->setObjectName(QString::fromUtf8("snail"));
         snail->setGeometry(QRect(130, 120, 93, 101));
         snail->setMinimumSize(QSize(90, 101));
-        QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/img/picture/snail.png"), QSize(), QIcon::Normal, QIcon::Off);
-        snail->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/img/picture/snail.png"), QSize(), QIcon::Normal, QIcon::Off);
+        snail->setIcon(icon4);
         snail->setIconSize(QSize(300, 100));
         scroll = new QScrollBar(scrollAreaWidgetContents);
         scroll->setObjectName(QString::fromUtf8("scroll"));
@@ -132,17 +133,17 @@ public:
         hyperbolicSpiral = new QPushButton(scrollAreaWidgetContents);
         hyperbolicSpiral->setObjectName(QString::fromUtf8("hyperbolicSpiral"));
         hyperbolicSpiral->setGeometry(QRect(20, 230, 71, 100));
-        QIcon icon4;
-        icon4.addFile(QString::fromUtf8(":/img/picture/hyperbolicSpiral.png"), QSize(), QIcon::Normal, QIcon::Off);
-        hyperbolicSpiral->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8(":/img/picture/hyperbolicSpiral.png"), QSize(), QIcon::Normal, QIcon::Off);
+        hyperbolicSpiral->setIcon(icon5);
         hyperbolicSpiral->setIconSize(QSize(90, 100));
         Bernulli = new QPushButton(scrollAreaWidgetContents);
         Bernulli->setObjectName(QString::fromUtf8("Bernulli"));
         Bernulli->setGeometry(QRect(130, 260, 81, 31));
         Bernulli->setMinimumSize(QSize(0, 0));
-        QIcon icon5;
-        icon5.addFile(QString::fromUtf8(":/img/picture/Bernuli.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Bernulli->setIcon(icon5);
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/img/picture/Bernuli.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Bernulli->setIcon(icon6);
         Bernulli->setIconSize(QSize(90, 120));
         menugr->setWidget(scrollAreaWidgetContents);
 
@@ -223,10 +224,6 @@ public:
         verticalLayout->addWidget(parametr);
 
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1238, 26));
-        MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
