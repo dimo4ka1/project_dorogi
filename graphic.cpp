@@ -18,6 +18,7 @@ Graphic::Graphic(QWidget *parent) :
 
 {
     on_function_change();
+
 }
 
 QSize Graphic::minimumSizeHint() const
@@ -73,6 +74,7 @@ QPointF Graphic::compute_snail(float t,float a) // Кардиоида
 
 QPointF Graphic::compute_hyperbolicSpiral(float t, float a) // Гиперболическая спираль
 {
+
     float cos_t = cos(t);
     float sin_t = sin(t);
     float x=(a/t)*cos_t;
@@ -85,6 +87,7 @@ QPointF Graphic::compute_Bernulli(float t, float a) // Лемниската Бе
     float y = (cos(2*t + a*M_PI_2) >= 0) ? sqrt((cos(2*t + a*M_PI_2)))*sin(t) : 0;
     return QPointF(x,y);
 }
+
 
 void Graphic::on_function_change() // Присваивание к mFunction выбранного графика
 {
@@ -165,6 +168,8 @@ QPointF Graphic::compute_function(float t) // Вызов выбранной фу
 return QPointF(0,0);
 
 }
+
+
 void Graphic::paintEvent(QPaintEvent *event) // Рисуем график
 {
     QPainter painter(this);
@@ -202,6 +207,15 @@ void Graphic::paintEvent(QPaintEvent *event) // Рисуем график
         pixel.setX(point.x()*2*mScale + center.x());
         pixel.setY(point.y()*2*mScale + center.y());
 
+        //Асимптоты гиперболоидной спирали
+        if(mFunction==hyperbolicSpiral and i==step){
+        painter.setPen(Qt::green);
+        QPointF point3 = compute_function(i);
+        for (float k = 0; k <= 2*center.x(); k+=40) {
+             painter.drawLine(QPoint(k,(point3.y()*2*mScale + center.y())), QPoint(k+30,( point3.y()*2*mScale + center.y()))); //рисует асимптоту штрих-пунтиром
+
+        }
+        }
         // Нахождение экстремумов (неудачная попытка сравнения соседних точек, пока неизвестно, почему)
         float x0 = point.x();
         float y0 = point.y();

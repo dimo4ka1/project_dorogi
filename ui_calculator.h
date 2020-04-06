@@ -504,6 +504,8 @@ public:
 
         gridLayout->addWidget(cos, 1, 0, 1, 1);
 
+        layoutWidget->raise();
+        output_icon->raise();
 
         retranslateUi(calculator);
 

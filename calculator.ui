@@ -1011,6 +1011,8 @@ QPushButton:pressed {
     </item>
    </layout>
   </widget>
+  <zorder>layoutWidget</zorder>
+  <zorder>output_icon</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

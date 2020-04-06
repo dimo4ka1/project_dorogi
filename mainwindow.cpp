@@ -2,13 +2,22 @@
 #include "ui_mainwindow.h"
 #include "calculator.h"
 #include <QPixmap>
-
+#include <QPainter>
+#include <QGraphicsItem>
+#include <QtDebug>
+#include <QMouseEvent>
+//#include <QtScript/QScriptEngine>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
+
     update_ui();
+    ui->graphic->setMouseTracking(true);
+    //connect(, &Graphic::signalTargetCoordinate, &Graphic::slotTarget);
+
 }
 
 MainWindow::~MainWindow()
@@ -30,6 +39,7 @@ void MainWindow::on_circle_clicked() // Кнопка, для рисования 
     this->ui->graphic->setFunction(Graphic::circle);// присваевает mFunction значение круга
     this->ui->graphic->repaint();// перерисовывает рисунок
     update_ui ();
+
 }
 
 void MainWindow::on_clover_clicked() // Кнопка, для рисования клевера
@@ -93,6 +103,20 @@ void MainWindow::on_stepCount_valueChanged(int count)
 {
     this->ui->graphic->setStepCount (count);
 }
+
+// Функция, которая считывает координаты мышки
+void MainWindow::mousePressEvent(QGraphicsSceneMouseEvent * event ){
+
+          if(event->buttons() & Qt::RightButton){
+   emit signalTargetCoordinate(event->scenePos());
+   this->ui->X_coordinate->setText("X:" );
+   this->ui->X_coordinate->setText(ui->X_coordinate->text()+(event->scenePos().x()));
+   this->ui->Y_coordinate->setText("Y:");
+   this->ui->Y_coordinate->setText(ui->Y_coordinate->text()+event->scenePos().y());
+
+}
+}
+
 
 void MainWindow::on_call_calculator_clicked()
 {

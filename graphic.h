@@ -5,6 +5,14 @@
 
 #include <QWidget>
 #include <QColor>
+#include <QObject>
+#include <QGraphicsScene>
+#include <QGraphicsSceneMouseEvent>
+
+#include <QGraphicsItem>
+#include <QPainter>
+#include <QPolygon>
+#include <QTimer>
 
 class Graphic : public QWidget // Я так назвал виджет, обычно это не на что не влияет
 {
@@ -41,9 +49,16 @@ protected:
         void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 signals:
+      void signalTargetCoordinate(QPointF mousepoint);
 
+
+public slots:
+
+private slots:
+    //  void slotTimer();
 
 private:
+      // void mouseMoveEvent(QGraphicsSceneMouseEvent *event,QPointF target);
        QPointF compute_function(float t);                  // Объявляю главную функцию
        QPointF compute_circle(float t);                    // Круг
        QPointF compute_clover(float t, float a);           // Полярная роза
@@ -58,7 +73,8 @@ private:
        QColor mBackgroundColor; // Цвет
        QColor mShapeColor;
        Functions mFunction; // Переменная, отвечающая за тип графика, ключевая часть програмы
-
+       QTimer *Timer;      // Игровой таймер
+       QPointF target;         // Положение курсора
 
        float mScale;  // Размер
        float mIntervalLength; // Интервал угла

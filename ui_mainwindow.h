@@ -55,13 +55,20 @@ public:
     QLabel *label_2;
     QSpinBox *stepCount;
     QLabel *label_3;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *X_coordinate;
+    QLabel *Y_coordinate;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1238, 715);
+        MainWindow->resize(1235, 700);
+        MainWindow->setMinimumSize(QSize(1235, 700));
+        MainWindow->setMaximumSize(QSize(1235, 700));
+        MainWindow->setContextMenuPolicy(Qt::DefaultContextMenu);
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/img/picture/logo.jpg"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
@@ -70,9 +77,14 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         graphic = new Graphic(centralwidget);
         graphic->setObjectName(QString::fromUtf8("graphic"));
-        graphic->setGeometry(QRect(13, 13, 950, 552));
+        graphic->setGeometry(QRect(0, 0, 961, 561));
         graphic->setMinimumSize(QSize(950, 400));
-        graphic->setTabletTracking(false);
+        QFont font;
+        font.setFamily(QString::fromUtf8("MV Boli"));
+        font.setPointSize(11);
+        graphic->setFont(font);
+        graphic->setMouseTracking(true);
+        graphic->setTabletTracking(true);
         graphic->setAutoFillBackground(true);
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
@@ -171,6 +183,8 @@ public:
         textScale = new QLabel(scrollAreaWidgetContents_2);
         textScale->setObjectName(QString::fromUtf8("textScale"));
         textScale->setMinimumSize(QSize(10, 10));
+        textScale->setMouseTracking(false);
+        textScale->setTabletTracking(false);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, textScale);
 
@@ -223,6 +237,48 @@ public:
 
         verticalLayout->addWidget(parametr);
 
+        widget = new QWidget(centralwidget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(10, 570, 101, 61));
+        verticalLayout_2 = new QVBoxLayout(widget);
+        verticalLayout_2->setSpacing(0);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        X_coordinate = new QLabel(widget);
+        X_coordinate->setObjectName(QString::fromUtf8("X_coordinate"));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("MS Shell Dlg 2"));
+        font1.setPointSize(10);
+        font1.setBold(false);
+        font1.setItalic(false);
+        font1.setWeight(50);
+        X_coordinate->setFont(font1);
+        X_coordinate->setContextMenuPolicy(Qt::PreventContextMenu);
+        X_coordinate->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"	font: 10pt \"MS Shell Dlg 2\";\n"
+"  qproperty-alignment: 'AlignVCenter | AlignLeft';\n"
+"  border: 1px solid gray;\n"
+"background-color : white;\n"
+"}\n"
+"\n"
+""));
+
+        verticalLayout_2->addWidget(X_coordinate);
+
+        Y_coordinate = new QLabel(widget);
+        Y_coordinate->setObjectName(QString::fromUtf8("Y_coordinate"));
+        Y_coordinate->setFont(font1);
+        Y_coordinate->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"	font: 10pt \"MS Shell Dlg 2\";\n"
+"    qproperty-alignment: 'AlignVCenter | AlignLeft';\n"
+"  border: 1px solid gray;\n"
+"background-color : white;\n"
+"}\n"
+"\n"
+""));
+
+        verticalLayout_2->addWidget(Y_coordinate);
+
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -247,6 +303,8 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "Interval Length", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Parameter A", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Step Count", nullptr));
+        X_coordinate->setText(QCoreApplication::translate("MainWindow", "X:", nullptr));
+        Y_coordinate->setText(QCoreApplication::translate("MainWindow", "Y:", nullptr));
     } // retranslateUi
 
 };

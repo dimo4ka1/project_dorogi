@@ -1,7 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include <QPushButton>
+#include <QMouseEvent>
 #include <QMainWindow>
+#include <QGraphicsSceneMouseEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +17,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+signals:
+      void signalTargetCoordinate(QPointF mousepoint);
+
+
 private slots:
+
+
     void on_circle_clicked();
 
     void on_clover_clicked();
@@ -37,6 +45,8 @@ private slots:
     void on_stepCount_valueChanged(int arg1);
 
     void on_call_calculator_clicked();
+
+    void mousePressEvent(QGraphicsSceneMouseEvent * event );
 
 private:
     void update_ui(); // Выведение значений параметров у графиков
