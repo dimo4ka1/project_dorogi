@@ -23,13 +23,16 @@ public:
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
-    enum Functions{circle, clover,Archimedes,snail, hyperbolicSpiral, Bernulli,calculate};
+    enum Functions{circle, clover,Archimedes,snail, hyperbolicSpiral, Bernulli,calculate,Astroid };
 
     void setBackgroundColor(QColor color){ mBackgroundColor = color; } //Функция, которая объявляет цвет
     QColor BackgroundColor() const { return mBackgroundColor; }
 
     void setFunction(Functions function) { mFunction= function; on_function_change(); } // Обьявляю функцию, которая присваетвает переменнной mFunction значение из списка.
     Functions function () const { return mFunction; }                             //Потом это понадобиться
+
+    void Line(bool line) { mLine= line; }
+    bool Line() const { return mLine; }
 
     void setScale(float scale) { mScale= scale; repaint(); } //Функция, которая присваевает размер введенный в окошке
     float scale  () const { return mScale; }
@@ -43,7 +46,11 @@ public:
     void setStepCount (int count) { mStepCount = count; repaint(); }
     int stepCount () const { return mStepCount; }
 
+    void setmBvalue(float Bvalue){mBvalue = Bvalue; }
+    int Bvalue () const{ return mBvalue;}
 
+    void setmKvalue(float Kvalue){mKvalue = Kvalue; }
+    int Kvalue () const{ return mKvalue;}
 
 protected:
         void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
@@ -68,6 +75,8 @@ private:
        QPointF compute_Bernulli(float t, float a);         // Лемниската Бернулли
        QPointF compute_FEdit(float t, float a);            // Введенная функция
        QPointF compute_calculate(float t);                 // Функция из канкулятора
+       QPointF compute_Astroid(float t, float a);
+       void compute_Line(float k,float b);
 
        void on_function_change(); // Объявляю функцию, отвечающую за размер, угол, кол-во точек на графике
        QColor mBackgroundColor; // Цвет
@@ -76,6 +85,9 @@ private:
        QTimer *Timer;      // Игровой таймер
        QPointF target;         // Положение курсора
 
+       bool mLine;
+       float mBvalue;
+       float mKvalue;
        float mScale;  // Размер
        float mIntervalLength; // Интервал угла
        int mStepCount; // Количество точек на графике

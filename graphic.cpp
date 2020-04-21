@@ -71,7 +71,13 @@ QPointF Graphic::compute_snail(float t,float a) // Кардиоида
     float y =(1+a*cos_t)*sin_t;
     return QPointF(x,y);
 }
+void compute_Line(float k,float b){
 
+
+
+
+
+}
 QPointF Graphic::compute_hyperbolicSpiral(float t, float a) // Гиперболическая спираль
 {
 
@@ -87,7 +93,14 @@ QPointF Graphic::compute_Bernulli(float t, float a) // Лемниската Бе
     float y = (cos(2*t + a*M_PI_2) >= 0) ? sqrt((cos(2*t + a*M_PI_2)))*sin(t) : 0;
     return QPointF(x,y);
 }
-
+QPointF Graphic::compute_Astroid(float t, float a)
+{
+    float cos_t = cos(t);
+    float sin_t = sin(t);
+    float x = a * cos_t * cos_t * cos_t;
+    float y = a * sin_t * sin_t * sin_t;
+    return QPointF (x, y);
+}
 
 void Graphic::on_function_change() // Присваивание к mFunction выбранного графика
 {
@@ -162,6 +175,10 @@ QPointF Graphic::compute_function(float t) // Вызов выбранной фу
     case calculate:
         return  compute_calculate(t);
         break;
+    case Astroid:
+        return  compute_Astroid(t,mAValue);
+        break;
+
     default:
         break;
 }
@@ -185,6 +202,14 @@ void Graphic::paintEvent(QPaintEvent *event) // Рисуем график
     QPoint prevPixel;
     prevPixel.setX(prevPoint.x()*2*mScale + center.x());
     prevPixel.setY(prevPoint.y()*2*mScale + center.y());
+
+    //Рисуем линию
+    painter.setPen(Qt::black);
+    if(mLine==true){
+     int u=-24*mKvalue+mBvalue;
+     int v=24*mKvalue+mBvalue;
+        painter.drawLine(QPoint(0,center.y()-u*20), QPoint(2*center.x(),center.y()-v*20));
+    }
 
     // Координатные оси
     painter.setPen(Qt::lightGray);

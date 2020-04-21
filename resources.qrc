@@ -21,6 +21,11 @@
         <file>picture/Bernuli.png</file>
         <file>picture/v_sign.jpg</file>
         <file>picture/logo.jpg</file>
+        <file>picture/photo_2020-04-16_19-24-01.jpg</file>
+        <file>picture/photo_2020-04-16_19-24-27.jpg</file>
+        <file>picture/photo_2020-04-16_19-24-57.jpg</file>
+        <file>picture/photo_2020-04-18_23-17-33.jpg</file>
+        <file>picture/photo_2020-04-19_01-02-17.jpg</file>
     </qresource>
     <qresource prefix="/for_calculator">
         <file>picture2/-.png</file>

@@ -1,7 +1,7 @@
 #include "calculator.h"
 #include "ui_calculator.h"
 #include "graphic.h"
-#include "ui_mainwindow.h"
+
 
 calculator::calculator(QWidget *parent) :
     QDialog(parent),

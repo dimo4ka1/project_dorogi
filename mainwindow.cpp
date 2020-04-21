@@ -5,6 +5,7 @@
 #include <QPainter>
 #include <QGraphicsItem>
 #include <QtDebug>
+#include <string>
 #include <QMouseEvent>
 //#include <QtScript/QScriptEngine>
 MainWindow::MainWindow(QWidget *parent)
@@ -83,6 +84,28 @@ void MainWindow::on_Bernulli_clicked()
     this->ui->graphic->repaint(); // перерисовывает рисунок
     update_ui ();
 }
+void MainWindow::on_Astroid_clicked()
+{
+    this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
+    this->ui->graphic->setFunction(Graphic::Astroid);
+    this->ui->graphic->repaint(); // перерисовывает рисунок
+    update_ui ();
+}
+void MainWindow::on_Line_clicked()
+{
+    this->ui->graphic->Line(true);
+    this->ui->graphic->repaint();
+}
+void MainWindow::on_K_value_valueChanged(double arg1)
+{
+    this->ui->graphic->setmKvalue(arg1);
+}
+
+void MainWindow::on_B_value_valueChanged(double arg1)
+{
+    this->ui->graphic->setmBvalue(arg1);
+}
+
 
 void MainWindow::on_scale_valueChanged(double scale) // изменяет размер
 {
@@ -125,3 +148,5 @@ void MainWindow::on_call_calculator_clicked()
     s.exec();
 
 }
+
+

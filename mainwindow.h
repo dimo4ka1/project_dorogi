@@ -48,6 +48,14 @@ private slots:
 
     void mousePressEvent(QGraphicsSceneMouseEvent * event );
 
+    void on_Astroid_clicked();
+
+    void on_Line_clicked();
+
+    void on_K_value_valueChanged(double arg1);
+
+    void on_B_value_valueChanged(double arg1);
+
 private:
     void update_ui(); // Выведение значений параметров у графиков
 
