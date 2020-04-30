@@ -85,7 +85,8 @@ void calculator::on_number_0_clicked()
 
 void calculator::on_dot_clicked()
 {
-  ui->output_icon->setText((ui->output_icon->text())+".");
+    if(!(ui->output_icon->text().contains('.')))
+        ui->output_icon->setText((ui->output_icon->text())+".");
 }
 
 void calculator::on_cos_clicked()

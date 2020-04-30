@@ -148,7 +148,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->on_Bernulli_clicked(); break;
         case 10: _t->on_stepCount_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 11: _t->on_call_calculator_clicked(); break;
-        case 12: _t->mousePressEvent((*reinterpret_cast< QGraphicsSceneMouseEvent*(*)>(_a[1]))); break;
+        //case 12: _t->mousePressEvent((*reinterpret_cast< QGraphicsSceneMouseEvent*(*)>(_a[1]))); break;
         case 13: _t->on_Astroid_clicked(); break;
         case 14: _t->on_Line_clicked(); break;
         case 15: _t->on_K_value_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;

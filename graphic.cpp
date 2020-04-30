@@ -8,6 +8,7 @@
 
 //Для проверки экстремумов
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 
@@ -101,7 +102,28 @@ QPointF Graphic::compute_Astroid(float t, float a)
     float y = a * sin_t * sin_t * sin_t;
     return QPointF (x, y);
 }
+void Graphic::mousePressEvent(QGraphicsSceneMouseEvent * event ){
+    ofstream outf ("proba.txt");
+    outf<< "Hello world!";
+    /*
+         // if(event->buttons() & Qt::RightButton){
+   emit signalTargetCoordinate(event->scenePos());
+  // this->ui->X_coordinate->setText("X:" );
+  //             this->ui->X_coordinate->setText("X:1" );
+   //this->ui->X_coordinate->setText(ui->X_coordinate->text()+(event->scenePos().x()));
+   //this->ui->Y_coordinate->setText("Y:");
+   //this->ui->Y_coordinate->setText(ui->Y_coordinate->text()+event->scenePos().y());
 
+     QPainter painter(this);
+
+     painter.setBrush(mBackgroundColor); //  цвет фона
+     painter.setPen(mShapeColor); // цвет рисунка
+
+     painter.setRenderHint(QPainter::Antialiasing, true);
+     painter.drawRect(this->rect());
+     painter.drawLine(QPoint(0,0), QPoint(100,1000));
+//}*/
+}
 void Graphic::on_function_change() // Присваивание к mFunction выбранного графика
 {
     switch(mFunction) {

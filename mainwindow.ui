@@ -117,15 +117,15 @@
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>10</y>
+           <y>13</y>
            <width>91</width>
-           <height>55</height>
+           <height>52</height>
           </rect>
          </property>
          <property name="minimumSize">
           <size>
            <width>55</width>
-           <height>55</height>
+           <height>52</height>
           </size>
          </property>
          <property name="focusPolicy">
@@ -149,15 +149,15 @@
          <property name="geometry">
           <rect>
            <x>130</x>
-           <y>10</y>
+           <y>13</y>
            <width>91</width>
-           <height>55</height>
+           <height>52</height>
           </rect>
          </property>
          <property name="minimumSize">
           <size>
            <width>90</width>
-           <height>55</height>
+           <height>52</height>
           </size>
          </property>
          <property name="text">
@@ -310,7 +310,7 @@
           <string>Astroid</string>
          </property>
         </widget>
-        <widget class="QWidget" name="">
+        <widget class="QWidget" name="layoutWidget">
          <property name="geometry">
           <rect>
            <x>20</x>

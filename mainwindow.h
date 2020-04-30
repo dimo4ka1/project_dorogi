@@ -46,7 +46,7 @@ private slots:
 
     void on_call_calculator_clicked();
 
-    void mousePressEvent(QGraphicsSceneMouseEvent * event );
+   // void mousePressEvent(QGraphicsSceneMouseEvent * event );
 
     void on_Astroid_clicked();
 

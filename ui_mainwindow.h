@@ -46,7 +46,7 @@ public:
     QPushButton *hyperbolicSpiral;
     QPushButton *Bernulli;
     QPushButton *Astroid;
-    QWidget *widget;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_2;
     QHBoxLayout *horizontalLayout;
     QLabel *label_4;
@@ -65,7 +65,7 @@ public:
     QLabel *label_2;
     QSpinBox *stepCount;
     QLabel *label_3;
-    QWidget *layoutWidget1;
+    QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout_2;
     QLabel *X_coordinate;
     QLabel *Y_coordinate;
@@ -117,8 +117,8 @@ public:
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 248, 398));
         circle = new QPushButton(scrollAreaWidgetContents);
         circle->setObjectName(QString::fromUtf8("circle"));
-        circle->setGeometry(QRect(10, 10, 91, 55));
-        circle->setMinimumSize(QSize(55, 55));
+        circle->setGeometry(QRect(10, 13, 91, 52));
+        circle->setMinimumSize(QSize(55, 52));
         circle->setFocusPolicy(Qt::WheelFocus);
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/img/picture/photo_2020-04-16_19-24-27.jpg"), QSize(), QIcon::Normal, QIcon::Off);
@@ -126,8 +126,8 @@ public:
         circle->setIconSize(QSize(90, 100));
         clover = new QPushButton(scrollAreaWidgetContents);
         clover->setObjectName(QString::fromUtf8("clover"));
-        clover->setGeometry(QRect(130, 10, 91, 55));
-        clover->setMinimumSize(QSize(90, 55));
+        clover->setGeometry(QRect(130, 13, 91, 52));
+        clover->setMinimumSize(QSize(90, 52));
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/img/picture/photo_2020-04-19_01-02-17.jpg"), QSize(), QIcon::Normal, QIcon::Off);
         clover->setIcon(icon2);
@@ -170,17 +170,17 @@ public:
         Astroid = new QPushButton(scrollAreaWidgetContents);
         Astroid->setObjectName(QString::fromUtf8("Astroid"));
         Astroid->setGeometry(QRect(130, 270, 93, 28));
-        widget = new QWidget(scrollAreaWidgetContents);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(20, 340, 191, 39));
-        horizontalLayout_2 = new QHBoxLayout(widget);
+        layoutWidget1 = new QWidget(scrollAreaWidgetContents);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(20, 340, 191, 39));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_2->setSpacing(0);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        label_4 = new QLabel(widget);
+        label_4 = new QLabel(layoutWidget1);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setMinimumSize(QSize(0, 35));
         label_4->setMaximumSize(QSize(16777215, 35));
@@ -195,7 +195,7 @@ public:
 
         horizontalLayout->addWidget(label_4);
 
-        K_value = new QDoubleSpinBox(widget);
+        K_value = new QDoubleSpinBox(layoutWidget1);
         K_value->setObjectName(QString::fromUtf8("K_value"));
         K_value->setEnabled(true);
         K_value->setMinimumSize(QSize(30, 35));
@@ -215,7 +215,7 @@ public:
 
         horizontalLayout->addWidget(K_value);
 
-        label_5 = new QLabel(widget);
+        label_5 = new QLabel(layoutWidget1);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setMinimumSize(QSize(0, 35));
         label_5->setMaximumSize(QSize(16777215, 35));
@@ -230,7 +230,7 @@ public:
 
         horizontalLayout->addWidget(label_5);
 
-        B_value = new QDoubleSpinBox(widget);
+        B_value = new QDoubleSpinBox(layoutWidget1);
         B_value->setObjectName(QString::fromUtf8("B_value"));
         B_value->setMinimumSize(QSize(30, 35));
         B_value->setFont(font1);
@@ -244,7 +244,7 @@ public:
 
         horizontalLayout_2->addLayout(horizontalLayout);
 
-        Line = new QPushButton(widget);
+        Line = new QPushButton(layoutWidget1);
         Line->setObjectName(QString::fromUtf8("Line"));
         Line->setMaximumSize(QSize(60, 40));
 
@@ -330,14 +330,14 @@ public:
 
         verticalLayout->addWidget(parametr);
 
-        layoutWidget1 = new QWidget(centralwidget);
-        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(10, 570, 101, 61));
-        verticalLayout_2 = new QVBoxLayout(layoutWidget1);
+        layoutWidget2 = new QWidget(centralwidget);
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(10, 570, 101, 61));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget2);
         verticalLayout_2->setSpacing(0);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        X_coordinate = new QLabel(layoutWidget1);
+        X_coordinate = new QLabel(layoutWidget2);
         X_coordinate->setObjectName(QString::fromUtf8("X_coordinate"));
         QFont font2;
         font2.setFamily(QString::fromUtf8("MS Shell Dlg 2"));
@@ -358,7 +358,7 @@ public:
 
         verticalLayout_2->addWidget(X_coordinate);
 
-        Y_coordinate = new QLabel(layoutWidget1);
+        Y_coordinate = new QLabel(layoutWidget2);
         Y_coordinate->setObjectName(QString::fromUtf8("Y_coordinate"));
         Y_coordinate->setFont(font2);
         Y_coordinate->setStyleSheet(QString::fromUtf8("QLabel {\n"
