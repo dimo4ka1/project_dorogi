@@ -180,13 +180,13 @@
            <x>10</x>
            <y>80</y>
            <width>93</width>
-           <height>100</height>
+           <height>52</height>
           </rect>
          </property>
          <property name="minimumSize">
           <size>
-           <width>90</width>
-           <height>100</height>
+           <width>52</width>
+           <height>52</height>
           </size>
          </property>
          <property name="text">
@@ -194,7 +194,7 @@
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/img/picture/Archimedes.png</normaloff>:/img/picture/Archimedes.png</iconset>
+           <normaloff>:/img/picture/photo_2020-04-16_19-24-57.jpg</normaloff>:/img/picture/photo_2020-04-16_19-24-57.jpg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -206,8 +206,8 @@
         <widget class="QPushButton" name="snail">
          <property name="geometry">
           <rect>
-           <x>130</x>
-           <y>70</y>
+           <x>10</x>
+           <y>140</y>
            <width>93</width>
            <height>101</height>
           </rect>
@@ -218,12 +218,15 @@
            <height>101</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
          <property name="text">
           <string/>
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/img/picture/snail.png</normaloff>:/img/picture/snail.png</iconset>
+           <normaloff>:/img/picture/Улитка.png</normaloff>:/img/picture/Улитка.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -249,9 +252,9 @@
          <property name="geometry">
           <rect>
            <x>20</x>
-           <y>210</y>
+           <y>260</y>
            <width>71</width>
-           <height>100</height>
+           <height>41</height>
           </rect>
          </property>
          <property name="text">
@@ -259,7 +262,7 @@
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/img/picture/hyperbolicSpiral.png</normaloff>:/img/picture/hyperbolicSpiral.png</iconset>
+           <normaloff>:/img/picture/photo_2020-04-16_19-24-57.jpg</normaloff>:/img/picture/photo_2020-04-16_19-24-57.jpg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -272,7 +275,7 @@
          <property name="geometry">
           <rect>
            <x>130</x>
-           <y>200</y>
+           <y>80</y>
            <width>91</width>
            <height>41</height>
           </rect>
@@ -283,12 +286,15 @@
            <height>0</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
          <property name="text">
           <string/>
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/img/picture/photo_2020-04-16_19-24-01.jpg</normaloff>:/img/picture/photo_2020-04-16_19-24-01.jpg</iconset>
+           <normaloff>:/for_calculator/picture/Лемниската.png</normaloff>:/for_calculator/picture/Лемниската.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -301,13 +307,26 @@
          <property name="geometry">
           <rect>
            <x>130</x>
-           <y>270</y>
-           <width>93</width>
-           <height>28</height>
+           <y>140</y>
+           <width>91</width>
+           <height>101</height>
           </rect>
          </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
          <property name="text">
-          <string>Astroid</string>
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/for_calculator/picture/Astroid.png</normaloff>:/for_calculator/picture/Astroid.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>75</width>
+           <height>75</height>
+          </size>
          </property>
         </widget>
         <widget class="QWidget" name="layoutWidget">
@@ -316,7 +335,7 @@
            <x>20</x>
            <y>340</y>
            <width>191</width>
-           <height>39</height>
+           <height>41</height>
           </rect>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -471,8 +490,21 @@ background-color : white;
               <height>40</height>
              </size>
             </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
+            </property>
             <property name="text">
-             <string>addLine</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resources.qrc">
+              <normaloff>:/img/picture/Прямая.png</normaloff>:/img/picture/Прямая.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
             </property>
            </widget>
           </item>

@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[23];
-    char stringdata0[434];
+    char stringdata0[421];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -49,12 +49,12 @@ QT_MOC_LITERAL(13, 230, 19), // "on_Bernulli_clicked"
 QT_MOC_LITERAL(14, 250, 25), // "on_stepCount_valueChanged"
 QT_MOC_LITERAL(15, 276, 26), // "on_call_calculator_clicked"
 QT_MOC_LITERAL(16, 303, 15), // "mousePressEvent"
-QT_MOC_LITERAL(17, 319, 25), // "QGraphicsSceneMouseEvent*"
-QT_MOC_LITERAL(18, 345, 5), // "event"
-QT_MOC_LITERAL(19, 351, 18), // "on_Astroid_clicked"
-QT_MOC_LITERAL(20, 370, 15), // "on_Line_clicked"
-QT_MOC_LITERAL(21, 386, 23), // "on_K_value_valueChanged"
-QT_MOC_LITERAL(22, 410, 23) // "on_B_value_valueChanged"
+QT_MOC_LITERAL(17, 319, 12), // "QMouseEvent*"
+QT_MOC_LITERAL(18, 332, 5), // "event"
+QT_MOC_LITERAL(19, 338, 18), // "on_Astroid_clicked"
+QT_MOC_LITERAL(20, 357, 15), // "on_Line_clicked"
+QT_MOC_LITERAL(21, 373, 23), // "on_K_value_valueChanged"
+QT_MOC_LITERAL(22, 397, 23) // "on_B_value_valueChanged"
 
     },
     "MainWindow\0signalTargetCoordinate\0\0"
@@ -66,9 +66,9 @@ QT_MOC_LITERAL(22, 410, 23) // "on_B_value_valueChanged"
     "on_aValue_valueChanged\0on_Bernulli_clicked\0"
     "on_stepCount_valueChanged\0"
     "on_call_calculator_clicked\0mousePressEvent\0"
-    "QGraphicsSceneMouseEvent*\0event\0"
-    "on_Astroid_clicked\0on_Line_clicked\0"
-    "on_K_value_valueChanged\0on_B_value_valueChanged"
+    "QMouseEvent*\0event\0on_Astroid_clicked\0"
+    "on_Line_clicked\0on_K_value_valueChanged\0"
+    "on_B_value_valueChanged"
 };
 #undef QT_MOC_LITERAL
 
@@ -148,7 +148,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->on_Bernulli_clicked(); break;
         case 10: _t->on_stepCount_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 11: _t->on_call_calculator_clicked(); break;
-        //case 12: _t->mousePressEvent((*reinterpret_cast< QGraphicsSceneMouseEvent*(*)>(_a[1]))); break;
+        case 12: _t->mousePressEvent((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
         case 13: _t->on_Astroid_clicked(); break;
         case 14: _t->on_Line_clicked(); break;
         case 15: _t->on_K_value_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;

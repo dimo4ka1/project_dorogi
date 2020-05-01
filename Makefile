@@ -484,16 +484,15 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: resources.qrc \
 		D:/qt/5.14.1/mingw73_64/bin/rcc.exe \
-		picture/clover2.png \
 		picture/photo_2020-04-19_01-02-17.jpg \
 		picture/14.jpeg \
 		picture/photo_2020-04-16_19-24-57.jpg \
-		picture/Archimedes.png \
-		picture/Bernuli.png \
+		picture/??????.png \
 		picture/1.jpg \
 		picture/2.jpg \
 		picture/3.jpg \
 		picture/11.jpg \
+		picture/??????.png \
 		picture/4.jpg \
 		picture/12.jpg \
 		picture/6.jpg \
@@ -506,9 +505,6 @@ qrc_resources.cpp: resources.qrc \
 		picture/logo.jpg \
 		picture/5.png \
 		picture/photo_2020-04-16_19-24-01.jpg \
-		picture/circle.jpg \
-		picture/snail.png \
-		picture/hyperbolicSpiral.png \
 		picture/photo_2020-04-18_23-17-33.jpg \
 		picture2/unn_button.png \
 		picture2/e.png \
@@ -536,7 +532,9 @@ qrc_resources.cpp: resources.qrc \
 		picture2/del_button.png \
 		picture2/hook(.png \
 		picture2/hooks.png \
-		picture2/hook).png
+		picture2/hook).png \
+		picture/??????????.png \
+		picture/Astroid.png
 	D:\qt\5.14.1\mingw73_64\bin\rcc.exe -name resources resources.qrc -o qrc_resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -1194,29 +1192,7 @@ calculator.o: calculator.cpp calculator.h \
 		D:/qt/5.14.1/mingw73_64/include/QtGui/QPolygon \
 		D:/qt/5.14.1/mingw73_64/include/QtCore/QTimer \
 		D:/qt/5.14.1/mingw73_64/include/QtCore/qtimer.h \
-		D:/qt/5.14.1/mingw73_64/include/QtCore/qbasictimer.h \
-		ui_mainwindow.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QDoubleSpinBox \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qspinbox.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qabstractspinbox.h \
-		D:/qt/5.14.1/mingw73_64/include/QtGui/qvalidator.h \
-		D:/qt/5.14.1/mingw73_64/include/QtCore/qregularexpression.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QFormLayout \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qformlayout.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QLayout \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QMainWindow \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qmainwindow.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qtabwidget.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QScrollArea \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qscrollarea.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QScrollBar \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qscrollbar.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qabstractslider.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QSpinBox \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QStatusBar \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qstatusbar.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QVBoxLayout
+		D:/qt/5.14.1/mingw73_64/include/QtCore/qbasictimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o calculator.o calculator.cpp
 
 graphic.o: graphic.cpp graphic.h \
@@ -1607,6 +1583,7 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qlayoutitem.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qboxlayout.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qgridlayout.h \
+		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QHBoxLayout \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QLabel \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qlabel.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qframe.h \

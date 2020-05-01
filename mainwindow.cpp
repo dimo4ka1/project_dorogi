@@ -128,18 +128,20 @@ void MainWindow::on_stepCount_valueChanged(int count)
 }
 
 // Функция, которая считывает координаты мышки
-/*void MainWindow::mousePressEvent(QGraphicsSceneMouseEvent * event ){
+void MainWindow::mousePressEvent(QMouseEvent * event ){
 
           if(event->buttons() & Qt::RightButton){
-   emit signalTargetCoordinate(event->scenePos());
-  // this->ui->X_coordinate->setText("X:" );
-               this->ui->X_coordinate->setText("X:1" );
-   this->ui->X_coordinate->setText(ui->X_coordinate->text()+(event->scenePos().x()));
+   emit signalTargetCoordinate(event->pos());
+   this->ui->X_coordinate->setText("X:" );
+   this->ui->X_coordinate->setText("X: " + QString::number((-this->ui->graphic->rect().center().x() + event->pos().x())/20));
    this->ui->Y_coordinate->setText("Y:");
-   this->ui->Y_coordinate->setText(ui->Y_coordinate->text()+event->scenePos().y());
+    this->ui->Y_coordinate->setText("Y: " + QString::number((this->ui->graphic->rect().center().y() - event->pos().y())/20));
 
 }
-}*/
+
+
+
+}
 
 
 void MainWindow::on_call_calculator_clicked()

@@ -76,10 +76,10 @@ private:
        QPointF compute_FEdit(float t, float a);            // Введенная функция
        QPointF compute_calculate(float t);                 // Функция из канкулятора
        QPointF compute_Astroid(float t, float a);
-       void compute_Line(float k,float b);
 
 
-       void mousePressEvent(QGraphicsSceneMouseEvent * event );
+
+       //void mousePressEvent(QGraphicsSceneMouseEvent * event );
        void on_function_change(); // Объявляю функцию, отвечающую за размер, угол, кол-во точек на графике
        QColor mBackgroundColor; // Цвет
        QColor mShapeColor;

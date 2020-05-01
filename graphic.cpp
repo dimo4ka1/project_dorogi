@@ -72,13 +72,7 @@ QPointF Graphic::compute_snail(float t,float a) // Кардиоида
     float y =(1+a*cos_t)*sin_t;
     return QPointF(x,y);
 }
-void compute_Line(float k,float b){
 
-
-
-
-
-}
 QPointF Graphic::compute_hyperbolicSpiral(float t, float a) // Гиперболическая спираль
 {
 
@@ -88,6 +82,7 @@ QPointF Graphic::compute_hyperbolicSpiral(float t, float a) // Гипербол�
     float y =(a/t)*sin_t;
     return QPointF(x,y);
 }
+
 QPointF Graphic::compute_Bernulli(float t, float a) // Лемниската Бернулли
 {
     float x = (cos(2*t + a*M_PI_2) >= 0) ? sqrt((cos(2*t + a*M_PI_2)))*cos(t) : 0;
@@ -102,10 +97,10 @@ QPointF Graphic::compute_Astroid(float t, float a)
     float y = a * sin_t * sin_t * sin_t;
     return QPointF (x, y);
 }
-void Graphic::mousePressEvent(QGraphicsSceneMouseEvent * event ){
+/*void Graphic::mousePressEvent(QGraphicsSceneMouseEvent * event ){
     ofstream outf ("proba.txt");
     outf<< "Hello world!";
-    /*
+
          // if(event->buttons() & Qt::RightButton){
    emit signalTargetCoordinate(event->scenePos());
   // this->ui->X_coordinate->setText("X:" );
@@ -114,16 +109,9 @@ void Graphic::mousePressEvent(QGraphicsSceneMouseEvent * event ){
    //this->ui->Y_coordinate->setText("Y:");
    //this->ui->Y_coordinate->setText(ui->Y_coordinate->text()+event->scenePos().y());
 
-     QPainter painter(this);
+    }
+}*/
 
-     painter.setBrush(mBackgroundColor); //  цвет фона
-     painter.setPen(mShapeColor); // цвет рисунка
-
-     painter.setRenderHint(QPainter::Antialiasing, true);
-     painter.drawRect(this->rect());
-     painter.drawLine(QPoint(0,0), QPoint(100,1000));
-//}*/
-}
 void Graphic::on_function_change() // Присваивание к mFunction выбранного графика
 {
     switch(mFunction) {
