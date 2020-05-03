@@ -55,11 +55,11 @@ public:
     void setmBvalue(float Bvalue){mBvalue = Bvalue; }
     float Bvalue () const{ return mBvalue;}
 
-    void setmKvalue(float Kvalue){mKvalue = Kvalue; }
-    float Kvalue () const{ return mKvalue;}
+    void setmKvalue(float Kvalue){ mKvalue = Kvalue; }
+    float Kvalue () const{ return mKvalue; }
 
-    void setCodeFunction(QString CodeFunction){mCodeFunction = CodeFunction; }
-    QString CodeFunction () const{ return mCodeFunction;}
+    void setCodeFunction(QString CodeFunction){ mCodeFunction = CodeFunction; }
+    QString CodeFunction () const { return mCodeFunction; }
 
 protected:
         void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;

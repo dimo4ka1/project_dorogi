@@ -6,11 +6,11 @@
 #include <QPen>
 
 
-/*#include <QtScript/QScriptEngine>
+#include <QtScript/QScriptEngine>
 #include <QtScript/QscriptValue>
 #include <QtScript/QScriptValueList>
 #include <QString>
-*/
+
 //Для проверки экстремумов
 #include <iostream>
 #include <fstream>
@@ -39,13 +39,13 @@ QSize Graphic::sizeHint() const
 
 QPointF Graphic::compute_calculate(float t, QString CodeFunction) // Функция из калькулятора
 {
-   /* // Необходимые переменные
+    // Необходимые переменные
     double r;
     QScriptEngine engine;
     QScriptValue scriptFun;
 
     //подготовка движка QtScript
-    engine.evaluate("function fun(t)\n {\n var r=0;\n"+CodeFunction+"\n return r;\n}\n");
+    engine.evaluate("function fun(t)\n {\n var r=0;\n r="+CodeFunction+"\n return r;\n}\n");
     scriptFun = engine.globalObject().property("fun");
     // Вычисление значения r в t
     r = scriptFun.call(QScriptValue(), QScriptValueList() << t).toNumber();
@@ -54,7 +54,7 @@ QPointF Graphic::compute_calculate(float t, QString CodeFunction) // Функц�
 
     float x = r * cos(t);
     float y = r * sin(t);
-    return QPointF(x,y);*/
+    return QPointF(x,y);
 }
 QPointF Graphic::compute_circle(float t) //Круг
 {
@@ -285,10 +285,6 @@ void Graphic::paintEvent(QPaintEvent *event) // Рисуем график
         float x2 = point2.x();
         float y2 = point2.y();
         if ((x0 > x1 && x0 > x2) || (x0 < x1 && x0 < x2) || (y0 > y1 && y0 > y2) || (y0 < y1 && y0 < y2)) {
-            //cout << "i = " << i << endl; // вывод для проверки
-            //cout << "x0 = " << x0 << endl << "y0 = " << y0 << endl;
-            //cout << "x1 = " << x1 << endl << "y1 = " << y1 << endl;
-            //cout << "x2 = " << x2 << endl << "y2 = " << y2 << endl;
             //Создаем участок шириной 3 красного цвета для сброса скорости
             QPen pen1;
             pen1.setWidth(5);

@@ -5,8 +5,9 @@
 #include <QPainter>
 #include <QGraphicsItem>
 #include <QtDebug>
-#include <string>
+#include <QString>
 #include <QMouseEvent>
+
 //#include <QtScript/QScriptEngine>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -183,16 +184,11 @@ void MainWindow::on_call_calculator_clicked()
     calculator s;
     s.setModal(true);
     s.exec();
-    if(s.mready == true){
-    QString a=s.value();
-        this->ui->formula->setText(a);
-    this->ui->graphic->setCodeFunction(a);
-
+    if(s.mready == true) {
     }
-
-
+    this->ui->graphic->setCodeFunction(s.CodeFun());
+    this->ui->formula->setText(s.Formula());
     this->ui->graphic->setFunction(Graphic::calculate);
-
 }
 
 

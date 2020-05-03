@@ -2,6 +2,7 @@
 #define CALCULATOR_H
 
 #include <QDialog>
+#include <QString>
 
 namespace Ui {
 class calculator;
@@ -17,11 +18,15 @@ public:
 
     QString value();
 
-
     bool mready;
 
-private slots:
+    void setCodeFun(QString CodeFun){ mCodeFun = CodeFun; }
+    QString CodeFun () const { return mCodeFun; }
 
+    void setFormula(QString Formula) { mFormula = Formula; }
+    QString Formula() const { return mFormula; }
+
+private slots:
 
     void on_Pi_clicked();
 
@@ -65,17 +70,18 @@ private slots:
 
     void on_angle_clicked();
 
-
-
     void on_number_0_clicked();
 
     void on_hook_open_clicked();
 
     void on_hook_close_clicked();
 
-
-
     void on_start_clicked();
+
+private:
+
+    QString mCodeFun;
+    QString mFormula;
 
 private:
     Ui::calculator *ui;

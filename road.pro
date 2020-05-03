@@ -1,5 +1,5 @@
 
-QT       += core gui
+QT       += core gui script
 #QT += script
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
