@@ -76,7 +76,7 @@
       <x>970</x>
       <y>19</y>
       <width>262</width>
-      <height>570</height>
+      <height>600</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -91,7 +91,7 @@
       <widget class="QScrollArea" name="menugr">
        <property name="minimumSize">
         <size>
-         <width>250</width>
+         <width>260</width>
          <height>400</height>
         </size>
        </property>
@@ -109,17 +109,20 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>248</width>
+          <width>258</width>
           <height>398</height>
          </rect>
         </property>
         <widget class="QPushButton" name="circle">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>13</y>
-           <width>91</width>
-           <height>52</height>
+           <y>10</y>
+           <width>100</width>
+           <height>100</height>
           </rect>
          </property>
          <property name="minimumSize">
@@ -136,22 +139,22 @@
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/img/picture/photo_2020-04-16_19-24-27.jpg</normaloff>:/img/picture/photo_2020-04-16_19-24-27.jpg</iconset>
+           <normaloff>:/img/picture/Круг.png</normaloff>:/img/picture/Круг.png</iconset>
          </property>
          <property name="iconSize">
           <size>
-           <width>90</width>
-           <height>100</height>
+           <width>260</width>
+           <height>90</height>
           </size>
          </property>
         </widget>
         <widget class="QPushButton" name="clover">
          <property name="geometry">
           <rect>
-           <x>130</x>
-           <y>13</y>
-           <width>91</width>
-           <height>52</height>
+           <x>120</x>
+           <y>10</y>
+           <width>100</width>
+           <height>100</height>
           </rect>
          </property>
          <property name="minimumSize">
@@ -165,12 +168,12 @@
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/img/picture/photo_2020-04-19_01-02-17.jpg</normaloff>:/img/picture/photo_2020-04-19_01-02-17.jpg</iconset>
+           <normaloff>:/img/picture/Клевер.png</normaloff>:/img/picture/Клевер.png</iconset>
          </property>
          <property name="iconSize">
           <size>
            <width>90</width>
-           <height>100</height>
+           <height>90</height>
           </size>
          </property>
         </widget>
@@ -178,15 +181,15 @@
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>80</y>
-           <width>93</width>
-           <height>52</height>
+           <y>230</y>
+           <width>100</width>
+           <height>100</height>
           </rect>
          </property>
          <property name="minimumSize">
           <size>
-           <width>52</width>
-           <height>52</height>
+           <width>0</width>
+           <height>0</height>
           </size>
          </property>
          <property name="text">
@@ -194,11 +197,11 @@
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/img/picture/photo_2020-04-16_19-24-57.jpg</normaloff>:/img/picture/photo_2020-04-16_19-24-57.jpg</iconset>
+           <normaloff>:/img/picture/Спираль.png</normaloff>:/img/picture/Спираль.png</iconset>
          </property>
          <property name="iconSize">
           <size>
-           <width>90</width>
+           <width>80</width>
            <height>100</height>
           </size>
          </property>
@@ -206,10 +209,10 @@
         <widget class="QPushButton" name="snail">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>140</y>
-           <width>101</width>
-           <height>111</height>
+           <x>120</x>
+           <y>340</y>
+           <width>100</width>
+           <height>101</height>
           </rect>
          </property>
          <property name="minimumSize">
@@ -230,18 +233,18 @@
          </property>
          <property name="iconSize">
           <size>
-           <width>300</width>
-           <height>100</height>
+           <width>290</width>
+           <height>90</height>
           </size>
          </property>
         </widget>
         <widget class="QPushButton" name="hyperbolicSpiral">
          <property name="geometry">
           <rect>
-           <x>20</x>
-           <y>260</y>
-           <width>71</width>
-           <height>41</height>
+           <x>10</x>
+           <y>450</y>
+           <width>100</width>
+           <height>100</height>
           </rect>
          </property>
          <property name="text">
@@ -249,54 +252,69 @@
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/img/picture/photo_2020-04-16_19-24-57.jpg</normaloff>:/img/picture/photo_2020-04-16_19-24-57.jpg</iconset>
+           <normaloff>:/img/picture/Спираль.png</normaloff>:/img/picture/Спираль.png</iconset>
          </property>
          <property name="iconSize">
           <size>
-           <width>90</width>
+           <width>80</width>
            <height>100</height>
           </size>
          </property>
         </widget>
         <widget class="QPushButton" name="Bernulli">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="geometry">
           <rect>
-           <x>120</x>
-           <y>80</y>
-           <width>101</width>
-           <height>51</height>
+           <x>10</x>
+           <y>120</y>
+           <width>100</width>
+           <height>100</height>
           </rect>
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
-           <height>0</height>
+           <width>50</width>
+           <height>50</height>
           </size>
          </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
          </property>
          <property name="text">
-          <string/>
+          <string> </string>
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/for_calculator/picture/Лемниската.png</normaloff>:/for_calculator/picture/Лемниската.png</iconset>
+           <normaloff>:/img/picture/Лемниската.png</normaloff>:/img/picture/Лемниската.png</iconset>
          </property>
          <property name="iconSize">
           <size>
-           <width>90</width>
-           <height>120</height>
+           <width>95</width>
+           <height>100</height>
           </size>
+         </property>
+         <property name="shortcut">
+          <string/>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+         <property name="autoRepeatDelay">
+          <number>300</number>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
          </property>
         </widget>
         <widget class="QPushButton" name="Astroid">
          <property name="geometry">
           <rect>
            <x>120</x>
-           <y>140</y>
-           <width>101</width>
-           <height>111</height>
+           <y>120</y>
+           <width>100</width>
+           <height>100</height>
           </rect>
          </property>
          <property name="styleSheet">
@@ -307,28 +325,28 @@
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/for_calculator/picture/Astroid.png</normaloff>:/for_calculator/picture/Astroid.png</iconset>
+           <normaloff>:/img/picture/Astroid.png</normaloff>:/img/picture/Astroid.png</iconset>
          </property>
          <property name="iconSize">
           <size>
-           <width>75</width>
-           <height>75</height>
+           <width>95</width>
+           <height>95</height>
           </size>
          </property>
         </widget>
         <widget class="QPushButton" name="Line">
          <property name="geometry">
           <rect>
-           <x>130</x>
-           <y>260</y>
-           <width>70</width>
-           <height>41</height>
+           <x>120</x>
+           <y>230</y>
+           <width>100</width>
+           <height>100</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>70</width>
-           <height>50</height>
+           <width>10000</width>
+           <height>10000</height>
           </size>
          </property>
          <property name="styleSheet">
@@ -343,18 +361,18 @@
          </property>
          <property name="iconSize">
           <size>
-           <width>60</width>
-           <height>40</height>
+           <width>100</width>
+           <height>100</height>
           </size>
          </property>
         </widget>
         <widget class="QPushButton" name="LogSpiral">
          <property name="geometry">
           <rect>
-           <x>130</x>
-           <y>311</y>
-           <width>80</width>
-           <height>45</height>
+           <x>10</x>
+           <y>340</y>
+           <width>100</width>
+           <height>100</height>
           </rect>
          </property>
          <property name="minimumSize">
@@ -368,7 +386,7 @@
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/img/picture/photo_2020-04-16_19-24-57.jpg</normaloff>:/img/picture/photo_2020-04-16_19-24-57.jpg</iconset>
+           <normaloff>:/img/picture/Спираль.png</normaloff>:/img/picture/Спираль.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -380,10 +398,10 @@
         <widget class="QScrollBar" name="scroll">
          <property name="geometry">
           <rect>
-           <x>230</x>
+           <x>240</x>
            <y>0</y>
            <width>20</width>
-           <height>401</height>
+           <height>398</height>
           </rect>
          </property>
          <property name="orientation">
@@ -415,11 +433,100 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>248</width>
-          <height>238</height>
+          <width>237</width>
+          <height>208</height>
          </rect>
         </property>
         <layout class="QFormLayout" name="formLayout">
+         <item row="0" column="0">
+          <widget class="QDoubleSpinBox" name="K_value">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>30</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="inputMethodHints">
+            <set>Qt::ImhFormattedNumbersOnly</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="keyboardTracking">
+            <bool>true</bool>
+           </property>
+           <property name="showGroupSeparator" stdset="0">
+            <bool>false</bool>
+           </property>
+           <property name="decimals">
+            <number>2</number>
+           </property>
+           <property name="minimum">
+            <double>-50.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>50.000000000000000</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>k</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QDoubleSpinBox" name="B_value">
+           <property name="minimumSize">
+            <size>
+             <width>30</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="decimals">
+            <number>1</number>
+           </property>
+           <property name="minimum">
+            <double>-25.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>25.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>b</string>
+           </property>
+          </widget>
+         </item>
          <item row="3" column="0">
           <widget class="QDoubleSpinBox" name="scale">
            <property name="minimumSize">
@@ -557,95 +664,6 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="0">
-          <widget class="QDoubleSpinBox" name="K_value">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>30</width>
-             <height>35</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="autoFillBackground">
-            <bool>false</bool>
-           </property>
-           <property name="inputMethodHints">
-            <set>Qt::ImhFormattedNumbersOnly</set>
-           </property>
-           <property name="buttonSymbols">
-            <enum>QAbstractSpinBox::NoButtons</enum>
-           </property>
-           <property name="keyboardTracking">
-            <bool>true</bool>
-           </property>
-           <property name="showGroupSeparator" stdset="0">
-            <bool>false</bool>
-           </property>
-           <property name="decimals">
-            <number>2</number>
-           </property>
-           <property name="minimum">
-            <double>-50.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>50.000000000000000</double>
-           </property>
-           <property name="value">
-            <double>0.000000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QDoubleSpinBox" name="B_value">
-           <property name="minimumSize">
-            <size>
-             <width>30</width>
-             <height>35</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="buttonSymbols">
-            <enum>QAbstractSpinBox::NoButtons</enum>
-           </property>
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="minimum">
-            <double>-25.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>25.000000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLabel" name="label_4">
-           <property name="text">
-            <string>k</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLabel" name="label_5">
-           <property name="text">
-            <string>b</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </widget>
       </widget>
@@ -731,14 +749,22 @@ background-color : white;
       <height>61</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
-     <string/>
+     <string>Clear</string>
     </property>
    </widget>
    <widget class="QLabel" name="formula">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>320</x>
       <y>590</y>
       <width>381</width>
       <height>41</height>
