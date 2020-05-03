@@ -55,10 +55,10 @@ QT_MOC_LITERAL(19, 311, 16), // "on_minus_clicked"
 QT_MOC_LITERAL(20, 328, 19), // "on_multiply_clicked"
 QT_MOC_LITERAL(21, 348, 17), // "on_divide_clicked"
 QT_MOC_LITERAL(22, 366, 16), // "on_angle_clicked"
-QT_MOC_LITERAL(23, 383, 16), // "on_start_clicked"
-QT_MOC_LITERAL(24, 400, 19), // "on_number_0_clicked"
-QT_MOC_LITERAL(25, 420, 20), // "on_hook_open_clicked"
-QT_MOC_LITERAL(26, 441, 21) // "on_hook_close_clicked"
+QT_MOC_LITERAL(23, 383, 19), // "on_number_0_clicked"
+QT_MOC_LITERAL(24, 403, 20), // "on_hook_open_clicked"
+QT_MOC_LITERAL(25, 424, 21), // "on_hook_close_clicked"
+QT_MOC_LITERAL(26, 446, 16) // "on_start_clicked"
 
     },
     "calculator\0on_Pi_clicked\0\0on_number_1_clicked\0"
@@ -71,9 +71,9 @@ QT_MOC_LITERAL(26, 441, 21) // "on_hook_close_clicked"
     "on_tg_clicked\0on_ctg_clicked\0"
     "on_plus_clicked\0on_minus_clicked\0"
     "on_multiply_clicked\0on_divide_clicked\0"
-    "on_angle_clicked\0on_start_clicked\0"
-    "on_number_0_clicked\0on_hook_open_clicked\0"
-    "on_hook_close_clicked"
+    "on_angle_clicked\0on_number_0_clicked\0"
+    "on_hook_open_clicked\0on_hook_close_clicked\0"
+    "on_start_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -174,10 +174,10 @@ void calculator::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 18: _t->on_multiply_clicked(); break;
         case 19: _t->on_divide_clicked(); break;
         case 20: _t->on_angle_clicked(); break;
-        case 21: _t->on_start_clicked(); break;
-        case 22: _t->on_number_0_clicked(); break;
-        case 23: _t->on_hook_open_clicked(); break;
-        case 24: _t->on_hook_close_clicked(); break;
+        case 21: _t->on_number_0_clicked(); break;
+        case 22: _t->on_hook_open_clicked(); break;
+        case 23: _t->on_hook_close_clicked(); break;
+        case 24: _t->on_start_clicked(); break;
         default: ;
         }
     }

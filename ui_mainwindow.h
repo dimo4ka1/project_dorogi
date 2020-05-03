@@ -14,7 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QFormLayout>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
@@ -42,18 +41,12 @@ public:
     QPushButton *clover;
     QPushButton *Archimedes;
     QPushButton *snail;
-    QScrollBar *scroll;
     QPushButton *hyperbolicSpiral;
     QPushButton *Bernulli;
     QPushButton *Astroid;
-    QWidget *layoutWidget1;
-    QHBoxLayout *horizontalLayout_2;
-    QHBoxLayout *horizontalLayout;
-    QLabel *label_4;
-    QDoubleSpinBox *K_value;
-    QLabel *label_5;
-    QDoubleSpinBox *B_value;
     QPushButton *Line;
+    QPushButton *LogSpiral;
+    QScrollBar *scroll;
     QScrollArea *parametr;
     QWidget *scrollAreaWidgetContents_2;
     QFormLayout *formLayout;
@@ -65,10 +58,16 @@ public:
     QLabel *label_2;
     QSpinBox *stepCount;
     QLabel *label_3;
-    QWidget *layoutWidget2;
+    QDoubleSpinBox *K_value;
+    QDoubleSpinBox *B_value;
+    QLabel *label_4;
+    QLabel *label_5;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_2;
     QLabel *X_coordinate;
     QLabel *Y_coordinate;
+    QPushButton *clear;
+    QLabel *formula;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -98,7 +97,7 @@ public:
         graphic->setAutoFillBackground(true);
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(970, 19, 252, 641));
+        layoutWidget->setGeometry(QRect(970, 19, 252, 570));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -142,17 +141,13 @@ public:
         Archimedes->setIconSize(QSize(90, 100));
         snail = new QPushButton(scrollAreaWidgetContents);
         snail->setObjectName(QString::fromUtf8("snail"));
-        snail->setGeometry(QRect(10, 140, 93, 101));
+        snail->setGeometry(QRect(10, 140, 101, 111));
         snail->setMinimumSize(QSize(90, 101));
         snail->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/img/picture/\320\243\320\273\320\270\321\202\320\272\320\260.png"), QSize(), QIcon::Normal, QIcon::Off);
         snail->setIcon(icon4);
         snail->setIconSize(QSize(300, 100));
-        scroll = new QScrollBar(scrollAreaWidgetContents);
-        scroll->setObjectName(QString::fromUtf8("scroll"));
-        scroll->setGeometry(QRect(230, 0, 20, 401));
-        scroll->setOrientation(Qt::Vertical);
         hyperbolicSpiral = new QPushButton(scrollAreaWidgetContents);
         hyperbolicSpiral->setObjectName(QString::fromUtf8("hyperbolicSpiral"));
         hyperbolicSpiral->setGeometry(QRect(20, 260, 71, 41));
@@ -160,7 +155,7 @@ public:
         hyperbolicSpiral->setIconSize(QSize(90, 100));
         Bernulli = new QPushButton(scrollAreaWidgetContents);
         Bernulli->setObjectName(QString::fromUtf8("Bernulli"));
-        Bernulli->setGeometry(QRect(130, 80, 91, 41));
+        Bernulli->setGeometry(QRect(120, 80, 101, 51));
         Bernulli->setMinimumSize(QSize(0, 0));
         Bernulli->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         QIcon icon5;
@@ -169,38 +164,108 @@ public:
         Bernulli->setIconSize(QSize(90, 120));
         Astroid = new QPushButton(scrollAreaWidgetContents);
         Astroid->setObjectName(QString::fromUtf8("Astroid"));
-        Astroid->setGeometry(QRect(130, 140, 91, 101));
+        Astroid->setGeometry(QRect(120, 140, 101, 111));
         Astroid->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         QIcon icon6;
         icon6.addFile(QString::fromUtf8(":/for_calculator/picture/Astroid.png"), QSize(), QIcon::Normal, QIcon::Off);
         Astroid->setIcon(icon6);
         Astroid->setIconSize(QSize(75, 75));
-        layoutWidget1 = new QWidget(scrollAreaWidgetContents);
-        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(20, 340, 191, 41));
-        horizontalLayout_2 = new QHBoxLayout(layoutWidget1);
-        horizontalLayout_2->setSpacing(0);
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(0);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        label_4 = new QLabel(layoutWidget1);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setMinimumSize(QSize(0, 35));
-        label_4->setMaximumSize(QSize(16777215, 35));
-        label_4->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"	font: 10pt \"MS Shell Dlg 2\";\n"
-"  qproperty-alignment: 'AlignVCenter | AlignLeft';\n"
-"  border: 1px solid gray;\n"
-"background-color : white;\n"
-"}\n"
-"\n"
-""));
+        Line = new QPushButton(scrollAreaWidgetContents);
+        Line->setObjectName(QString::fromUtf8("Line"));
+        Line->setGeometry(QRect(130, 260, 70, 41));
+        Line->setMaximumSize(QSize(70, 50));
+        Line->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/img/picture/\320\237\321\200\321\217\320\274\320\260\321\217.png"), QSize(), QIcon::Normal, QIcon::Off);
+        Line->setIcon(icon7);
+        Line->setIconSize(QSize(60, 40));
+        LogSpiral = new QPushButton(scrollAreaWidgetContents);
+        LogSpiral->setObjectName(QString::fromUtf8("LogSpiral"));
+        LogSpiral->setGeometry(QRect(130, 311, 80, 45));
+        LogSpiral->setMinimumSize(QSize(80, 45));
+        LogSpiral->setIcon(icon3);
+        LogSpiral->setIconSize(QSize(80, 80));
+        scroll = new QScrollBar(scrollAreaWidgetContents);
+        scroll->setObjectName(QString::fromUtf8("scroll"));
+        scroll->setGeometry(QRect(230, 0, 20, 401));
+        scroll->setOrientation(Qt::Vertical);
+        menugr->setWidget(scrollAreaWidgetContents);
 
-        horizontalLayout->addWidget(label_4);
+        verticalLayout->addWidget(menugr);
 
-        K_value = new QDoubleSpinBox(layoutWidget1);
+        parametr = new QScrollArea(layoutWidget);
+        parametr->setObjectName(QString::fromUtf8("parametr"));
+        parametr->setMinimumSize(QSize(250, 100));
+        parametr->setMaximumSize(QSize(700, 400));
+        parametr->setWidgetResizable(true);
+        scrollAreaWidgetContents_2 = new QWidget();
+        scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 227, 208));
+        formLayout = new QFormLayout(scrollAreaWidgetContents_2);
+        formLayout->setObjectName(QString::fromUtf8("formLayout"));
+        scale = new QDoubleSpinBox(scrollAreaWidgetContents_2);
+        scale->setObjectName(QString::fromUtf8("scale"));
+        scale->setMinimumSize(QSize(58, 21));
+        scale->setMaximumSize(QSize(58, 21));
+        scale->setDecimals(1);
+        scale->setSingleStep(0.300000000000000);
+
+        formLayout->setWidget(3, QFormLayout::LabelRole, scale);
+
+        textScale = new QLabel(scrollAreaWidgetContents_2);
+        textScale->setObjectName(QString::fromUtf8("textScale"));
+        textScale->setMinimumSize(QSize(10, 10));
+        textScale->setMouseTracking(false);
+        textScale->setTabletTracking(false);
+
+        formLayout->setWidget(3, QFormLayout::FieldRole, textScale);
+
+        intervallength = new QDoubleSpinBox(scrollAreaWidgetContents_2);
+        intervallength->setObjectName(QString::fromUtf8("intervallength"));
+        intervallength->setMinimumSize(QSize(58, 21));
+        intervallength->setMaximumSize(QSize(58, 21));
+        intervallength->setDecimals(1);
+        intervallength->setMaximum(630.000000000000000);
+        intervallength->setSingleStep(10.000000000000000);
+
+        formLayout->setWidget(4, QFormLayout::LabelRole, intervallength);
+
+        label = new QLabel(scrollAreaWidgetContents_2);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        formLayout->setWidget(4, QFormLayout::FieldRole, label);
+
+        aValue = new QDoubleSpinBox(scrollAreaWidgetContents_2);
+        aValue->setObjectName(QString::fromUtf8("aValue"));
+        aValue->setEnabled(true);
+        aValue->setMinimumSize(QSize(58, 21));
+        aValue->setMaximumSize(QSize(58, 21));
+        aValue->setDecimals(1);
+        aValue->setMinimum(-100.000000000000000);
+        aValue->setSingleStep(1.000000000000000);
+
+        formLayout->setWidget(5, QFormLayout::LabelRole, aValue);
+
+        label_2 = new QLabel(scrollAreaWidgetContents_2);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        formLayout->setWidget(5, QFormLayout::FieldRole, label_2);
+
+        stepCount = new QSpinBox(scrollAreaWidgetContents_2);
+        stepCount->setObjectName(QString::fromUtf8("stepCount"));
+        stepCount->setMinimumSize(QSize(58, 21));
+        stepCount->setMaximumSize(QSize(58, 21));
+        stepCount->setMaximum(512);
+        stepCount->setSingleStep(8);
+
+        formLayout->setWidget(6, QFormLayout::LabelRole, stepCount);
+
+        label_3 = new QLabel(scrollAreaWidgetContents_2);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        formLayout->setWidget(6, QFormLayout::FieldRole, label_3);
+
+        K_value = new QDoubleSpinBox(scrollAreaWidgetContents_2);
         K_value->setObjectName(QString::fromUtf8("K_value"));
         K_value->setEnabled(true);
         K_value->setMinimumSize(QSize(30, 35));
@@ -218,24 +283,9 @@ public:
         K_value->setMaximum(50.000000000000000);
         K_value->setValue(0.000000000000000);
 
-        horizontalLayout->addWidget(K_value);
+        formLayout->setWidget(0, QFormLayout::LabelRole, K_value);
 
-        label_5 = new QLabel(layoutWidget1);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setMinimumSize(QSize(0, 35));
-        label_5->setMaximumSize(QSize(16777215, 35));
-        label_5->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"	font: 10pt \"MS Shell Dlg 2\";\n"
-"  qproperty-alignment: 'AlignVCenter | AlignLeft';\n"
-"  border: 1px solid gray;\n"
-"background-color : white;\n"
-"}\n"
-"\n"
-""));
-
-        horizontalLayout->addWidget(label_5);
-
-        B_value = new QDoubleSpinBox(layoutWidget1);
+        B_value = new QDoubleSpinBox(scrollAreaWidgetContents_2);
         B_value->setObjectName(QString::fromUtf8("B_value"));
         B_value->setMinimumSize(QSize(30, 35));
         B_value->setFont(font1);
@@ -244,110 +294,30 @@ public:
         B_value->setMinimum(-25.000000000000000);
         B_value->setMaximum(25.000000000000000);
 
-        horizontalLayout->addWidget(B_value);
+        formLayout->setWidget(2, QFormLayout::LabelRole, B_value);
 
+        label_4 = new QLabel(scrollAreaWidgetContents_2);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
 
-        horizontalLayout_2->addLayout(horizontalLayout);
+        formLayout->setWidget(0, QFormLayout::FieldRole, label_4);
 
-        Line = new QPushButton(layoutWidget1);
-        Line->setObjectName(QString::fromUtf8("Line"));
-        Line->setMaximumSize(QSize(60, 40));
-        Line->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
-        QIcon icon7;
-        icon7.addFile(QString::fromUtf8(":/img/picture/\320\237\321\200\321\217\320\274\320\260\321\217.png"), QSize(), QIcon::Normal, QIcon::Off);
-        Line->setIcon(icon7);
-        Line->setIconSize(QSize(30, 30));
+        label_5 = new QLabel(scrollAreaWidgetContents_2);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
 
-        horizontalLayout_2->addWidget(Line);
-
-        menugr->setWidget(scrollAreaWidgetContents);
-
-        verticalLayout->addWidget(menugr);
-
-        parametr = new QScrollArea(layoutWidget);
-        parametr->setObjectName(QString::fromUtf8("parametr"));
-        parametr->setMinimumSize(QSize(250, 100));
-        parametr->setMaximumSize(QSize(700, 400));
-        parametr->setWidgetResizable(true);
-        scrollAreaWidgetContents_2 = new QWidget();
-        scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 248, 197));
-        formLayout = new QFormLayout(scrollAreaWidgetContents_2);
-        formLayout->setObjectName(QString::fromUtf8("formLayout"));
-        scale = new QDoubleSpinBox(scrollAreaWidgetContents_2);
-        scale->setObjectName(QString::fromUtf8("scale"));
-        scale->setMinimumSize(QSize(58, 21));
-        scale->setMaximumSize(QSize(58, 21));
-        scale->setDecimals(1);
-        scale->setSingleStep(0.300000000000000);
-
-        formLayout->setWidget(1, QFormLayout::LabelRole, scale);
-
-        textScale = new QLabel(scrollAreaWidgetContents_2);
-        textScale->setObjectName(QString::fromUtf8("textScale"));
-        textScale->setMinimumSize(QSize(10, 10));
-        textScale->setMouseTracking(false);
-        textScale->setTabletTracking(false);
-
-        formLayout->setWidget(1, QFormLayout::FieldRole, textScale);
-
-        intervallength = new QDoubleSpinBox(scrollAreaWidgetContents_2);
-        intervallength->setObjectName(QString::fromUtf8("intervallength"));
-        intervallength->setMinimumSize(QSize(58, 21));
-        intervallength->setMaximumSize(QSize(58, 21));
-        intervallength->setDecimals(1);
-        intervallength->setMaximum(630.000000000000000);
-        intervallength->setSingleStep(10.000000000000000);
-
-        formLayout->setWidget(2, QFormLayout::LabelRole, intervallength);
-
-        label = new QLabel(scrollAreaWidgetContents_2);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        formLayout->setWidget(2, QFormLayout::FieldRole, label);
-
-        aValue = new QDoubleSpinBox(scrollAreaWidgetContents_2);
-        aValue->setObjectName(QString::fromUtf8("aValue"));
-        aValue->setEnabled(true);
-        aValue->setMinimumSize(QSize(58, 21));
-        aValue->setMaximumSize(QSize(58, 21));
-        aValue->setDecimals(1);
-        aValue->setMinimum(-100.000000000000000);
-        aValue->setSingleStep(1.000000000000000);
-
-        formLayout->setWidget(3, QFormLayout::LabelRole, aValue);
-
-        label_2 = new QLabel(scrollAreaWidgetContents_2);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-
-        formLayout->setWidget(3, QFormLayout::FieldRole, label_2);
-
-        stepCount = new QSpinBox(scrollAreaWidgetContents_2);
-        stepCount->setObjectName(QString::fromUtf8("stepCount"));
-        stepCount->setMinimumSize(QSize(58, 21));
-        stepCount->setMaximumSize(QSize(58, 21));
-        stepCount->setMaximum(512);
-        stepCount->setSingleStep(8);
-
-        formLayout->setWidget(4, QFormLayout::LabelRole, stepCount);
-
-        label_3 = new QLabel(scrollAreaWidgetContents_2);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-
-        formLayout->setWidget(4, QFormLayout::FieldRole, label_3);
+        formLayout->setWidget(2, QFormLayout::FieldRole, label_5);
 
         parametr->setWidget(scrollAreaWidgetContents_2);
 
         verticalLayout->addWidget(parametr);
 
-        layoutWidget2 = new QWidget(centralwidget);
-        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(10, 570, 101, 61));
-        verticalLayout_2 = new QVBoxLayout(layoutWidget2);
+        layoutWidget1 = new QWidget(centralwidget);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(10, 570, 101, 61));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget1);
         verticalLayout_2->setSpacing(0);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        X_coordinate = new QLabel(layoutWidget2);
+        X_coordinate = new QLabel(layoutWidget1);
         X_coordinate->setObjectName(QString::fromUtf8("X_coordinate"));
         QFont font2;
         font2.setFamily(QString::fromUtf8("MS Shell Dlg 2"));
@@ -368,7 +338,7 @@ public:
 
         verticalLayout_2->addWidget(X_coordinate);
 
-        Y_coordinate = new QLabel(layoutWidget2);
+        Y_coordinate = new QLabel(layoutWidget1);
         Y_coordinate->setObjectName(QString::fromUtf8("Y_coordinate"));
         Y_coordinate->setFont(font2);
         Y_coordinate->setStyleSheet(QString::fromUtf8("QLabel {\n"
@@ -382,6 +352,15 @@ public:
 
         verticalLayout_2->addWidget(Y_coordinate);
 
+        clear = new QPushButton(centralwidget);
+        clear->setObjectName(QString::fromUtf8("clear"));
+        clear->setGeometry(QRect(890, 570, 71, 61));
+        formula = new QLabel(centralwidget);
+        formula->setObjectName(QString::fromUtf8("formula"));
+        formula->setGeometry(QRect(340, 590, 381, 41));
+        formula->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"font: 16pt \"MS Shell Dlg 2\";\n"
+" qproperty-alignment: 'AlignVCenter | AlignVCenter';"));
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -403,15 +382,18 @@ public:
         hyperbolicSpiral->setText(QString());
         Bernulli->setText(QString());
         Astroid->setText(QString());
-        label_4->setText(QCoreApplication::translate("MainWindow", "y=", nullptr));
-        label_5->setText(QCoreApplication::translate("MainWindow", "x +", nullptr));
         Line->setText(QString());
+        LogSpiral->setText(QString());
         textScale->setText(QCoreApplication::translate("MainWindow", "Scale", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Interval Length", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Parameter A", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Step Count", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "k", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "b", nullptr));
         X_coordinate->setText(QCoreApplication::translate("MainWindow", "X:", nullptr));
         Y_coordinate->setText(QCoreApplication::translate("MainWindow", "Y:", nullptr));
+        clear->setText(QString());
+        formula->setText(QString());
     } // retranslateUi
 
 };

@@ -6,6 +6,11 @@
 #include <QPen>
 
 
+/*#include <QtScript/QScriptEngine>
+#include <QtScript/QscriptValue>
+#include <QtScript/QScriptValueList>
+#include <QString>
+*/
 //Для проверки экстремумов
 #include <iostream>
 #include <fstream>
@@ -31,13 +36,25 @@ QSize Graphic::sizeHint() const
 {
     return QSize(800, 500);
 }
-QPointF Graphic::compute_calculate(float t) // Полярная роза
+
+QPointF Graphic::compute_calculate(float t, QString CodeFunction) // Функция из калькулятора
 {
-    float cos_t = cos(t);
-    float sin_t = sin(t);
-    float x=cos_t;
-    float y = sin_t;
-    return QPointF(x,y);
+   /* // Необходимые переменные
+    double r;
+    QScriptEngine engine;
+    QScriptValue scriptFun;
+
+    //подготовка движка QtScript
+    engine.evaluate("function fun(t)\n {\n var r=0;\n"+CodeFunction+"\n return r;\n}\n");
+    scriptFun = engine.globalObject().property("fun");
+    // Вычисление значения r в t
+    r = scriptFun.call(QScriptValue(), QScriptValueList() << t).toNumber();
+    // Проверка
+    cout << r << endl;
+
+    float x = r * cos(t);
+    float y = r * sin(t);
+    return QPointF(x,y);*/
 }
 QPointF Graphic::compute_circle(float t) //Круг
 {
@@ -97,20 +114,14 @@ QPointF Graphic::compute_Astroid(float t, float a)
     float y = a * sin_t * sin_t * sin_t;
     return QPointF (x, y);
 }
-/*void Graphic::mousePressEvent(QGraphicsSceneMouseEvent * event ){
-    ofstream outf ("proba.txt");
-    outf<< "Hello world!";
-
-         // if(event->buttons() & Qt::RightButton){
-   emit signalTargetCoordinate(event->scenePos());
-  // this->ui->X_coordinate->setText("X:" );
-  //             this->ui->X_coordinate->setText("X:1" );
-   //this->ui->X_coordinate->setText(ui->X_coordinate->text()+(event->scenePos().x()));
-   //this->ui->Y_coordinate->setText("Y:");
-   //this->ui->Y_coordinate->setText(ui->Y_coordinate->text()+event->scenePos().y());
-
-    }
-}*/
+QPointF Graphic::compute_LogSpiral(float t, float a)
+{
+    float cos_t = cos(t);
+    float sin_t = sin(t);
+    float x = exp(a*t) * cos_t;
+    float y = exp(a*t) * sin_t;
+    return QPointF (x, y);
+}
 
 void Graphic::on_function_change() // Присваивание к mFunction выбранного графика
 {
@@ -156,6 +167,18 @@ void Graphic::on_function_change() // Присваивание к mFunction вы
         mIntervalLength = 2 * M_PI * 50;
         mAValue = 1;
         break;
+    case Astroid:
+        mScale = 40;
+        mStepCount = 2 * 1024;
+        mIntervalLength = 2 * M_PI * 50;
+        mAValue = 1;
+        break;
+    case LogSpiral:
+        mScale = 180;
+        mStepCount = 2 * 1024;
+        mIntervalLength = 2 * M_PI * 50;
+        mAValue = -1;
+        break;
     default:
         break;
     }
@@ -183,12 +206,13 @@ QPointF Graphic::compute_function(float t) // Вызов выбранной фу
         return  compute_Bernulli(t, mAValue);
         break;
     case calculate:
-        return  compute_calculate(t);
+        return  compute_calculate(t, mCodeFunction);
         break;
     case Astroid:
         return  compute_Astroid(t,mAValue);
         break;
-
+    case LogSpiral:
+        return compute_LogSpiral(t, mAValue);
     default:
         break;
 }
@@ -261,10 +285,10 @@ void Graphic::paintEvent(QPaintEvent *event) // Рисуем график
         float x2 = point2.x();
         float y2 = point2.y();
         if ((x0 > x1 && x0 > x2) || (x0 < x1 && x0 < x2) || (y0 > y1 && y0 > y2) || (y0 < y1 && y0 < y2)) {
-            cout << "i = " << i << endl; // вывод для проверки
-            cout << "x0 = " << x0 << endl << "y0 = " << y0 << endl;
-            cout << "x1 = " << x1 << endl << "y1 = " << y1 << endl;
-            cout << "x2 = " << x2 << endl << "y2 = " << y2 << endl;
+            //cout << "i = " << i << endl; // вывод для проверки
+            //cout << "x0 = " << x0 << endl << "y0 = " << y0 << endl;
+            //cout << "x1 = " << x1 << endl << "y1 = " << y1 << endl;
+            //cout << "x2 = " << x2 << endl << "y2 = " << y2 << endl;
             //Создаем участок шириной 3 красного цвета для сброса скорости
             QPen pen1;
             pen1.setWidth(5);

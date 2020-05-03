@@ -137,17 +137,16 @@ void calculator::on_hook_close_clicked()
 {
     ui->output_icon->setText((ui->output_icon->text())+")");
 }
-void calculator::on_start_clicked()
-{
-    Graphic v;
-    v.setFunction(Graphic::calculate);
-
-    QMetaObject::invokeMethod(this,"close",Qt::QueuedConnection);
+QString calculator::value(){
+    return ui->output_icon->text();
 
 }
 
+void calculator::on_start_clicked()
+{
+    mready == true;
 
+    close();
+    //QMetaObject::invokeMethod(this,"close",Qt::QueuedConnection);
 
-
-
-
+}

@@ -56,6 +56,12 @@ private slots:
 
     void on_B_value_valueChanged(double arg1);
 
+    void on_clear_clicked();
+
+    void on_LogSpiral_clicked();
+
+
+
 private:
     void update_ui(); // Выведение значений параметров у графиков
 

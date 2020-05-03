@@ -14,6 +14,12 @@
 #include <QPolygon>
 #include <QTimer>
 
+/*#include <QScriptEngine>
+#include <QtScript/QScriptEngine>
+#include <QtScript/QscriptValue>
+#include <QtScript/QScriptValueList>
+#include <QString>
+*/
 class Graphic : public QWidget // Я так назвал виджет, обычно это не на что не влияет
 {
     Q_OBJECT
@@ -23,7 +29,7 @@ public:
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
-    enum Functions{circle, clover,Archimedes,snail, hyperbolicSpiral, Bernulli,calculate,Astroid };
+    enum Functions{circle, clover,Archimedes,snail, hyperbolicSpiral, Bernulli,calculate,Astroid,LogSpiral,clear };
 
     void setBackgroundColor(QColor color){ mBackgroundColor = color; } //Функция, которая объявляет цвет
     QColor BackgroundColor() const { return mBackgroundColor; }
@@ -47,10 +53,13 @@ public:
     int stepCount () const { return mStepCount; }
 
     void setmBvalue(float Bvalue){mBvalue = Bvalue; }
-    int Bvalue () const{ return mBvalue;}
+    float Bvalue () const{ return mBvalue;}
 
     void setmKvalue(float Kvalue){mKvalue = Kvalue; }
-    int Kvalue () const{ return mKvalue;}
+    float Kvalue () const{ return mKvalue;}
+
+    void setCodeFunction(QString CodeFunction){mCodeFunction = CodeFunction; }
+    QString CodeFunction () const{ return mCodeFunction;}
 
 protected:
         void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
@@ -65,7 +74,7 @@ private slots:
     //  void slotTimer();
 
 private:
-      // void mouseMoveEvent(QGraphicsSceneMouseEvent *event,QPointF target);
+
        QPointF compute_function(float t);                  // Объявляю главную функцию
        QPointF compute_circle(float t);                    // Круг
        QPointF compute_clover(float t, float a);           // Полярная роза
@@ -74,12 +83,11 @@ private:
        QPointF compute_hyperbolicSpiral(float t, float a); // Гиперболическая спираль
        QPointF compute_Bernulli(float t, float a);         // Лемниската Бернулли
        QPointF compute_FEdit(float t, float a);            // Введенная функция
-       QPointF compute_calculate(float t);                 // Функция из канкулятора
-       QPointF compute_Astroid(float t, float a);
+       QPointF compute_calculate(float t,QString CodeFunction);                 // Функция из канкулятора
+       QPointF compute_Astroid(float t, float a);          // Астроида
+       QPointF compute_LogSpiral(float t, float a);        // Логарифмическая спираль
 
 
-
-       //void mousePressEvent(QGraphicsSceneMouseEvent * event );
        void on_function_change(); // Объявляю функцию, отвечающую за размер, угол, кол-во точек на графике
        QColor mBackgroundColor; // Цвет
        QColor mShapeColor;
@@ -87,6 +95,7 @@ private:
        QTimer *Timer;      // Игровой таймер
        QPointF target;         // Положение курсора
 
+       QString mCodeFunction;
        bool mLine;
        float mBvalue;
        float mKvalue;

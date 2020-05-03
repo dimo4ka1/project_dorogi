@@ -17,8 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     update_ui();
     ui->graphic->setMouseTracking(true);
-    //connect(, &Graphic::signalTargetCoordinate, &Graphic::slotTarget);
-
+   // connect(ui->scroll, SIGNAL(valueChanged(int)), ui->menugr, SLOT(setNum(int)));
 }
 
 MainWindow::~MainWindow()
@@ -38,6 +37,8 @@ void MainWindow::on_circle_clicked() // Кнопка, для рисования 
 {
     this->ui->graphic->setBackgroundColor(Qt::white);// белый фон
     this->ui->graphic->setFunction(Graphic::circle);// присваевает mFunction значение круга
+    this->ui->formula->setText("\u03C1");
+    this->ui->formula->setText((this->ui->formula->text())+"=a");
     this->ui->graphic->repaint();// перерисовывает рисунок
     update_ui ();
 
@@ -48,6 +49,8 @@ void MainWindow::on_clover_clicked() // Кнопка, для рисования 
 
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
     this->ui->graphic->setFunction(Graphic::clover); // присваевает mFunction значение клевер
+    this->ui->formula->setText("\u03C1");
+    this->ui->formula->setText((this->ui->formula->text())+"=cos(a*"+"\u03B8"+")");
     this->ui->graphic->repaint(); // перерисовывает рисунок
     update_ui ();
 }
@@ -56,6 +59,8 @@ void MainWindow::on_Archimedes_clicked() // Кнопка, для рисован�
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
     this->ui->graphic->setFunction(Graphic::Archimedes); // присваевает mFunction значение архимед
+    this->ui->formula->setText("\u03C1");
+    this->ui->formula->setText((this->ui->formula->text())+"=("+"\u03B8"+"+a)");
     this->ui->graphic->repaint(); // перерисовывает рисунок
     update_ui ();
 }
@@ -65,6 +70,8 @@ void MainWindow::on_snail_clicked() // Кнопка, для рисования �
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
     this->ui->graphic->setFunction(Graphic::snail); // присваевает mFunction значение улитка
+    this->ui->formula->setText("\u03C1");
+    this->ui->formula->setText((this->ui->formula->text())+"=(1+a*cos"+ "\u03B8"+")");
     this->ui->graphic->repaint(); // перерисовывает рисунок
     update_ui ();
 }
@@ -73,6 +80,8 @@ void MainWindow::on_hyperbolicSpiral_clicked()
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
     this->ui->graphic->setFunction(Graphic::hyperbolicSpiral);
+    this->ui->formula->setText("\u03C1");
+    this->ui->formula->setText((this->ui->formula->text())+"=(a/"+ "\u03B8"+")");
     this->ui->graphic->repaint(); // перерисовывает рисунок
     update_ui ();
 }
@@ -81,6 +90,8 @@ void MainWindow::on_Bernulli_clicked()
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
     this->ui->graphic->setFunction(Graphic::Bernulli);
+    this->ui->formula->setText("\u03C1");
+    this->ui->formula->setText((this->ui->formula->text())+"^2=a^2"+ "cos2"+"\u03B8");
     this->ui->graphic->repaint(); // перерисовывает рисунок
     update_ui ();
 }
@@ -88,9 +99,20 @@ void MainWindow::on_Astroid_clicked()
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
     this->ui->graphic->setFunction(Graphic::Astroid);
+    this->ui->formula->setText("x^(2/3) + y^(2/3) = R^(2/3) ");
     this->ui->graphic->repaint(); // перерисовывает рисунок
     update_ui ();
 }
+void MainWindow::on_LogSpiral_clicked()
+{
+    this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
+    this->ui->graphic->setFunction(Graphic::LogSpiral);
+    this->ui->formula->setText("\u03C1");
+    this->ui->formula->setText((this->ui->formula->text())+"= exp(a*"+"\u03B8"+")");
+    this->ui->graphic->repaint(); // перерисовывает рисунок
+    update_ui ();
+}
+
 void MainWindow::on_Line_clicked()
 {
     this->ui->graphic->Line(true);
@@ -129,27 +151,49 @@ void MainWindow::on_stepCount_valueChanged(int count)
 
 // Функция, которая считывает координаты мышки
 void MainWindow::mousePressEvent(QMouseEvent * event ){
+    emit signalTargetCoordinate(event->pos());
+          if(event->buttons() & Qt::RightButton and 2*this->ui->graphic->rect().center().x() > event->pos().x() and 2*this->ui->graphic->rect().center().y() > event->pos().y()){
 
-          if(event->buttons() & Qt::RightButton){
-   emit signalTargetCoordinate(event->pos());
    this->ui->X_coordinate->setText("X:" );
    this->ui->X_coordinate->setText("X: " + QString::number((-this->ui->graphic->rect().center().x() + event->pos().x())/20));
    this->ui->Y_coordinate->setText("Y:");
     this->ui->Y_coordinate->setText("Y: " + QString::number((this->ui->graphic->rect().center().y() - event->pos().y())/20));
 
+}}
+//Кнопка, которая очищает холст
+void MainWindow::on_clear_clicked()
+{
+    this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
+    this->ui->graphic->setmKvalue(0);
+    this->ui->graphic->setmBvalue(0);
+    this->ui->graphic->setFunction(Graphic::clear);
+    this->ui->formula->setText(" ");
+    this->ui->graphic->repaint(); // перерисовывает рисунок
+    update_ui ();
 }
-
-
-
-}
-
 
 void MainWindow::on_call_calculator_clicked()
 {
+    this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
+    this->ui->graphic->setmKvalue(0);
+    this->ui->graphic->setmBvalue(0);
+    this->ui->graphic->setFunction(Graphic::clear);
+    this->ui->graphic->repaint(); // перерисовывает рисунок
+    this->ui->formula->setText(" ");
     calculator s;
     s.setModal(true);
     s.exec();
+    if(s.mready == true){
+    QString a=s.value();
+        this->ui->formula->setText(a);
+    this->ui->graphic->setCodeFunction(a);
+
+    }
+
+
+    this->ui->graphic->setFunction(Graphic::calculate);
 
 }
+
 
 

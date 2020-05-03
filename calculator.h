@@ -15,7 +15,10 @@ public:
     explicit calculator(QWidget *parent = nullptr);
     ~calculator();
 
+    QString value();
 
+
+    bool mready;
 
 private slots:
 
@@ -62,13 +65,17 @@ private slots:
 
     void on_angle_clicked();
 
-    void on_start_clicked();
+
 
     void on_number_0_clicked();
 
     void on_hook_open_clicked();
 
     void on_hook_close_clicked();
+
+
+
+    void on_start_clicked();
 
 private:
     Ui::calculator *ui;

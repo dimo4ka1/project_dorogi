@@ -1583,7 +1583,6 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qlayoutitem.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qboxlayout.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qgridlayout.h \
-		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QHBoxLayout \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/QLabel \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qlabel.h \
 		D:/qt/5.14.1/mingw73_64/include/QtWidgets/qframe.h \
