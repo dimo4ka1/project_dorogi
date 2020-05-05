@@ -18,7 +18,7 @@ public:
 
     QString value();
 
-    bool mready;
+
 
     void setCodeFun(QString CodeFun){ mCodeFun = CodeFun; }
     QString CodeFun () const { return mCodeFun; }
@@ -78,7 +78,33 @@ private slots:
 
     void on_start_clicked();
 
+
+
+    void on_lg_clicked();
+
+    void on_ln_clicked();
+
+    void on_delete_2_clicked();
+
+    void on_cancel_clicked();
+
+    void on_degree_clicked();
+
+    void on_exp_2_clicked();
+
+    void on_radical_clicked();
+
+    void on_arcsin_clicked();
+
+    void on_arccos_clicked();
+
+    void on_arctg_clicked();
+
+    void on_arcctg_clicked();
+
 private:
+
+
 
     QString mCodeFun;
     QString mFormula;

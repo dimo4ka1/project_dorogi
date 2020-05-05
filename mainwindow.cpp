@@ -41,6 +41,8 @@ void MainWindow::on_circle_clicked() // Кнопка, для рисования 
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"=a");
     this->ui->graphic->repaint();// перерисовывает рисунок
+    this->ui->X_parametr->setText("x=a*cos(t)");
+    this->ui->Y_parametr->setText("y=a*sin(t)");
     update_ui ();
 
 }
@@ -53,6 +55,8 @@ void MainWindow::on_clover_clicked() // Кнопка, для рисования 
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"=cos(a*"+"\u03B8"+")");
     this->ui->graphic->repaint(); // перерисовывает рисунок
+    this->ui->X_parametr->setText("x=cos(a*t)*cos(t)");
+    this->ui->Y_parametr->setText("y=cos(a*t)*sin(t)");
     update_ui ();
 }
 
@@ -63,6 +67,8 @@ void MainWindow::on_Archimedes_clicked() // Кнопка, для рисован�
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"=("+"\u03B8"+"+a)");
     this->ui->graphic->repaint(); // перерисовывает рисунок
+    this->ui->X_parametr->setText("x=(t+a)*cos(t)");
+    this->ui->Y_parametr->setText("y=(t+a)*sin(t)");
     update_ui ();
 }
 
@@ -74,6 +80,8 @@ void MainWindow::on_snail_clicked() // Кнопка, для рисования �
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"=(1+a*cos"+ "\u03B8"+")");
     this->ui->graphic->repaint(); // перерисовывает рисунок
+    this->ui->X_parametr->setText("x=(1+a*cos(t))*cos(t)");
+    this->ui->Y_parametr->setText("y=(1+a*cos(t))*sin(t)");
     update_ui ();
 }
 
@@ -84,6 +92,8 @@ void MainWindow::on_hyperbolicSpiral_clicked()
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"=(a/"+ "\u03B8"+")");
     this->ui->graphic->repaint(); // перерисовывает рисунок
+    this->ui->X_parametr->setText("x=(a/t)*cos(t)");
+    this->ui->Y_parametr->setText("y=(a/t)*sin(t)");
     update_ui ();
 }
 
@@ -94,16 +104,22 @@ void MainWindow::on_Bernulli_clicked()
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"^2=a^2"+ "cos2"+"\u03B8");
     this->ui->graphic->repaint(); // перерисовывает рисунок
+    this->ui->X_parametr->setText("x= ");
+    this->ui->Y_parametr->setText("y= ");
     update_ui ();
 }
+
 void MainWindow::on_Astroid_clicked()
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
     this->ui->graphic->setFunction(Graphic::Astroid);
     this->ui->formula->setText("x^(2/3) + y^(2/3) = R^(2/3) ");
     this->ui->graphic->repaint(); // перерисовывает рисунок
+    this->ui->X_parametr->setText("x=a*cos(t)^3");
+    this->ui->Y_parametr->setText("y=a*sin(t)^3");
     update_ui ();
 }
+
 void MainWindow::on_LogSpiral_clicked()
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
@@ -111,6 +127,8 @@ void MainWindow::on_LogSpiral_clicked()
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"= exp(a*"+"\u03B8"+")");
     this->ui->graphic->repaint(); // перерисовывает рисунок
+    this->ui->X_parametr->setText("x=exp(a*t)*cos(t)");
+    this->ui->Y_parametr->setText("y=exp(a*t)*sin(t)");
     update_ui ();
 }
 
@@ -119,6 +137,7 @@ void MainWindow::on_Line_clicked()
     this->ui->graphic->Line(true);
     this->ui->graphic->repaint();
 }
+
 void MainWindow::on_K_value_valueChanged(double arg1)
 {
     this->ui->graphic->setmKvalue(arg1);
@@ -128,7 +147,6 @@ void MainWindow::on_B_value_valueChanged(double arg1)
 {
     this->ui->graphic->setmBvalue(arg1);
 }
-
 
 void MainWindow::on_scale_valueChanged(double scale) // изменяет размер
 {
@@ -159,8 +177,8 @@ void MainWindow::mousePressEvent(QMouseEvent * event ){
    this->ui->X_coordinate->setText("X: " + QString::number((-this->ui->graphic->rect().center().x() + event->pos().x())/20));
    this->ui->Y_coordinate->setText("Y:");
     this->ui->Y_coordinate->setText("Y: " + QString::number((this->ui->graphic->rect().center().y() - event->pos().y())/20));
-
 }}
+
 //Кнопка, которая очищает холст
 void MainWindow::on_clear_clicked()
 {
@@ -169,6 +187,8 @@ void MainWindow::on_clear_clicked()
     this->ui->graphic->setmBvalue(0);
     this->ui->graphic->setFunction(Graphic::clear);
     this->ui->formula->setText(" ");
+    this->ui->X_parametr->setText(" ");
+    this->ui->Y_parametr->setText(" ");
     this->ui->graphic->repaint(); // перерисовывает рисунок
     update_ui ();
 }
@@ -181,14 +201,18 @@ void MainWindow::on_call_calculator_clicked()
     this->ui->graphic->setFunction(Graphic::clear);
     this->ui->graphic->repaint(); // перерисовывает рисунок
     this->ui->formula->setText(" ");
+    this->ui->X_parametr->setText(" ");
+    this->ui->Y_parametr->setText(" ");
     calculator s;
     s.setModal(true);
     s.exec();
-    if(s.mready == true) {
-    }
+
     this->ui->graphic->setCodeFunction(s.CodeFun());
     this->ui->formula->setText(s.Formula());
     this->ui->graphic->setFunction(Graphic::calculate);
+    QString a= s.Formula();
+    this->ui->X_parametr->setText("x="+a.remove(0,2)+"*cos(t)");
+    this->ui->Y_parametr->setText("y="+a+"*sin(t)");
 }
 
 

@@ -53,5 +53,9 @@
         <file>picture2/hook).png</file>
         <file>picture/Лемниската.png</file>
         <file>picture/Astroid.png</file>
+        <file>picture2/teta_button.png</file>
+        <file>picture2/delete_button.png</file>
+        <file>picture2/sqrt_button_without_X (2).png</file>
+        <file>picture2/degree_button (2).png</file>
     </qresource>
 </RCC>

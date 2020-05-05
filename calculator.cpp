@@ -28,6 +28,8 @@ void calculator::on_number_1_clicked()
 {
     ui->output_icon->setText((ui->output_icon->text())+"1");
     mCodeFun += "1";
+
+
 }
 
 void calculator::on_number_2_clicked()
@@ -169,6 +171,81 @@ void calculator::on_start_clicked()
 {
     setFormula(ui->output_icon->text());
     setCodeFun(mCodeFun);
-    mready == true;
+
     close();
+}
+
+void calculator::on_lg_clicked()
+{
+    ui->output_icon->setText((ui->output_icon->text())+"lg(");
+    mCodeFun += "Math.lg(";
+}
+
+
+void calculator::on_ln_clicked()
+{
+    ui->output_icon->setText((ui->output_icon->text())+"ln(");
+    mCodeFun += "Math.ln(";
+}
+
+void calculator::on_delete_2_clicked()
+{
+    ui->output_icon->setText("\u03C1");
+    ui->output_icon->setText(ui->output_icon->text()+"=");
+    setCodeFun("");
+}
+
+void calculator::on_cancel_clicked()
+{
+    QString a=ui->output_icon->text();
+    int b=1;
+    a.chop(b);
+    ui->output_icon->setText(a);
+
+  mCodeFun.chop(1);
+}
+
+
+void calculator::on_degree_clicked()
+{
+    ui->output_icon->setText((ui->output_icon->text())+"^(");
+    mCodeFun += "Math.^(";
+}
+
+void calculator::on_exp_2_clicked()
+{
+    ui->output_icon->setText((ui->output_icon->text())+"exp(");
+    mCodeFun += "Math.exp(";
+}
+
+
+void calculator::on_radical_clicked()
+{
+    ui->output_icon->setText((ui->output_icon->text())+"\u221A(");
+    mCodeFun += "Math.sqrt(";
+
+}
+
+void calculator::on_arcsin_clicked()
+{
+    ui->output_icon->setText((ui->output_icon->text())+"arcsin(");
+    mCodeFun += "Math.arcsin(";
+}
+
+void calculator::on_arccos_clicked()
+{
+    ui->output_icon->setText((ui->output_icon->text())+"arccos(");
+    mCodeFun += "Math.arccos(";
+}
+
+void calculator::on_arctg_clicked()
+{
+    ui->output_icon->setText((ui->output_icon->text())+"arctg(");
+    mCodeFun += "Math.arctg(";
+}
+
+void calculator::on_arcctg_clicked()
+{
+    ui->output_icon->setText((ui->output_icon->text())+"arcctg(");
+    mCodeFun += "Math.arcctg(";
 }

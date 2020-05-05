@@ -109,7 +109,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>248</width>
+          <width>258</width>
           <height>398</height>
          </rect>
         </property>
@@ -415,8 +415,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>248</width>
-          <height>238</height>
+          <width>237</width>
+          <height>208</height>
          </rect>
         </property>
         <layout class="QFormLayout" name="formLayout">
@@ -738,8 +738,8 @@ background-color : white;
    <widget class="QLabel" name="formula">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>590</y>
+      <x>330</x>
+      <y>640</y>
       <width>381</width>
       <height>41</height>
      </rect>
@@ -752,6 +752,45 @@ font: 16pt &quot;MS Shell Dlg 2&quot;;
     <property name="text">
      <string/>
     </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>570</y>
+      <width>281</width>
+      <height>68</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="X_parametr">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+font: 16pt &quot;MS Shell Dlg 2&quot;;
+ qproperty-alignment: 'AlignVCenter | AlignVCenter';</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Y_parametr">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+font: 16pt &quot;MS Shell Dlg 2&quot;;
+ qproperty-alignment: 'AlignVCenter | AlignVCenter';</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
