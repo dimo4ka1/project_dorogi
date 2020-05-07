@@ -52,15 +52,18 @@ public:
     void setStepCount (int count) { mStepCount = count; repaint(); }
     int stepCount () const { return mStepCount; }
 
-    void setmBvalue(float Bvalue){mBvalue = Bvalue; }
-    float Bvalue () const{ return mBvalue;}
+    void setNumberOfLine (int numberOfLine) { NumberOfLine = numberOfLine; repaint(); }
+    int numberOfLine() const { return NumberOfLine; }
 
-    void setmKvalue(float Kvalue){ mKvalue = Kvalue; }
-    float Kvalue () const{ return mKvalue; }
+    void setPos1(QPointF pos1){ mPos1 = pos1; }
+    QPointF pos1 () const{ return mPos1; }
+
+    void setPos2(QPointF pos2){ mPos2 = pos2; }
+    QPointF pos2 () const{ return mPos2; }
 
     void setCodeFunction(QString CodeFunction){ mCodeFunction = CodeFunction; }
     QString CodeFunction () const { return mCodeFunction; }
-
+    int NumberOfLine=0;
 protected:
         void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
@@ -87,6 +90,11 @@ private:
        QPointF compute_Astroid(float t, float a);          // Астроида
        QPointF compute_LogSpiral(float t, float a);        // Логарифмическая спираль
 
+       int asimtote(int argc, const char * argv[]);  // функция рисующая асимптоты
+       double rho(double t);
+       double rho1(double t);
+       double rho2(double t);
+       double rho3(double t);
 
        void on_function_change(); // Объявляю функцию, отвечающую за размер, угол, кол-во точек на графике
        QColor mBackgroundColor; // Цвет
@@ -95,10 +103,14 @@ private:
        QTimer *Timer;      // Игровой таймер
        QPointF target;         // Положение курсора
 
+       QPointF mPos1;
+       QPointF mPos2;
+       QPointF massPos[100][2];
+
+
        QString mCodeFunction;
+       const double h=1e-10;
        bool mLine;
-       float mBvalue;
-       float mKvalue;
        float mScale;  // Размер
        float mIntervalLength; // Интервал угла
        int mStepCount; // Количество точек на графике

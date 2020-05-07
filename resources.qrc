@@ -13,15 +13,18 @@
         <file>picture/11.jpg</file>
         <file>picture/12.jpg</file>
         <file>picture/14.jpeg</file>
-        <file>picture/v_sign.jpg</file>
         <file>picture/logo.jpg</file>
-        <file>picture/photo_2020-04-16_19-24-01.jpg</file>
-        <file>picture/photo_2020-04-16_19-24-27.jpg</file>
-        <file>picture/photo_2020-04-16_19-24-57.jpg</file>
-        <file>picture/photo_2020-04-18_23-17-33.jpg</file>
-        <file>picture/photo_2020-04-19_01-02-17.jpg</file>
-        <file>picture/Улитка.png</file>
-        <file>picture/Прямая.png</file>
+        <file>picture/Archimed.png</file>
+        <file>picture/Bernuli (2).png</file>
+        <file>picture/Card.png</file>
+        <file>picture/Circle.png</file>
+        <file>picture/Clover.png</file>
+        <file>picture/Gip.png</file>
+        <file>picture/Line.png</file>
+        <file>picture/Log (2).png</file>
+        <file>picture/Log.png</file>
+        <file>picture/Astroid.png</file>
+        <file>picture/Gip (2).png</file>
     </qresource>
     <qresource prefix="/for_calculator">
         <file>picture2/-.png</file>
@@ -51,7 +54,6 @@
         <file>picture2/hooks.png</file>
         <file>picture2/hook(.png</file>
         <file>picture2/hook).png</file>
-        <file>picture/Лемниската.png</file>
         <file>picture/Astroid.png</file>
         <file>picture2/teta_button.png</file>
         <file>picture2/delete_button.png</file>

@@ -105,8 +105,8 @@ QPushButton:pressed {
       </property>
       <property name="iconSize">
        <size>
-        <width>100</width>
-        <height>100</height>
+        <width>90</width>
+        <height>90</height>
        </size>
       </property>
      </widget>
@@ -145,8 +145,8 @@ QPushButton:pressed {
       </property>
       <property name="iconSize">
        <size>
-        <width>100</width>
-        <height>100</height>
+        <width>90</width>
+        <height>90</height>
        </size>
       </property>
      </widget>

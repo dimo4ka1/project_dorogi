@@ -185,7 +185,7 @@ void calculator::on_lg_clicked()
 void calculator::on_ln_clicked()
 {
     ui->output_icon->setText((ui->output_icon->text())+"ln(");
-    mCodeFun += "Math.ln(";
+    mCodeFun += "Math.log(";
 }
 
 void calculator::on_delete_2_clicked()
@@ -201,15 +201,21 @@ void calculator::on_cancel_clicked()
     int b=1;
     a.chop(b);
     ui->output_icon->setText(a);
+    mCodeFun.chop(1);
+   /* switch(mFunction) {
+    case circle:
+        return compute_circle(t);
+        break;
 
-  mCodeFun.chop(1);
+    default:
+        break;*/
 }
 
 
 void calculator::on_degree_clicked()
 {
-    ui->output_icon->setText((ui->output_icon->text())+"^(");
-    mCodeFun += "Math.^(";
+    ui->output_icon->setText((ui->output_icon->text())+"pow(");
+    mCodeFun += "Math.pow(";
 }
 
 void calculator::on_exp_2_clicked()
@@ -229,23 +235,23 @@ void calculator::on_radical_clicked()
 void calculator::on_arcsin_clicked()
 {
     ui->output_icon->setText((ui->output_icon->text())+"arcsin(");
-    mCodeFun += "Math.arcsin(";
+    mCodeFun += "Math.asin(";
 }
 
 void calculator::on_arccos_clicked()
 {
     ui->output_icon->setText((ui->output_icon->text())+"arccos(");
-    mCodeFun += "Math.arccos(";
+    mCodeFun += "Math.acos(";
 }
 
 void calculator::on_arctg_clicked()
 {
     ui->output_icon->setText((ui->output_icon->text())+"arctg(");
-    mCodeFun += "Math.arctg(";
+    mCodeFun += "Math.atg(";
 }
 
 void calculator::on_arcctg_clicked()
 {
     ui->output_icon->setText((ui->output_icon->text())+"arcctg(");
-    mCodeFun += "Math.arcctg(";
+    mCodeFun += "Math.actg(";
 }

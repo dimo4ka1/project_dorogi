@@ -123,6 +123,66 @@ QPointF Graphic::compute_LogSpiral(float t, float a)
     return QPointF (x, y);
 }
 
+
+double Graphic::rho1(double t) {
+    return 9/(4-5*cos(t));
+}
+
+double Graphic::rho2(double t) {
+    return (3*sin(t)*cos(t))/(pow(sin(t), 3)+pow(cos(t), 3));
+}
+
+double Graphic::rho3(double t) {
+    return 1 + 2*cos(t);
+}
+
+double Graphic::rho(double t) {
+    return 2/t;
+}
+
+int Graphic::asimtote(int argc, const char * argv[]) {
+    vector <double> v;
+    double t;
+    double maxV = 0, minV = 0;
+    //Создаем список всех углов при которых r->inf
+    for (t = 0; t < 2*M_PI; t += 2*M_PI/102400) {
+        maxV = (rho(t) > rho(maxV))?t:maxV;
+        minV = (rho(t) < rho(minV))?t:minV;
+        if (isinf(rho(t))) {
+            //cout << t << endl;
+            v.push_back(t);
+        }
+    }
+    if (v.empty()) {
+        //cout << "MAXV = " << maxV << endl;
+        //cout << "MINV = " << minV << endl;
+        v.push_back(maxV);
+        v.push_back(minV);
+    }
+    double k;
+    double b;
+    for (auto c:v) {
+        cout << c << endl;
+        if (fabs(tan(c)) < h) {
+            //cout << tan(c) << endl;
+            if (!isnan(rho(c)*sin(c))) {
+                b = rho(c)*sin(c);
+                if (b)  cout << "y = " << b << endl;
+            } else if ((rho(c+h)*sin(c+h))-(rho(c-h)*sin(c-h)) < h) {
+                b = rho(c+h)*sin(c+h);
+                if (b)  cout << "y = " << b << endl;
+            }
+        } else if (!isnan(tan(c)) && !isinf(tan(c))) {
+            if (c==maxV) b = rho(c+h)*sin(c+h) - tan(c)*rho(c+h)*cos(c+h);
+            else if (c==minV) b = rho(c)*sin(c) - tan(c)*rho(c-h)*cos(c-h);
+            else b = rho(c+h)*sin(c+h)-tan(c)*rho(c+h)*cos(c+h);
+            cout << "y = " << tan(c) << "x + " << b << endl;
+        }
+    }
+
+    return 0;
+}
+
 void Graphic::on_function_change() // Присваивание к mFunction выбранного графика
 {
     switch(mFunction) {
@@ -237,14 +297,28 @@ void Graphic::paintEvent(QPaintEvent *event) // Рисуем график
     prevPixel.setX(prevPoint.x()*2*mScale + center.x());
     prevPixel.setY(prevPoint.y()*2*mScale + center.y());
 
+    QPen pen4;
+    pen4.setWidth(3);
+    pen4.setColor(Qt::black);
+    painter.setPen(pen4);
+    painter.drawPoint(mPos1);
+    painter.drawPoint(mPos2);
     //Рисуем линию
+
     painter.setPen(Qt::black);
     if(mLine==true){
-     int u=-24*mKvalue+mBvalue;
-     int v=24*mKvalue+mBvalue;
-        painter.drawLine(QPoint(0,center.y()-u*20), QPoint(2*center.x(),center.y()-v*20));
-    }
+       massPos[NumberOfLine][0] = mPos1;
+       massPos[NumberOfLine][1] = mPos2;
+       for(int i=1; i<=NumberOfLine; i++ ){
 
+     int a1 = massPos[i][1].x() - massPos[i][0].x();
+     int a2 = massPos[i][1].y() - massPos[i][0].y();
+
+     painter.drawLine(QPointF(massPos[i][0].x()+a1*1000,massPos[i][0].y()+a2*1000),massPos[i][1]);
+     painter.drawLine(massPos[i][0],massPos[i][1]);
+     painter.drawLine(QPointF(massPos[i][0].x()-a1*1000,massPos[i][0].y()-a2*1000),massPos[i][1]);
+    }
+}
     // Координатные оси
     painter.setPen(Qt::lightGray);
     painter.drawLine(QPoint(center.x(), 0), QPoint(center.x(), 2*center.y())); // Ox
@@ -264,14 +338,14 @@ void Graphic::paintEvent(QPaintEvent *event) // Рисуем график
         QPointF point = compute_function(i);
         QPoint pixel;
         pixel.setX(point.x()*2*mScale + center.x());
-        pixel.setY(point.y()*2*mScale + center.y());
+        pixel.setY(-point.y()*2*mScale + center.y());
 
         //Асимптоты гиперболоидной спирали
         if(mFunction==hyperbolicSpiral and i==step){
         painter.setPen(Qt::green);
         QPointF point3 = compute_function(i);
         for (float k = 0; k <= 2*center.x(); k+=40) {
-             painter.drawLine(QPoint(k,(point3.y()*2*mScale + center.y())), QPoint(k+30,( point3.y()*2*mScale + center.y()))); //рисует асимптоту штрих-пунтиром
+             painter.drawLine(QPoint(k,(-point3.y()*2*mScale + center.y())), QPoint(k+30,(-point3.y()*2*mScale + center.y()))); //рисует асимптоту штрих-пунтиром
 
         }
         }

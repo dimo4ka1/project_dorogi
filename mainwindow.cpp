@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     update_ui();
     ui->graphic->setMouseTracking(true);
+    check= false;
    // connect(ui->scroll, SIGNAL(valueChanged(int)), ui->menugr, SLOT(setNum(int)));
 }
 
@@ -134,19 +135,21 @@ void MainWindow::on_LogSpiral_clicked()
 
 void MainWindow::on_Line_clicked()
 {
+    this->ui->graphic->setPos1(pos1);
+    this->ui->graphic->setPos2(pos2);
+    if(check ==false){
+     this->ui->graphic->setNumberOfLine(this->ui->graphic->NumberOfLine +1);
+        check=true;
+    }else{
+    check=false;
+
     this->ui->graphic->Line(true);
     this->ui->graphic->repaint();
+
+}
 }
 
-void MainWindow::on_K_value_valueChanged(double arg1)
-{
-    this->ui->graphic->setmKvalue(arg1);
-}
 
-void MainWindow::on_B_value_valueChanged(double arg1)
-{
-    this->ui->graphic->setmBvalue(arg1);
-}
 
 void MainWindow::on_scale_valueChanged(double scale) // изменяет размер
 {
@@ -177,18 +180,27 @@ void MainWindow::mousePressEvent(QMouseEvent * event ){
    this->ui->X_coordinate->setText("X: " + QString::number((-this->ui->graphic->rect().center().x() + event->pos().x())/20));
    this->ui->Y_coordinate->setText("Y:");
     this->ui->Y_coordinate->setText("Y: " + QString::number((this->ui->graphic->rect().center().y() - event->pos().y())/20));
-}}
+}
+
+          if(event->buttons() & Qt::LeftButton and check==true and 2*this->ui->graphic->rect().center().x() > event->pos().x() and 2*this->ui->graphic->rect().center().y() > event->pos().y()){
+    pos2=pos1;
+    pos1=event->pos();
+    this->ui->graphic->setPos1(pos1);
+    this->ui->graphic->setPos2(pos2);
+
+     this->ui->graphic->repaint();
+}
+}
 
 //Кнопка, которая очищает холст
 void MainWindow::on_clear_clicked()
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
-    this->ui->graphic->setmKvalue(0);
-    this->ui->graphic->setmBvalue(0);
     this->ui->graphic->setFunction(Graphic::clear);
     this->ui->formula->setText(" ");
     this->ui->X_parametr->setText(" ");
     this->ui->Y_parametr->setText(" ");
+    this->ui->graphic->setNumberOfLine(0);
     this->ui->graphic->repaint(); // перерисовывает рисунок
     update_ui ();
 }
@@ -196,8 +208,7 @@ void MainWindow::on_clear_clicked()
 void MainWindow::on_call_calculator_clicked()
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
-    this->ui->graphic->setmKvalue(0);
-    this->ui->graphic->setmBvalue(0);
+    this->ui->graphic->setNumberOfLine(0);
     this->ui->graphic->setFunction(Graphic::clear);
     this->ui->graphic->repaint(); // перерисовывает рисунок
     this->ui->formula->setText(" ");

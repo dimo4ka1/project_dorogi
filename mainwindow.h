@@ -52,10 +52,6 @@ private slots:
 
     void on_Line_clicked();
 
-    void on_K_value_valueChanged(double arg1);
-
-    void on_B_value_valueChanged(double arg1);
-
     void on_clear_clicked();
 
     void on_LogSpiral_clicked();
@@ -65,6 +61,11 @@ private slots:
 private:
     void update_ui(); // Выведение значений параметров у графиков
 
+    QPointF pos1;
+
+    QPointF pos2;
+
+    bool check;
 private:
     Ui::MainWindow *ui;
 
