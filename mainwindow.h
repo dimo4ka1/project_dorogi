@@ -17,6 +17,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
 signals:
       void signalTargetCoordinate(QPointF mousepoint);
 
@@ -58,14 +59,20 @@ private slots:
 
 
 
+    void on_saveHow_triggered();
+
+    void on_open_triggered();
+
+    void on_asymtote_clicked();
+
 private:
     void update_ui(); // Выведение значений параметров у графиков
-
+    bool asymptote=false;
     QPointF pos1;
 
     QPointF pos2;
-
-    bool check;
+double intstring(QString a);
+    bool check;//переменная проверяющая, можно ли рисовать прямую
 private:
     Ui::MainWindow *ui;
 

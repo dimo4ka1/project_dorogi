@@ -22,6 +22,11 @@
     <height>700</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>8</pointsize>
+   </font>
+  </property>
   <property name="contextMenuPolicy">
    <enum>Qt::DefaultContextMenu</enum>
   </property>
@@ -30,7 +35,10 @@
   </property>
   <property name="windowIcon">
    <iconset resource="resources.qrc">
-    <normaloff>:/img/picture/logo.jpg</normaloff>:/img/picture/logo.jpg</iconset>
+    <normaloff>:/icon/picture/logo.ico</normaloff>:/icon/picture/logo.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qlineargradient(spread:repeat, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
   </property>
   <property name="iconSize">
    <size>
@@ -56,8 +64,11 @@
     </property>
     <property name="font">
      <font>
-      <family>MV Boli</family>
-      <pointsize>11</pointsize>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>6</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="mouseTracking">
@@ -67,7 +78,11 @@
      <bool>true</bool>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+font: 6pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -84,10 +99,11 @@
       <widget class="QPushButton" name="call_calculator">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);
-font: italic 12pt &quot;Sitka Heading&quot;;</string>
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+</string>
        </property>
        <property name="text">
-        <string>Введите функцию</string>
+        <string>Ввод функции</string>
        </property>
       </widget>
      </item>
@@ -104,6 +120,10 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
          <width>700</width>
          <height>88800</height>
         </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+</string>
        </property>
        <property name="widgetResizable">
         <bool>true</bool>
@@ -255,6 +275,38 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
            </property>
           </widget>
          </item>
+         <item row="2" column="0">
+          <widget class="QPushButton" name="snail">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>80</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>80</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resources.qrc">
+             <normaloff>:/img/picture/Card.png</normaloff>:/img/picture/Card.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>80</width>
+             <height>80</height>
+            </size>
+           </property>
+          </widget>
+         </item>
          <item row="2" column="1">
           <widget class="QPushButton" name="Astroid">
            <property name="minimumSize">
@@ -377,38 +429,6 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
-          <widget class="QPushButton" name="snail">
-           <property name="minimumSize">
-            <size>
-             <width>80</width>
-             <height>80</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>80</width>
-             <height>80</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="resources.qrc">
-             <normaloff>:/img/picture/Card.png</normaloff>:/img/picture/Card.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>80</width>
-             <height>80</height>
-            </size>
-           </property>
-          </widget>
-         </item>
         </layout>
        </widget>
       </widget>
@@ -427,6 +447,11 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
          <height>400</height>
         </size>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+background-color: qlineargradient(spread:pad, x1:0.311, y1:0.83, x2:0, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+</string>
+       </property>
        <property name="widgetResizable">
         <bool>true</bool>
        </property>
@@ -436,10 +461,28 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
           <x>0</x>
           <y>0</y>
           <width>248</width>
-          <height>198</height>
+          <height>203</height>
          </rect>
         </property>
         <layout class="QFormLayout" name="formLayout">
+         <property name="horizontalSpacing">
+          <number>9</number>
+         </property>
+         <property name="verticalSpacing">
+          <number>14</number>
+         </property>
+         <property name="leftMargin">
+          <number>16</number>
+         </property>
+         <property name="topMargin">
+          <number>15</number>
+         </property>
+         <property name="rightMargin">
+          <number>38</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item row="0" column="0">
           <widget class="QDoubleSpinBox" name="scale">
            <property name="minimumSize">
@@ -453,6 +496,10 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
              <width>58</width>
              <height>21</height>
             </size>
+           </property>
+           <property name="styleSheet">
+            <string>background-color: rgb(255,255,255);
+font: 8pt &quot;MS Shell Dlg 2&quot;;</string>
            </property>
            <property name="decimals">
             <number>1</number>
@@ -476,8 +523,12 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
            <property name="tabletTracking">
             <bool>false</bool>
            </property>
+           <property name="styleSheet">
+            <string>background-color: rgb(255,255,255);
+font: 8pt &quot;MS Shell Dlg 2&quot;;</string>
+           </property>
            <property name="text">
-            <string>Scale</string>
+            <string>Размер</string>
            </property>
           </widget>
          </item>
@@ -495,6 +546,10 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
              <height>21</height>
             </size>
            </property>
+           <property name="styleSheet">
+            <string>background-color: rgb(255,255,255);
+font: 8pt &quot;MS Shell Dlg 2&quot;;</string>
+           </property>
            <property name="decimals">
             <number>1</number>
            </property>
@@ -503,13 +558,6 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
            </property>
            <property name="singleStep">
             <double>10.000000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Interval Length</string>
            </property>
           </widget>
          </item>
@@ -530,6 +578,10 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
              <height>21</height>
             </size>
            </property>
+           <property name="styleSheet">
+            <string>background-color: rgb(255,255,255);
+font: 8pt &quot;MS Shell Dlg 2&quot;;</string>
+           </property>
            <property name="decimals">
             <number>1</number>
            </property>
@@ -543,8 +595,12 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
          </item>
          <item row="2" column="1">
           <widget class="QLabel" name="label_2">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255,255,255);
+font: 8pt &quot;MS Shell Dlg 2&quot;;</string>
+           </property>
            <property name="text">
-            <string>Parameter A</string>
+            <string>Параметр а</string>
            </property>
           </widget>
          </item>
@@ -562,6 +618,10 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
              <height>21</height>
             </size>
            </property>
+           <property name="styleSheet">
+            <string>background-color: rgb(255,255,255);
+font: 8pt &quot;MS Shell Dlg 2&quot;;</string>
+           </property>
            <property name="maximum">
             <number>512</number>
            </property>
@@ -572,8 +632,23 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
          </item>
          <item row="3" column="1">
           <widget class="QLabel" name="label_3">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255,255,255);
+font: 8pt &quot;MS Shell Dlg 2&quot;;</string>
+           </property>
            <property name="text">
-            <string>Step Count</string>
+            <string>Точность прорисовки</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="label">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255,255,255);
+font: 8pt &quot;MS Shell Dlg 2&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Интервал угла</string>
            </property>
           </widget>
          </item>
@@ -582,6 +657,9 @@ font: italic 12pt &quot;Sitka Heading&quot;;</string>
       </widget>
      </item>
     </layout>
+    <zorder>parametr</zorder>
+    <zorder>call_calculator</zorder>
+    <zorder>menugr</zorder>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
@@ -727,8 +805,77 @@ font: 16pt &quot;MS Shell Dlg 2&quot;;
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="asymtote">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>640</y>
+      <width>151</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Найти асимптоты</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1235</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 8pt &quot;Microsoft YaHei UI&quot;;
+
+background-color: qconicalgradient(cx:1, cy:1, angle:0, stop:0 rgba(130, 130, 130, 255), stop:1 rgba(255, 255, 255, 255));</string>
+   </property>
+   <widget class="QMenu" name="File">
+    <property name="styleSheet">
+     <string notr="true">
+font: 8pt &quot;Microsoft YaHei UI&quot;;</string>
+    </property>
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="open"/>
+    <addaction name="saveHow"/>
+   </widget>
+   <addaction name="File"/>
+  </widget>
+  <action name="action_2">
+   <property name="text">
+    <string>Привет</string>
+   </property>
+  </action>
+  <action name="open">
+   <property name="text">
+    <string>Открыть</string>
+   </property>
+  </action>
+  <action name="save">
+   <property name="text">
+    <string>Сохранить</string>
+   </property>
+  </action>
+  <action name="saveHow">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Сохранить как</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>

@@ -7,7 +7,14 @@
 #include <QtDebug>
 #include <QString>
 #include <QMouseEvent>
-
+#include<QFile>
+#include<QDir>
+#include<windowsavefile.h>
+#include<QTextStream>
+#include<string>
+#include<iostream>
+#include<QtCore/qmath.h>
+using namespace std;
 //#include <QtScript/QScriptEngine>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,6 +27,20 @@ MainWindow::MainWindow(QWidget *parent)
     ui->graphic->setMouseTracking(true);
     check= false;
    // connect(ui->scroll, SIGNAL(valueChanged(int)), ui->menugr, SLOT(setNum(int)));
+    ui->circle->setToolTip("Кольцевая развязка");
+        ui->clover->setToolTip("Полярна роза");
+        ui->Archimedes->setToolTip("Спираль Архимеда");
+        ui->snail->setToolTip("Улитка Паскаля");
+        ui->hyperbolicSpiral->setToolTip("Гиперболическая спираль");
+        ui->Bernulli->setToolTip("Лемниската Бернулли");
+        ui->Astroid->setToolTip("Астроида");
+        ui->LogSpiral->setToolTip("Логарифмичесая спираль");
+        ui->Line->setToolTip("Прямая");
+        ui->X_coordinate->setToolTip("Координата х<br>(Нажмите правой кнопкой мыши на график, чтобы получить координаты)");
+        ui->Y_coordinate->setToolTip("Координата y<br>(Нажмите правой кнопкой мыши на график, чтобы получить координаты)");
+        ui->X_parametr->setToolTip("Функция в параметрическом виде");
+        ui->Y_parametr->setToolTip("Функция в параметрическом виде");
+        ui->formula->setToolTip("Функция в полярном виде");
 }
 
 MainWindow::~MainWindow()
@@ -86,7 +107,7 @@ void MainWindow::on_snail_clicked() // Кнопка, для рисования �
     update_ui ();
 }
 
-void MainWindow::on_hyperbolicSpiral_clicked()
+void MainWindow::on_hyperbolicSpiral_clicked() // Кнопка, для рисования  фигуры
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
     this->ui->graphic->setFunction(Graphic::hyperbolicSpiral);
@@ -98,19 +119,19 @@ void MainWindow::on_hyperbolicSpiral_clicked()
     update_ui ();
 }
 
-void MainWindow::on_Bernulli_clicked()
+void MainWindow::on_Bernulli_clicked() // Кнопка, для рисования  фигуры
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
     this->ui->graphic->setFunction(Graphic::Bernulli);
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"^2=a^2"+ "cos2"+"\u03B8");
     this->ui->graphic->repaint(); // перерисовывает рисунок
-    this->ui->X_parametr->setText("x= ");
-    this->ui->Y_parametr->setText("y= ");
+    this->ui->X_parametr->setText(" ");
+    this->ui->Y_parametr->setText(" ");
     update_ui ();
 }
 
-void MainWindow::on_Astroid_clicked()
+void MainWindow::on_Astroid_clicked() // Кнопка, для рисования  фигуры
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
     this->ui->graphic->setFunction(Graphic::Astroid);
@@ -121,7 +142,7 @@ void MainWindow::on_Astroid_clicked()
     update_ui ();
 }
 
-void MainWindow::on_LogSpiral_clicked()
+void MainWindow::on_LogSpiral_clicked() // Кнопка, для рисования  фигуры
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
     this->ui->graphic->setFunction(Graphic::LogSpiral);
@@ -132,7 +153,7 @@ void MainWindow::on_LogSpiral_clicked()
     this->ui->Y_parametr->setText("y=exp(a*t)*sin(t)");
     update_ui ();
 }
-
+// объявляет линию/отрисовывает её
 void MainWindow::on_Line_clicked()
 {
     this->ui->graphic->setPos1(pos1);
@@ -161,12 +182,13 @@ void MainWindow::on_intervallength_valueChanged(double intervalLength) // изм
     this->ui->graphic->setIntervalLength(intervalLength);
 }
 
-void MainWindow::on_aValue_valueChanged(double aValue)
+
+void MainWindow::on_aValue_valueChanged(double aValue)// изменяет параметр а
 {
     this->ui->graphic->setAValue(aValue);
 }
 
-void MainWindow::on_stepCount_valueChanged(int count)
+void MainWindow::on_stepCount_valueChanged(int count)//изменяет четкость прорисовки графика
 {
     this->ui->graphic->setStepCount (count);
 }
@@ -181,7 +203,7 @@ void MainWindow::mousePressEvent(QMouseEvent * event ){
    this->ui->Y_coordinate->setText("Y:");
     this->ui->Y_coordinate->setText("Y: " + QString::number((this->ui->graphic->rect().center().y() - event->pos().y())/20));
 }
-
+//Момент связанный с прямыми
           if(event->buttons() & Qt::LeftButton and check==true and 2*this->ui->graphic->rect().center().x() > event->pos().x() and 2*this->ui->graphic->rect().center().y() > event->pos().y()){
     pos2=pos1;
     pos1=event->pos();
@@ -205,6 +227,7 @@ void MainWindow::on_clear_clicked()
     update_ui ();
 }
 
+//Кнопка вызова калькулятора
 void MainWindow::on_call_calculator_clicked()
 {
     this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
@@ -228,3 +251,110 @@ void MainWindow::on_call_calculator_clicked()
 
 
 
+
+void MainWindow::on_saveHow_triggered()
+{
+    WindowSaveFile s;
+    s.setModal(true);
+    s.exec();
+
+  QString Filename = ".//"+s.Filename()+".txt";
+
+    QFile file(Filename);
+    if(file.open(QFile::WriteOnly | QFile::Text)){
+        QTextStream stream(&file);
+        QString a;
+        if(this->ui->graphic->tfunction == 6){
+        a= this->ui->graphic->CodeFunction();
+
+        }else  a="";
+        stream<< this->ui->graphic->tfunction << endl;
+        stream<<a<< endl;
+        stream<<this->ui->graphic->tscale<< endl;
+        stream<<this->ui->graphic->tAValue<< endl;
+        stream<<this->ui->graphic->NumberOfLine <<endl;
+        for(int i=1; i<=this->ui->graphic->NumberOfLine;i++){
+            int x0 = this->ui->graphic->tmassPos[i][0].x();
+            int y0 = this->ui->graphic->tmassPos[i][0].y();
+            int x1 = this->ui->graphic->tmassPos[i][1].x();
+            int y1 = this->ui->graphic->tmassPos[i][1].y();
+            stream<<x0<<endl;
+            stream<< y0<<endl;
+            stream<<x1<< endl;
+            stream<< y1<<endl;
+        }
+    }
+    file.close();
+}
+
+double intstring(QString a){
+    double b=0;
+
+    return b;
+}
+void MainWindow::on_open_triggered()
+{
+    WindowSaveFile s;
+    s.setModal(true);
+    s.exec();
+
+   const QString Filename = s.Filename()+".txt";
+
+    QFile file(Filename);
+    if((file.exists())&&(file.open(QFile::ReadOnly | QFile::Text))){
+
+        QString List[420] ;
+
+        QString str1=file.readLine();
+
+        QString str2=file.readLine();
+int i=0;
+while(!file.atEnd()){
+    List[i]=file.readLine();
+    i++;
+}
+file.close();
+
+
+        if ( str1.toInt()==0) on_circle_clicked();
+        if ( str1.toInt() ==1)on_clover_clicked();
+        if ( str1.toInt() ==2)on_Archimedes_clicked();
+        if ( str1.toInt() ==3)on_snail_clicked();
+        if ( str1.toInt() ==4)on_hyperbolicSpiral_clicked();
+        if ( str1.toInt() ==5) on_Bernulli_clicked();
+        if ( str1.toInt() ==6){this->ui->graphic->setFunction(Graphic::calculate); this->ui->graphic->setCodeFunction(str2);}
+        if ( str1.toInt() ==7)on_Astroid_clicked();
+        if ( str1.toInt() ==8)on_LogSpiral_clicked();
+
+
+
+
+     this->ui->graphic->setScale(List[0].toDouble());
+      this->ui->graphic->setAValue(List[1].toDouble());
+       if(List[2].toInt() != 0){
+int u=1;
+       this->ui->graphic->setNumberOfLine(List[2].toInt());
+            for(int j=1; j<=i-1 ;j+=4){
+
+           this->ui->graphic->setmassPos(List[j+2].toDouble(),List[j+3].toDouble(),List[j+4].toDouble(),List[j+5].toDouble(),u);
+      u++;
+            }
+       this->ui->graphic->Line(true);
+       }
+
+
+
+    }
+     update_ui();
+}
+
+void MainWindow::on_asymtote_clicked()
+{
+    if(asymptote==false){
+        asymptote=true;
+    this->ui->graphic->setAsymptote(true);
+}else{
+        asymptote=false;
+        this->ui->graphic->setAsymptote(false);}
+    this->ui->graphic->repaint();
+}

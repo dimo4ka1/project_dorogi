@@ -20,16 +20,19 @@ SOURCES += \
     calculator.cpp \
     graphic.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    windowsavefile.cpp
 
 HEADERS += \
     calculator.h \
     graphic.h \
-    mainwindow.h
+    mainwindow.h \
+    windowsavefile.h
 
 FORMS += \
     calculator.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    windowsavefile.ui
 
 TRANSLATIONS += \
     road_ru_RU.ts
@@ -38,6 +41,16 @@ TRANSLATIONS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+VERSION = 1.1
+
+QMAKE_TARGET_COPYRIGHT = the best puple
 
 RESOURCES += \
+    myapp.qrc \
     resources.qrc
+RC_FILE += myapp1.rc
+
+win32 {
+  RC_FILE += myapp1.rc
+  OTHER_FILES += myapp1.rc
+}

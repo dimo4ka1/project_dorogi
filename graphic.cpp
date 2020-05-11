@@ -4,14 +4,13 @@
 #include"math.h"
 #include <QPixmap>
 #include <QPen>
-
-
+#include <sstream>
 #include <QtScript/QScriptEngine>
 #include <QtScript/QscriptValue>
 #include <QtScript/QScriptValueList>
 #include <QString>
 
-//Для проверки экстремумов
+
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -37,26 +36,22 @@ QSize Graphic::sizeHint() const
     return QSize(800, 500);
 }
 
-QPointF Graphic::compute_calculate(float t, QString CodeFunction) // Функция из калькулятора
+QPointF Graphic::compute_calculate(double t, QString CodeFunction) // Функция из калькулятора
 {
-    // Необходимые переменные
-    double r;
     QScriptEngine engine;
     QScriptValue scriptFun;
 
-    //подготовка движка QtScript
+    // Текст в формулу
     engine.evaluate("function fun(t)\n {\n var r=0;\n r="+CodeFunction+"\n return r;\n}\n");
     scriptFun = engine.globalObject().property("fun");
-    // Вычисление значения r в t
-    r = scriptFun.call(QScriptValue(), QScriptValueList() << t).toNumber();
-    // Проверка
-    cout << r << endl;
-
+    // r - длина радиус-вектора при угле t
+    double r = scriptFun.call(QScriptValue(), QScriptValueList() << t).toNumber();
+    // Переводим r в параметрический вид x(t), y(t)
     float x = r * cos(t);
     float y = r * sin(t);
     return QPointF(x,y);
 }
-QPointF Graphic::compute_circle(float t) //Круг
+QPointF Graphic::compute_circle(double t) // Окружность
 {
     float cos_t = cos(t);
     float sin_t = sin(t);
@@ -65,7 +60,7 @@ QPointF Graphic::compute_circle(float t) //Круг
     return QPointF(x,y);
 }
 
-QPointF Graphic::compute_clover(float t, float a) // Полярная роза
+QPointF Graphic::compute_clover(double t, double a) // Полярная роза
 {
     float cos_t = cos(t);
     float sin_t = sin(t);
@@ -73,7 +68,7 @@ QPointF Graphic::compute_clover(float t, float a) // Полярная роза
     float y = cos(a*t)*sin_t;
     return QPointF(x,y);
 }
-QPointF Graphic::compute_Archimedes(float t, float a) // Спираль Архемеда
+QPointF Graphic::compute_Archimedes(double t, double a) // Спираль Архемеда
 {
     float cos_t = cos(t);
     float sin_t = sin(t);
@@ -81,7 +76,7 @@ QPointF Graphic::compute_Archimedes(float t, float a) // Спираль Архе
     float y =(t+a)*sin_t;
     return QPointF(x,y);
 }
-QPointF Graphic::compute_snail(float t,float a) // Кардиоида
+QPointF Graphic::compute_snail(double t,double a) // Кардиоида
 {
     float cos_t = cos(t);
     float sin_t = sin(t);
@@ -90,7 +85,7 @@ QPointF Graphic::compute_snail(float t,float a) // Кардиоида
     return QPointF(x,y);
 }
 
-QPointF Graphic::compute_hyperbolicSpiral(float t, float a) // Гиперболическая спираль
+QPointF Graphic::compute_hyperbolicSpiral(double t, double a) // Гиперболическая спираль
 {
 
     float cos_t = cos(t);
@@ -100,13 +95,13 @@ QPointF Graphic::compute_hyperbolicSpiral(float t, float a) // Гипербол�
     return QPointF(x,y);
 }
 
-QPointF Graphic::compute_Bernulli(float t, float a) // Лемниската Бернулли
+QPointF Graphic::compute_Bernulli(double t,double a) // Лемниската Бернулли
 {
     float x = (cos(2*t + a*M_PI_2) >= 0) ? sqrt((cos(2*t + a*M_PI_2)))*cos(t) : 0;
     float y = (cos(2*t + a*M_PI_2) >= 0) ? sqrt((cos(2*t + a*M_PI_2)))*sin(t) : 0;
     return QPointF(x,y);
 }
-QPointF Graphic::compute_Astroid(float t, float a)
+QPointF Graphic::compute_Astroid(double t, double a) // Астроида
 {
     float cos_t = cos(t);
     float sin_t = sin(t);
@@ -114,7 +109,7 @@ QPointF Graphic::compute_Astroid(float t, float a)
     float y = a * sin_t * sin_t * sin_t;
     return QPointF (x, y);
 }
-QPointF Graphic::compute_LogSpiral(float t, float a)
+QPointF Graphic::compute_LogSpiral(double t, double a) // Логарифмическая спираль
 {
     float cos_t = cos(t);
     float sin_t = sin(t);
@@ -124,70 +119,27 @@ QPointF Graphic::compute_LogSpiral(float t, float a)
 }
 
 
-double Graphic::rho1(double t) {
-    return 9/(4-5*cos(t));
+double Graphic::rho(double t) { // Длина радиус-вектора функции
+    if (cos(t)) return compute_function(t).x()/cos(t);
+    return  compute_function(t).y()/sin(t);
 }
 
-double Graphic::rho2(double t) {
-    return (3*sin(t)*cos(t))/(pow(sin(t), 3)+pow(cos(t), 3));
+QString Graphic::string(int a){
+    QString b;
+    if(a<0) {b += "-"; a *=-1;}
+    if(a>=10){ int c= a/10; b+= c +(int)'0';}
+    a=a%10;
+    b+=a +(int)'0';
+
+    return b;
 }
 
-double Graphic::rho3(double t) {
-    return 1 + 2*cos(t);
-}
-
-double Graphic::rho(double t) {
-    return 2/t;
-}
-
-int Graphic::asimtote(int argc, const char * argv[]) {
-    vector <double> v;
-    double t;
-    double maxV = 0, minV = 0;
-    //Создаем список всех углов при которых r->inf
-    for (t = 0; t < 2*M_PI; t += 2*M_PI/102400) {
-        maxV = (rho(t) > rho(maxV))?t:maxV;
-        minV = (rho(t) < rho(minV))?t:minV;
-        if (isinf(rho(t))) {
-            //cout << t << endl;
-            v.push_back(t);
-        }
-    }
-    if (v.empty()) {
-        //cout << "MAXV = " << maxV << endl;
-        //cout << "MINV = " << minV << endl;
-        v.push_back(maxV);
-        v.push_back(minV);
-    }
-    double k;
-    double b;
-    for (auto c:v) {
-        cout << c << endl;
-        if (fabs(tan(c)) < h) {
-            //cout << tan(c) << endl;
-            if (!isnan(rho(c)*sin(c))) {
-                b = rho(c)*sin(c);
-                if (b)  cout << "y = " << b << endl;
-            } else if ((rho(c+h)*sin(c+h))-(rho(c-h)*sin(c-h)) < h) {
-                b = rho(c+h)*sin(c+h);
-                if (b)  cout << "y = " << b << endl;
-            }
-        } else if (!isnan(tan(c)) && !isinf(tan(c))) {
-            if (c==maxV) b = rho(c+h)*sin(c+h) - tan(c)*rho(c+h)*cos(c+h);
-            else if (c==minV) b = rho(c)*sin(c) - tan(c)*rho(c-h)*cos(c-h);
-            else b = rho(c+h)*sin(c+h)-tan(c)*rho(c+h)*cos(c+h);
-            cout << "y = " << tan(c) << "x + " << b << endl;
-        }
-    }
-
-    return 0;
-}
-
-void Graphic::on_function_change() // Присваивание к mFunction выбранного графика
+void Graphic::on_function_change() // Выбор графика
 {
     switch(mFunction) {
     case circle:
         mScale= 80;
+         mAValue = 1;
         mStepCount = 1024;
         mIntervalLength=M_PI*2*50;
         break;
@@ -244,7 +196,7 @@ void Graphic::on_function_change() // Присваивание к mFunction вы
     }
 
 }
-QPointF Graphic::compute_function(float t) // Вызов выбранной функции
+QPointF Graphic::compute_function(double t) // Вызов выбранной функции
 {
     switch(mFunction) {
     case circle:
@@ -281,18 +233,18 @@ return QPointF(0,0);
 }
 
 
-void Graphic::paintEvent(QPaintEvent *event) // Рисуем график
+void Graphic::paintEvent(QPaintEvent *event) // Подготовка к построению графика
 {
     QPainter painter(this);
 
-    painter.setBrush(mBackgroundColor); //  цвет фона
-    painter.setPen(mShapeColor); // цвет рисунка
+    painter.setBrush(mBackgroundColor);
+    painter.setPen(mShapeColor);
 
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.drawRect(this->rect());
-    QPoint center = this->rect().center(); // центр холста
+    QPoint center = this->rect().center();
 
-    QPointF prevPoint = compute_function (0); // задаем начальную точку
+    QPointF prevPoint = compute_function (0);
     QPoint prevPixel;
     prevPixel.setX(prevPoint.x()*2*mScale + center.x());
     prevPixel.setY(prevPoint.y()*2*mScale + center.y());
@@ -303,7 +255,12 @@ void Graphic::paintEvent(QPaintEvent *event) // Рисуем график
     painter.setPen(pen4);
     painter.drawPoint(mPos1);
     painter.drawPoint(mPos2);
-    //Рисуем линию
+for(int i=1; i<=NumberOfLine; i++ ){
+    tmassPos[i][0]=massPos[i][0];
+tmassPos[i][1]=massPos[i][1];
+}
+    tAValue=mAValue;
+    tscale=mScale;
 
     painter.setPen(Qt::black);
     if(mLine==true){
@@ -322,16 +279,28 @@ void Graphic::paintEvent(QPaintEvent *event) // Рисуем график
     // Координатные оси
     painter.setPen(Qt::lightGray);
     painter.drawLine(QPoint(center.x(), 0), QPoint(center.x(), 2*center.y())); // Ox
-    for (float i = 0; i <= 2*center.x(); i+=20) {
+    int o=-24;
+    for (double i = 0; i <= 2*center.x(); i+=20) {
         painter.drawLine(QPoint(i, 2+center.y()), QPoint(i, -2+center.y()));
+     painter.drawText(QPoint(i+2, -2+center.y()), string(o));
+                o++;
     }
+    o=14;
     painter.drawLine(QPoint(0, center.y()), QPoint(2*center.x(), center.y())); // Oy
     for (float i = 0; i <= 2*center.x(); i+=20) {
         painter.drawLine(QPoint(2+center.x(), i), QPoint(-2+center.x(), i));
+        if(o!=0)painter.drawText(QPoint(2+center.x(), i+2), string(o));
+        o--;
     }
 
-    float step = mIntervalLength/50 / mStepCount;
-    for(float i=0; i<= mIntervalLength/50; i+=step) {
+    double maxV = 0; // Угол, при котором rho максимальное
+    double minV = 0; // Угол, при котором rho минимальное
+    int q1=0; // Количество одинаковых максимумов
+    int q2=0; // Количество одинаковых минимумов
+    vector <double> v; // Список углов, при которых r->inf
+
+    double step = mIntervalLength/100 / mStepCount;
+    for(double i=0; i<= mIntervalLength/50; i+=step) { // Построение графика
         painter.setPen(Qt::black);
 
         // Объявляем точку и задаем ее координаты
@@ -340,36 +309,87 @@ void Graphic::paintEvent(QPaintEvent *event) // Рисуем график
         pixel.setX(point.x()*2*mScale + center.x());
         pixel.setY(-point.y()*2*mScale + center.y());
 
-        //Асимптоты гиперболоидной спирали
-        if(mFunction==hyperbolicSpiral and i==step){
-        painter.setPen(Qt::green);
-        QPointF point3 = compute_function(i);
-        for (float k = 0; k <= 2*center.x(); k+=40) {
-             painter.drawLine(QPoint(k,(-point3.y()*2*mScale + center.y())), QPoint(k+30,(-point3.y()*2*mScale + center.y()))); //рисует асимптоту штрих-пунтиром
+        if(rho(i)>rho(maxV)){
+           maxV=i;
+           q1=0;
+        }
+        if(rho(i)<rho(minV)){  minV=i;q2=0;}
+        if(rho(i)==rho(maxV)){q1++;}
+        if(rho(i)==rho(minV)){q2++;}
 
+        if (isinf(rho(i))) {
+            v.push_back(i);
         }
-        }
-        // Нахождение экстремумов (неудачная попытка сравнения соседних точек, пока неизвестно, почему)
-        float x0 = point.x();
-        float y0 = point.y();
+        // Перебираем точки и проверяем их на экстремум
+        double x0 = point.x();
+        double y0 = point.y();
         QPointF point1 = compute_function(i+step*10);
-        float x1 = point1.x();
-        float y1 = point1.y();
+        double x1 = point1.x();
+        double y1 = point1.y();
         QPointF point2 = compute_function(i-step*10);
-        float x2 = point2.x();
-        float y2 = point2.y();
+        double x2 = point2.x();
+        double y2 = point2.y();
+
         if ((x0 > x1 && x0 > x2) || (x0 < x1 && x0 < x2) || (y0 > y1 && y0 > y2) || (y0 < y1 && y0 < y2)) {
-            //Создаем участок шириной 3 красного цвета для сброса скорости
             QPen pen1;
             pen1.setWidth(5);
             pen1.setColor(Qt::red);
             painter.setPen(pen1);
             painter.drawPoint(pixel);
         } else {
-            // Рисование графика
-            painter.drawLine(pixel, prevPixel); // Соединяем точки
+            painter.drawLine(pixel, prevPixel);
         }
-        prevPixel = pixel; //задаем предыдущую точку
-    }
-}
+        prevPixel = pixel;
+     }
 
+    if(v.empty() and q1<2 and q2<2){
+        v.push_back(minV);
+        if(minV!=maxV){v.push_back(maxV);}
+    }
+    // Поиск асимптот
+    if ((mFunction == hyperbolicSpiral || mFunction == calculate) && mAsymptote==true) {
+
+        for (auto c:v) {
+                double b= 0;double k=0;double  bv = 0;
+                // Вертикальная асимптота
+                if (fabs(c - M_PI_2)<h || fabs(c - 3*M_PI_2)<h) {
+                    if (!isinf(rho(c)*cos(c))) {
+                        bv = rho(c+h)*cos(c+h);
+                        painter.setPen(Qt::darkGreen);
+                        painter.drawLine(QPoint(bv*2*mScale+ center.x(),0), QPoint(bv*2*mScale+ center.x(), center.y()*2)); // Асимптота x=bv
+                    } else if (!isinf(rho(c)*sin(c))) {
+                        bv = rho(c+h)*sin(c+h);
+
+                        painter.setPen(Qt::darkGreen);
+                        painter.drawLine(QPoint(bv*2*mScale+ center.x(),0), QPoint(bv*2*mScale+ center.x(), center.y()*2)); // Асимптота x=bv
+                    }
+                }
+                // Горизонтальная асимптота
+                else if (fabs(tan(c)) < h) {
+                    if (!isnan(rho(c)*sin(c))) {
+                        b = rho(c)*sin(c);
+                        painter.setPen(Qt::darkGreen);
+                        painter.drawLine(QPoint(0,-b*2*mScale+center.y()), QPoint(center.x()*2, center.y()-b*2*mScale)); // Асимптота y=b
+                    } else if ((rho(c+h)*sin(c+h))-(rho(c-h)*sin(c-h)) < h) {
+                        b = rho(c+h)*sin(c+h);
+                        if (b)  {
+                            painter.setPen(Qt::darkGreen);
+                            painter.drawLine(QPoint(0,-b*2*mScale+center.y()), QPoint(center.x()*2, center.y()-b*2*mScale)); // Асимптота y=b
+                        }
+                    }
+                }
+                // Наклонная асимптота
+                else if (!isnan(tan(c)) && !isinf(tan(c))) {
+                    k=tan(c);
+                    if (c==maxV) {b = rho(c+h)*sin(c+h) - k*rho(c+h)*cos(c+h);}
+                    else if (c==minV){ b = rho(c)*sin(c) - k*rho(c-h)*cos(c-h);}
+                    else {b = rho(c+h)*sin(c+h)-k*rho(c+h)*cos(c+h);}
+                   // cout << "y=" << k<<" x + " << b << endl;
+                    painter.setPen(Qt::darkGreen);
+
+                    painter.drawLine(QPoint(0,-b*2+center.y()), QPoint(center.x()*2, center.y()-(k*center.x()+b*2))); // Асимптота y=kx+b
+                    break;
+               }
+            }
+        }
+}

@@ -105,9 +105,10 @@ private slots:
 private:
 
 
+    bool mPow=false;
 
-    QString mCodeFun;
-    QString mFormula;
+    QString mCodeFun;// функция которую бедем рисовать
+    QString mFormula;//текстовая строка, которую мы будем отображать в главном окне
 
 private:
     Ui::calculator *ui;

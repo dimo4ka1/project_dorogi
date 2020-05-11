@@ -23,11 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Function input window</string>
+   <string>Calculator</string>
   </property>
   <property name="windowIcon">
    <iconset resource="resources.qrc">
-    <normaloff>:/img/picture/logo.jpg</normaloff>:/img/picture/logo.jpg</iconset>
+    <normaloff>:/icon/picture/logo.ico</normaloff>:/icon/picture/logo.ico</iconset>
   </property>
   <widget class="QLabel" name="output_icon">
    <property name="geometry">
@@ -58,7 +58,7 @@ background-color : white;
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -164,6 +164,9 @@ QPushButton:pressed {
         <width>100</width>
         <height>100</height>
        </size>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -1377,17 +1380,6 @@ QPushButton:pressed {
   </widget>
   <zorder>layoutWidget</zorder>
   <zorder>output_icon</zorder>
-  <zorder>lg</zorder>
-  <zorder>ln</zorder>
-  <zorder>exp_2</zorder>
-  <zorder>degree</zorder>
-  <zorder>delete_2</zorder>
-  <zorder>radical</zorder>
-  <zorder>arcsin</zorder>
-  <zorder>cancel</zorder>
-  <zorder>arccos</zorder>
-  <zorder>arctg</zorder>
-  <zorder>arcctg</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>
