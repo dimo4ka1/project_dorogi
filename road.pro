@@ -48,7 +48,7 @@ QMAKE_TARGET_COPYRIGHT = the best puple
 RESOURCES += \
     myapp.qrc \
     resources.qrc
-RC_FILE += myapp1.rc
+
 
 win32 {
   RC_FILE += myapp1.rc

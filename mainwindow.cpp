@@ -56,101 +56,99 @@ void MainWindow::update_ui ()
     this->ui->stepCount->setValue(this->ui->graphic->stepCount ());
 }
 
-void MainWindow::on_circle_clicked() // Кнопка, для рисования круга
+void MainWindow::on_circle_clicked()
 {
-    this->ui->graphic->setBackgroundColor(Qt::white);// белый фон
-    this->ui->graphic->setFunction(Graphic::circle);// присваевает mFunction значение круга
+    this->ui->graphic->setBackgroundColor(Qt::white);
+    this->ui->graphic->setFunction(Graphic::circle);
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"=a");
-    this->ui->graphic->repaint();// перерисовывает рисунок
-    this->ui->X_parametr->setText("x=a*cos(t)");
-    this->ui->Y_parametr->setText("y=a*sin(t)");
+    this->ui->graphic->repaint();
+    this->ui->X_parametr->setText("x=a*cos(\u03B8)");
+    this->ui->Y_parametr->setText("y=a*sin(\u03B8)");
     update_ui ();
 
 }
 
-void MainWindow::on_clover_clicked() // Кнопка, для рисования клевера
+void MainWindow::on_clover_clicked()
 {
 
-    this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
-    this->ui->graphic->setFunction(Graphic::clover); // присваевает mFunction значение клевер
+    this->ui->graphic->setBackgroundColor(Qt::white);
+    this->ui->graphic->setFunction(Graphic::clover);
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"=cos(a*"+"\u03B8"+")");
-    this->ui->graphic->repaint(); // перерисовывает рисунок
-    this->ui->X_parametr->setText("x=cos(a*t)*cos(t)");
-    this->ui->Y_parametr->setText("y=cos(a*t)*sin(t)");
+    this->ui->graphic->repaint();
+    this->ui->X_parametr->setText("x=cos(a*\u03B8)*cos(\u03B8)");
+    this->ui->Y_parametr->setText("y=cos(a*\u03B8)*sin(\u03B8)");
     update_ui ();
 }
 
-void MainWindow::on_Archimedes_clicked() // Кнопка, для рисования  фигуры
-{
-    this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
-    this->ui->graphic->setFunction(Graphic::Archimedes); // присваевает mFunction значение архимед
+void MainWindow::on_Archimedes_clicked() {
+    this->ui->graphic->setBackgroundColor(Qt::white);
+    this->ui->graphic->setFunction(Graphic::Archimedes);
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"=("+"\u03B8"+"+a)");
-    this->ui->graphic->repaint(); // перерисовывает рисунок
-    this->ui->X_parametr->setText("x=(t+a)*cos(t)");
-    this->ui->Y_parametr->setText("y=(t+a)*sin(t)");
+    this->ui->graphic->repaint();
+    this->ui->X_parametr->setText("x=(\u03B8+a)*cos(\u03B8)");
+    this->ui->Y_parametr->setText("y=(\u03B8+a)*sin(\u03B8)");
     update_ui ();
 }
 
 
-void MainWindow::on_snail_clicked() // Кнопка, для рисования фигуры
-{
-    this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
-    this->ui->graphic->setFunction(Graphic::snail); // присваевает mFunction значение улитка
+void MainWindow::on_snail_clicked() {
+    this->ui->graphic->setBackgroundColor(Qt::white);
+    this->ui->graphic->setFunction(Graphic::snail);
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"=(1+a*cos"+ "\u03B8"+")");
-    this->ui->graphic->repaint(); // перерисовывает рисунок
-    this->ui->X_parametr->setText("x=(1+a*cos(t))*cos(t)");
-    this->ui->Y_parametr->setText("y=(1+a*cos(t))*sin(t)");
+    this->ui->graphic->repaint();
+    this->ui->X_parametr->setText("x=(1+a*cos(\u03B8))*cos(\u03B8)");
+    this->ui->Y_parametr->setText("y=(1+a*cos(\u03B8))*sin(\u03B8)");
     update_ui ();
 }
 
-void MainWindow::on_hyperbolicSpiral_clicked() // Кнопка, для рисования  фигуры
+void MainWindow::on_hyperbolicSpiral_clicked()
 {
-    this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
+    this->ui->graphic->setBackgroundColor(Qt::white);
     this->ui->graphic->setFunction(Graphic::hyperbolicSpiral);
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"=(a/"+ "\u03B8"+")");
-    this->ui->graphic->repaint(); // перерисовывает рисунок
-    this->ui->X_parametr->setText("x=(a/t)*cos(t)");
-    this->ui->Y_parametr->setText("y=(a/t)*sin(t)");
+    this->ui->graphic->repaint();
+    this->ui->X_parametr->setText("x=(a/\u03B8)*cos(\u03B8)");
+    this->ui->Y_parametr->setText("y=(a/\u03B8)*sin(\u03B8)");
     update_ui ();
 }
 
-void MainWindow::on_Bernulli_clicked() // Кнопка, для рисования  фигуры
+void MainWindow::on_Bernulli_clicked()
 {
-    this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
+    this->ui->graphic->setBackgroundColor(Qt::white);
     this->ui->graphic->setFunction(Graphic::Bernulli);
     this->ui->formula->setText("\u03C1");
-    this->ui->formula->setText((this->ui->formula->text())+"^2=a^2"+ "cos2"+"\u03B8");
-    this->ui->graphic->repaint(); // перерисовывает рисунок
+    this->ui->formula->setText((this->ui->formula->text())+"^2=a^2"+ "*cos(2*"+"\u03B8)");
+    this->ui->graphic->repaint();
     this->ui->X_parametr->setText(" ");
     this->ui->Y_parametr->setText(" ");
     update_ui ();
 }
 
-void MainWindow::on_Astroid_clicked() // Кнопка, для рисования  фигуры
+void MainWindow::on_Astroid_clicked()
 {
-    this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
+    this->ui->graphic->setBackgroundColor(Qt::white);
     this->ui->graphic->setFunction(Graphic::Astroid);
     this->ui->formula->setText("x^(2/3) + y^(2/3) = R^(2/3) ");
-    this->ui->graphic->repaint(); // перерисовывает рисунок
-    this->ui->X_parametr->setText("x=a*cos(t)^3");
-    this->ui->Y_parametr->setText("y=a*sin(t)^3");
+    this->ui->graphic->repaint();
+    this->ui->X_parametr->setText("x=a*cos(\u03B8)^3");
+    this->ui->Y_parametr->setText("y=a*sin(\u03B8)^3");
     update_ui ();
 }
 
-void MainWindow::on_LogSpiral_clicked() // Кнопка, для рисования  фигуры
+void MainWindow::on_LogSpiral_clicked()
 {
-    this->ui->graphic->setBackgroundColor(Qt::white); // белый фон
+    this->ui->graphic->setBackgroundColor(Qt::white);
     this->ui->graphic->setFunction(Graphic::LogSpiral);
     this->ui->formula->setText("\u03C1");
     this->ui->formula->setText((this->ui->formula->text())+"= exp(a*"+"\u03B8"+")");
-    this->ui->graphic->repaint(); // перерисовывает рисунок
-    this->ui->X_parametr->setText("x=exp(a*t)*cos(t)");
-    this->ui->Y_parametr->setText("y=exp(a*t)*sin(t)");
+    this->ui->graphic->repaint();
+    this->ui->X_parametr->setText("x=exp(a*\u03B8)*cos(\u03B8)");
+    this->ui->Y_parametr->setText("y=exp(a*\u03B8)*sin(\u03B8)");
     update_ui ();
 }
 // объявляет линию/отрисовывает её
@@ -172,23 +170,23 @@ void MainWindow::on_Line_clicked()
 
 
 
-void MainWindow::on_scale_valueChanged(double scale) // изменяет размер
+void MainWindow::on_scale_valueChanged(double scale)
 {
     this->ui->graphic->setScale(scale);
 }
 
-void MainWindow::on_intervallength_valueChanged(double intervalLength) // изменяет интервал
+void MainWindow::on_intervallength_valueChanged(double intervalLength)
 {
     this->ui->graphic->setIntervalLength(intervalLength);
 }
 
 
-void MainWindow::on_aValue_valueChanged(double aValue)// изменяет параметр а
+void MainWindow::on_aValue_valueChanged(double aValue)
 {
     this->ui->graphic->setAValue(aValue);
 }
 
-void MainWindow::on_stepCount_valueChanged(int count)//изменяет четкость прорисовки графика
+void MainWindow::on_stepCount_valueChanged(int count)
 {
     this->ui->graphic->setStepCount (count);
 }
@@ -239,23 +237,25 @@ void MainWindow::on_call_calculator_clicked()
     this->ui->Y_parametr->setText(" ");
     calculator s;
     s.setModal(true);
+    s.setWindowIcon(QIcon(":/icon/picture/logo.jpg"));
     s.exec();
 
     this->ui->graphic->setCodeFunction(s.CodeFun());
     this->ui->formula->setText(s.Formula());
     this->ui->graphic->setFunction(Graphic::calculate);
     QString a= s.Formula();
-    this->ui->X_parametr->setText("x="+a.remove(0,2)+"*cos(t)");
-    this->ui->Y_parametr->setText("y="+a+"*sin(t)");
+    this->ui->X_parametr->setText("x="+a.remove(0,2)+"*cos(\u03B8)");
+    this->ui->Y_parametr->setText("y="+a+"*sin(\u03B8)");
 }
 
 
 
-
+//сохраняем файл
 void MainWindow::on_saveHow_triggered()
 {
     WindowSaveFile s;
     s.setModal(true);
+     s.setWindowIcon(QIcon(":/icon/picture/logo.jpg"));
     s.exec();
 
   QString Filename = ".//"+s.Filename()+".txt";
@@ -286,16 +286,12 @@ void MainWindow::on_saveHow_triggered()
     }
     file.close();
 }
-
-double intstring(QString a){
-    double b=0;
-
-    return b;
-}
+//открываем файл
 void MainWindow::on_open_triggered()
 {
     WindowSaveFile s;
     s.setModal(true);
+     s.setWindowIcon(QIcon(":/icon/picture/logo.jpg"));
     s.exec();
 
    const QString Filename = s.Filename()+".txt";

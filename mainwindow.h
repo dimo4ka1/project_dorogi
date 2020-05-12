@@ -71,7 +71,7 @@ private:
     QPointF pos1;
 
     QPointF pos2;
-double intstring(QString a);
+
     bool check;//переменная проверяющая, можно ли рисовать прямую
 private:
     Ui::MainWindow *ui;

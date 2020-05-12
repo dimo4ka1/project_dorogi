@@ -261,7 +261,7 @@ tmassPos[i][1]=massPos[i][1];
 }
     tAValue=mAValue;
     tscale=mScale;
-
+//рисуем прямые
     painter.setPen(Qt::black);
     if(mLine==true){
        massPos[NumberOfLine][0] = mPos1;
@@ -359,7 +359,6 @@ tmassPos[i][1]=massPos[i][1];
                         painter.drawLine(QPoint(bv*2*mScale+ center.x(),0), QPoint(bv*2*mScale+ center.x(), center.y()*2)); // Асимптота x=bv
                     } else if (!isinf(rho(c)*sin(c))) {
                         bv = rho(c+h)*sin(c+h);
-
                         painter.setPen(Qt::darkGreen);
                         painter.drawLine(QPoint(bv*2*mScale+ center.x(),0), QPoint(bv*2*mScale+ center.x(), center.y()*2)); // Асимптота x=bv
                     }
@@ -367,9 +366,11 @@ tmassPos[i][1]=massPos[i][1];
                 // Горизонтальная асимптота
                 else if (fabs(tan(c)) < h) {
                     if (!isnan(rho(c)*sin(c))) {
-                        b = rho(c)*sin(c);
-                        painter.setPen(Qt::darkGreen);
-                        painter.drawLine(QPoint(0,-b*2*mScale+center.y()), QPoint(center.x()*2, center.y()-b*2*mScale)); // Асимптота y=b
+                        if (b) {
+                            b = rho(c)*sin(c);
+                            painter.setPen(Qt::darkGreen);
+                            painter.drawLine(QPoint(0,-b*2*mScale+center.y()), QPoint(center.x()*2, center.y()-b*2*mScale)); // Асимптота y=b
+                        }
                     } else if ((rho(c+h)*sin(c+h))-(rho(c-h)*sin(c-h)) < h) {
                         b = rho(c+h)*sin(c+h);
                         if (b)  {
@@ -378,15 +379,14 @@ tmassPos[i][1]=massPos[i][1];
                         }
                     }
                 }
+
                 // Наклонная асимптота
-                else if (!isnan(tan(c)) && !isinf(tan(c))) {
+                else if (!isnan(tan(c)) && !isinf(tan(c) )) {
                     k=tan(c);
                     if (c==maxV) {b = rho(c+h)*sin(c+h) - k*rho(c+h)*cos(c+h);}
                     else if (c==minV){ b = rho(c)*sin(c) - k*rho(c-h)*cos(c-h);}
                     else {b = rho(c+h)*sin(c+h)-k*rho(c+h)*cos(c+h);}
-                   // cout << "y=" << k<<" x + " << b << endl;
                     painter.setPen(Qt::darkGreen);
-
                     painter.drawLine(QPoint(0,-b*2+center.y()), QPoint(center.x()*2, center.y()-(k*center.x()+b*2))); // Асимптота y=kx+b
                     break;
                }
